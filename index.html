@@ -1,0 +1,2899 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPOUCK – Plateforme de solutions digitales</title>
+  
+    <!-- Meta description pour SEO -->
+ <meta name="description" content="Créez, lancez et développez votre business en ligne avec les solutions digitales innovantes de MPOUCK. Plus de 4 800 entrepreneurs nous font déjà confiance.">
+ 
+  <meta name="keywords" content="MPOUCK, solutions digitales, business en ligne, templates, formation IA">
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
+  
+  <style>
+    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS — partagés par tous les composants
+    ══════════════════════════════════════════ */
+    :root, [data-theme="light"] {
+      --font:          'DM Sans', sans-serif;
+      --bg-page:       #f5f5f7;
+      --bg-nav:        #ffffff;
+      --bg-card:       #ffffff;
+      --bg-hover:      rgba(0,0,0,.045);
+      --text-dark:     #0d1b2a;
+      --text-muted:    #64748b;
+      --text-sub:      #94a3b8;
+      --border-nav:    rgba(0,0,0,.07);
+      --separator:     rgba(0,0,0,.07);
+      --social-bg:     rgba(0,0,0,.055);
+      --social-bg-h:   rgba(0,0,0,.1);
+      --btn-primary:   #0d1b2a;
+      --btn-p-text:    #ffffff;
+      --btn-s-bg:      #ffffff;
+      --btn-s-text:    #0d1b2a;
+      --btn-s-border:  rgba(0,0,0,.15);
+      --btn-hover-sh:  rgba(0,0,0,.22);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.04);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      --toggle-track:  #e4e4e7;
+      --toggle-thumb:  #ffffff;
+      --radius-nav:    20px;
+      --radius-pill:   999px;
+      --ease:          220ms cubic-bezier(.4,0,.2,1);
+    }
+
+    [data-theme="dark"] {
+      --bg-page:       #0a0a0f;
+      --bg-nav:        #13131a;
+      --bg-card:       #1a1a24;
+      --bg-hover:      rgba(255,255,255,.06);
+      --text-dark:     #f1f5f9;
+      --text-muted:    #94a3b8;
+      --text-sub:      #64748b;
+      --border-nav:    rgba(255,255,255,.08);
+      --separator:     rgba(255,255,255,.07);
+      --social-bg:     rgba(255,255,255,.07);
+      --social-bg-h:   rgba(255,255,255,.13);
+      --btn-primary:   #f1f5f9;
+      --btn-p-text:    #0d1b2a;
+      --btn-s-bg:      transparent;
+      --btn-s-text:    #f1f5f9;
+      --btn-s-border:  rgba(255,255,255,.2);
+      --btn-hover-sh:  rgba(255,255,255,.15);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.3);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.45), 0 1px 6px rgba(0,0,0,.25);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.3);
+      --toggle-track:  #3f3f46;
+      --toggle-thumb:  #18181b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    /* ══════════════════════════════════════════
+       ① NAVBAR
+    ══════════════════════════════════════════ */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 960px;
+      z-index: 200;
+      animation: navIn .6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes navIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; background: var(--bg-nav);
+      border-radius: var(--radius-nav);
+      padding: 10px 12px 10px 22px;
+      box-shadow: var(--shadow-nav);
+      border: 1px solid var(--border-nav);
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700; letter-spacing: -.5px;
+      color: var(--text-dark); text-decoration: none; flex-shrink: 0;
+      transition: color .35s ease;
+    }
+
+    /* Liens desktop */
+    .nav-links {
+      display: flex; align-items: center; gap: 2px;
+      list-style: none; flex: 1; justify-content: center;
+    }
+
+    .nav-links a {
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-links a:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    /* Dropdown Pages */
+    .nav-has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); background: transparent; border: none;
+      cursor: pointer; font-family: var(--font);
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-btn:hover,
+    .nav-has-dropdown.open .nav-drop-btn { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-drop-btn .chv { transition: transform var(--ease); display: inline-flex; }
+    .nav-has-dropdown.open .chv { transform: rotate(180deg); }
+
+    .nav-drop-panel {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      min-width: 190px; background: var(--bg-card);
+      border-radius: 14px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-float); padding: 7px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px) scale(.97);
+      transition: opacity .2s ease, transform .2s ease,
+                  background .35s ease, border-color .35s ease;
+    }
+    .nav-has-dropdown.open .nav-drop-panel {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .nav-drop-panel::before {
+      content: ''; position: absolute; top: -6px; left: 50%;
+      transform: translateX(-50%); width: 12px; height: 6px;
+      background: var(--bg-card);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 -1px 0 var(--border-nav));
+      transition: background .35s ease;
+    }
+    .nav-drop-panel a {
+      display: flex; align-items: center; gap: 9px;
+      padding: 8px 11px; border-radius: 9px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-panel a:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-drop-panel .page-icon {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .77rem; flex-shrink: 0;
+    }
+    .nav-drop-panel .sep { height: 1px; background: var(--border-nav); margin: 4px 3px; }
+    
+        /* Groupe droite : CTA + Toggle + Hamburger */
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 9px 18px; border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .82rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 6px 20px var(--btn-hover-sh); }
+
+    /* Toggle thème pill */
+    .theme-btn {
+      position: relative; display: inline-flex; align-items: center;
+      width: 52px; height: 30px; border-radius: 999px;
+      border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+      background: var(--toggle-track);
+      transition: background .35s cubic-bezier(.4,0,.2,1);
+    }
+    .theme-thumb {
+      position: absolute; left: 3px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--toggle-thumb);
+      box-shadow: 0 1px 6px rgba(0,0,0,.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .35s cubic-bezier(.34,1.4,.64,1), background .35s ease;
+    }
+    [data-theme="dark"] .theme-thumb { transform: translateX(22px); background: #27272a; }
+    .theme-thumb svg { position: absolute; transition: opacity .2s ease; }
+    .ico-sun  { color: #f59e0b; }
+    .ico-moon { color: #818cf8; }
+    [data-theme="light"] .ico-sun  { opacity: 1; }
+    [data-theme="light"] .ico-moon { opacity: 0; }
+    [data-theme="dark"]  .ico-sun  { opacity: 0; }
+    [data-theme="dark"]  .ico-moon { opacity: 1; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; padding: 7px;
+      border: none; border-radius: 10px; background: transparent;
+      cursor: pointer; flex-shrink: 0; transition: background var(--ease);
+    }
+    .hamburger:hover { background: var(--bg-hover); }
+    .hamburger span {
+      display: block; width: 100%; height: 2px; border-radius: 2px;
+      background: var(--text-dark); transform-origin: center;
+      transition: transform var(--ease), opacity var(--ease), background .35s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Menu mobile */
+    .mobile-menu {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0; right: 0;
+      border-radius: 16px; overflow: hidden;
+      max-height: 0; background: transparent;
+      box-shadow: none; border: 1px solid transparent;
+      padding: 0; pointer-events: none;
+      transition: max-height .38s cubic-bezier(.4,0,.2,1),
+                  background .28s ease, box-shadow .28s ease,
+                  border-color .28s ease, padding .28s ease;
+    }
+    .mobile-menu.open {
+      max-height: 700px; background: var(--bg-nav);
+      box-shadow: var(--shadow-float); border-color: var(--border-nav);
+      padding: 10px; pointer-events: auto;
+    }
+    .mobile-menu ul {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 2px; padding: 6px 0 4px;
+    }
+    .mobile-menu ul a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .mobile-menu ul a:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    .mobile-has-sub { display: flex; flex-direction: column; }
+    .mob-sub-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      width: 100%; text-align: left; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sub-trigger:hover,
+    .mobile-has-sub.open .mob-sub-trigger { color: var(--text-dark); background: var(--bg-hover); }
+    .mob-chv { display: inline-flex; transition: transform var(--ease); color: var(--text-sub); }
+    .mobile-has-sub.open .mob-chv { transform: rotate(180deg); }
+    .mob-sublist { overflow: hidden; max-height: 0; transition: max-height .32s cubic-bezier(.4,0,.2,1); }
+    .mobile-has-sub.open .mob-sublist { max-height: 400px; }
+    .mob-sublist-inner { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 4px 10px; }
+    .mob-sublink {
+      display: flex !important; align-items: center !important; gap: 9px;
+      padding: 9px 12px !important; border-radius: 10px;
+      font-size: .84rem !important; color: var(--text-muted) !important;
+      text-decoration: none; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sublink:hover { color: var(--text-dark) !important; background: var(--bg-hover) !important; }
+    .mob-sublink .page-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; flex-shrink: 0;
+    }
+    .mob-cta {
+      display: block; width: 100%; margin-top: 6px; padding: 13px;
+      border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 500;
+      text-align: center; text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), background .35s ease, color .35s ease;
+    }
+    .mob-cta:hover { transform: scale(1.02); }
+
+    @media (max-width: 720px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .hamburger   { display: flex; }
+      .mobile-menu { display: block; }
+      .nav-wrapper { width: calc(100% - 28px); top: 14px; }
+    }
+
+ /* ══════════════════════════════════════════
+       SEARCH — Bouton loupe
+    ══════════════════════════════════════════ */
+
+    /* Bouton loupe — toujours visible desktop + mobile */
+    .search-btn {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      border: none; background: transparent; cursor: pointer;
+      color: var(--text-muted); flex-shrink: 0;
+      transition: background var(--ease), color var(--ease);
+    }
+    .search-btn:hover { background: var(--bg-hover); color: var(--text-dark); }
+
+    /* Overlay sombre */
+    .search-overlay {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(0,0,0,.5);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      opacity: 0; pointer-events: none;
+      transition: opacity .22s ease;
+    }
+    .search-overlay.open { opacity: 1; pointer-events: auto; }
+
+    /* Modal de recherche */
+    .search-modal {
+      position: fixed;
+      top: 80px; left: 50%;
+      transform: translateX(-50%) translateY(-10px) scale(.97);
+      width: calc(100% - 40px);
+      max-width: 640px;
+      z-index: 901;
+      opacity: 0; pointer-events: none;
+      transition: opacity .22s ease, transform .25s cubic-bezier(.34,1.3,.64,1);
+    }
+    .search-modal.open {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    /* Boîte de saisie */
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-nav);
+      border: 1px solid var(--border-nav);
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.1);
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    .search-box svg { color: var(--text-sub); flex-shrink: 0; }
+
+    .search-input {
+      flex: 1; font-family: var(--font); font-size: .97rem;
+      color: var(--text-dark); background: transparent;
+      border: none; outline: none; transition: color .35s ease;
+    }
+    .search-input::placeholder { color: var(--text-sub); }
+
+    .search-kbd {
+      display: inline-flex; align-items: center;
+      font-size: .68rem; font-weight: 600; letter-spacing: .02em;
+      color: var(--text-sub);
+      background: var(--bg-hover);
+      border: 1px solid var(--border-nav);
+      border-radius: 6px; padding: 2px 7px;
+      flex-shrink: 0; white-space: nowrap;
+      transition: all .35s ease;
+    }
+    @media (max-width: 720px) { .search-kbd { display: none; } }
+
+    /* Panneau résultats */
+    .search-results {
+      background: var(--bg-nav);
+      border: 1px solid var(--border-nav);
+      border-radius: 16px;
+      margin-top: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.13);
+      overflow: hidden;
+      max-height: 400px;
+      overflow-y: auto;
+      display: none;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .search-results.visible { display: block; }
+
+    /* Scrollbar fine */
+    .search-results::-webkit-scrollbar { width: 4px; }
+    .search-results::-webkit-scrollbar-thumb { background: var(--border-nav); border-radius: 2px; }
+
+    /* Section de groupe */
+    .search-group-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text-sub);
+      padding: 12px 16px 6px;
+      transition: color .35s ease;
+    }
+
+    /* Un résultat */
+    .search-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; text-decoration: none;
+      border-bottom: 1px solid var(--separator);
+      transition: background var(--ease);
+      cursor: pointer;
+    }
+    .search-item:last-child { border-bottom: none; }
+    .search-item:hover, .search-item.focused { background: var(--bg-hover); }
+
+    .search-item-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; flex-shrink: 0;
+      transition: background .35s ease;
+    }
+
+    .search-item-body { flex: 1; min-width: 0; }
+
+    .search-item-title {
+      font-size: .86rem; font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 2px;
+      transition: color .35s ease;
+    }
+    .search-item-title mark {
+      background: rgba(201,167,108,.28); color: inherit;
+      border-radius: 2px; padding: 0 1px;
+    }
+
+    .search-item-desc {
+      font-size: .74rem; color: var(--text-muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: color .35s ease;
+    }
+
+    .search-item-badge {
+      font-size: .64rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-sub);
+      flex-shrink: 0; white-space: nowrap;
+      transition: all .35s ease;
+    }
+
+    /* Message vide / astuce */
+    .search-empty {
+      padding: 28px 16px; text-align: center;
+      color: var(--text-sub); font-size: .85rem; line-height: 1.6;
+    }
+    .search-footer {
+      padding: 9px 16px;
+      border-top: 1px solid var(--separator);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .68rem; color: var(--text-sub);
+      transition: border-color .35s ease, color .35s ease;
+    }
+    .search-footer span { display: inline-flex; align-items: center; gap: 4px; }
+
+    @media (max-width: 560px) {
+      .search-modal { top: 64px; width: calc(100% - 24px); }
+    }
+
+ /* ══════════════════════════════════════════
+       ② HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      min-height: auto;
+      display: flex; align-items: center;
+      padding: 130px 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: 50%; left: 55%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,210,255,.28) 0%, transparent 70%);
+      pointer-events: none; transition: background .35s ease;
+    }
+    [data-theme="dark"] .hero::before {
+      background: radial-gradient(circle, rgba(100,120,255,.1) 0%, transparent 70%);
+    }
+
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 40px; width: 100%;
+    }
+
+    .hero-content { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .1s both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .75rem; font-weight: 600; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--text-muted);
+      background: var(--social-bg); padding: 5px 13px;
+      border-radius: 999px; margin-bottom: 24px;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 5.5vw, 4rem); font-weight: 800;
+      letter-spacing: -.04em; line-height: 1.05;
+      color: var(--text-dark); margin-bottom: 20px;
+      transition: color .35s ease;
+    }
+
+    .hero-title .spark {
+      display: inline-block; font-style: normal;
+      animation: sparkPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes sparkPulse {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50%       { transform: scale(1.25) rotate(15deg); }
+    }
+
+    .hero-sub {
+      font-size: .95rem; line-height: 1.75;
+      color: var(--text-muted); max-width: 340px; margin-bottom: 36px;
+      transition: color .35s ease;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 28px; border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .btn-primary:hover { transform: scale(1.04); box-shadow: 0 8px 28px var(--btn-hover-sh); }
+    .btn-primary:active { transform: scale(.97); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 12px 26px; border-radius: var(--radius-pill);
+      background: var(--btn-s-bg); color: var(--btn-s-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 500;
+      text-decoration: none; border: 1.5px solid var(--btn-s-border); cursor: pointer;
+      transition: transform var(--ease), background var(--ease),
+                  border-color .35s ease, color .35s ease;
+    }
+    .btn-secondary:hover { transform: scale(1.04); background: var(--bg-hover); }
+    .btn-secondary:active { transform: scale(.97); }
+
+    .hero-stats {
+      display: flex; gap: 36px; margin-top: 40px;
+    }
+
+    .stat-num {
+      font-size: 1.65rem; font-weight: 800; letter-spacing: -.04em;
+      color: var(--text-dark); line-height: 1; margin-bottom: 4px;
+      transition: color .35s ease;
+    }
+
+    .stat-label {
+      font-size: .78rem; color: var(--text-muted); font-weight: 450;
+      transition: color .35s ease;
+    }
+
+    /* Visuel hero */
+    .hero-visual {
+      position: relative; height: 540px;
+      animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .2s both;
+    }
+
+    .hero-circle {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 420px; height: 420px; border-radius: 50%;
+      background: rgba(200,210,240,.18); transition: background .35s ease;
+    }
+    [data-theme="dark"] .hero-circle { background: rgba(80,100,200,.08); }
+
+    .hero-person {
+      position: absolute; bottom: 0;
+      left: 50%; transform: translateX(-46%);
+      height: 100%; max-height: 520px;
+      object-fit: contain; object-position: bottom;
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,.12)); z-index: 2;
+    }
+
+    /* Cartes flottantes */
+    .float-card {
+      position: absolute; background: var(--bg-card);
+      border-radius: 14px; box-shadow: var(--shadow-float);
+      border: 1px solid var(--border-nav); padding: 12px 16px; z-index: 3;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .card-chart { top: 60px; left: -10px; width: 140px; animation: floatA 4s ease-in-out infinite; }
+    .card-chart-label { font-size: .68rem; font-weight: 600; color: var(--text-sub); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
+    .bars { display: flex; align-items: flex-end; gap: 4px; height: 44px; }
+    .bar { flex: 1; border-radius: 4px 4px 0 0; }
+    .bar:nth-child(1) { height: 40%; background: #4ade80; }
+    .bar:nth-child(2) { height: 65%; background: #60a5fa; }
+    .bar:nth-child(3) { height: 50%; background: #f472b6; }
+    .bar:nth-child(4) { height: 80%; background: #fbbf24; }
+    .bar:nth-child(5) { height: 55%; background: #a78bfa; }
+    .bar:nth-child(6) { height: 92%; background: #34d399; }
+
+    .card-text { top: 40px; right: -20px; width: 130px; animation: floatB 4.5s ease-in-out infinite; }
+    .card-text-line { height: 8px; border-radius: 4px; background: var(--social-bg); margin-bottom: 7px; }
+    .card-text-line:nth-child(1) { width: 100%; }
+    .card-text-line:nth-child(2) { width: 75%; }
+    .card-text-line.accent { background: var(--btn-primary); width: 50%; height: 10px; border-radius: 5px; }
+    .card-text-dots { display: flex; gap: 5px; margin-top: 10px; }
+    .card-text-dots span { width: 8px; height: 8px; border-radius: 50%; }
+
+    .card-progress { top: 50%; left: -30px; transform: translateY(-50%); width: 160px; animation: floatA 3.8s ease-in-out .6s infinite; }
+    .progress-label { display: flex; justify-content: space-between; font-size: .7rem; font-weight: 600; color: var(--text-muted); margin-bottom: 7px; }
+    .progress-track { height: 6px; background: var(--social-bg); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #fbbf24, #f59e0b); width: 68%; }
+
+    .card-curve { bottom: 90px; right: -20px; width: 140px; animation: floatB 5s ease-in-out .3s infinite; }
+    .card-curve-label { font-size: .68rem; font-weight: 600; color: var(--text-sub); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    .curve-svg { width: 100%; }
+
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-7px); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { order: 2; }
+      .hero-visual  { order: 1; height: 360px; }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-stats   { justify-content: center; }
+      .card-chart   { left: 0; top: 20px; }
+      .card-text    { right: 0; top: 20px; }
+      .card-progress { left: -10px; }
+      .card-curve   { right: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .hero { padding: 90px 0 40px; }
+      .hero-inner  { padding: 0 20px; gap: 24px; }
+      .hero-visual { height: 340px; }
+      .hero-title  { font-size: 2.2rem; }
+      .hero-stats  { gap: 24px; flex-wrap: wrap; justify-content: center; }
+      .hero-circle { width: 260px; height: 260px; }
+
+      /* ── Cartes visibles sur mobile — repositionnées ── */
+      .float-card  { display: block; padding: 8px 11px; }
+
+      .card-chart {
+        top: 8px; left: 4px;
+        width: 110px;
+      }
+      .card-chart-label { font-size: .6rem; margin-bottom: 7px; }
+      .bars { height: 34px; gap: 3px; }
+
+      .card-text {
+        top: 8px; right: 4px;
+        width: 100px;
+      }
+      .card-text-line { height: 6px; margin-bottom: 5px; }
+
+      .card-progress {
+        bottom: 12px; left: 4px;
+        top: auto; transform: none;
+        width: 130px;
+      }
+      .progress-label { font-size: .62rem; }
+
+      .card-curve {
+        bottom: 12px; right: 4px;
+        width: 110px;
+      }
+      .card-curve-label { font-size: .6rem; margin-bottom: 5px; }
+    }
+
+
+
+    /* ══════════════════════════════════════════
+       ② PARTENAIRES — Marquee infini
+    ══════════════════════════════════════════ */
+    .partners-section {
+      padding: 48px 0 52px;
+      overflow: hidden;
+    }
+
+    .partners-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .partners-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      transition: color .35s ease;
+    }
+
+    /* Conteneur relatif pour les masques */
+    .marquee-outer {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* ── Masques flou gauche / droite ── */
+    .marquee-fade {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 180px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .marquee-fade--left {
+      left: 0;
+      background: linear-gradient(
+        to right,
+        var(--bg-page) 0%,
+        rgba(0,0,0,0) 100%
+      );
+    }
+
+    .marquee-fade--right {
+      right: 0;
+      background: linear-gradient(
+        to left,
+        var(--bg-page) 0%,
+        rgba(0,0,0,0) 100%
+      );
+    }
+
+    /* Piste de défilement */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      /* L'animation est appliquée via JS après clonage */
+    }
+
+    /* Chaque liste (originale + clone) */
+    .marquee-list {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      padding: 10px 32px;
+      flex-shrink: 0;
+    }
+
+    /* Un logo */
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      color: var(--text-sub);
+      opacity: .65;
+      flex-shrink: 0;
+      transition: opacity var(--ease), color var(--ease), filter var(--ease);
+      filter: grayscale(1);
+      cursor: default;
+      user-select: none;
+    }
+
+    .partner-logo:hover {
+      opacity: 1;
+      color: var(--text-dark);
+      filter: grayscale(0);
+    }
+
+    /* ── Animation CSS pour le défilement ── */
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-track.running {
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    .marquee-track.running:hover {
+      animation-play-state: paused;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .marquee-fade { width: 80px; }
+      .marquee-list { gap: 44px; }
+    }
+/* ══════════════════════════════════════════
+       ② BIS — SERVICES SECTION
+    ══════════════════════════════════════════ */
+    .services-section {
+      padding: 80px 0 60px;
+    }
+
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* En-tête centré */
+    .services-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .services-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      transition: color .35s ease;
+    }
+
+    .services-sub {
+      font-size: .93rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+      transition: color .35s ease;
+    }
+
+    /* Grille 3 colonnes */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 24px;
+    }
+
+    /* Carte service */
+    .svc-card {
+      background: var(--bg-nav);
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: background .35s ease, border-color .35s ease,
+                  box-shadow .35s ease, transform var(--ease);
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-float);
+    }
+
+    /* Image + badge icône superposé */
+    .svc-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 200px;
+    }
+
+    .svc-img-clip {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .svc-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s cubic-bezier(.4,0,.2,1),
+                  filter .35s ease;
+      filter: grayscale(20%);
+    }
+
+    .svc-card:hover .svc-img {
+      transform: scale(1.06);
+      filter: grayscale(0%);
+    }
+
+    /* Badge icône rond centré en bas de l'image */
+    .svc-icon-badge {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--bg-nav);
+      border: 1px solid var(--border-nav);
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--btn-primary);
+      z-index: 10;
+      transition: background .35s ease, border-color .35s ease,
+                  transform var(--ease), box-shadow var(--ease);
+    }
+
+    .svc-card:hover .svc-icon-badge {
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    }
+
+    /* Corps texte */
+    .svc-body {
+      padding: 36px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: center;
+    }
+
+    .svc-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      transition: color .35s ease;
+    }
+
+    .svc-desc {
+      font-size: .83rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+      transition: color .35s ease;
+    }
+
+    /* Lien "View Service" */
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--btn-primary);
+      text-decoration: none;
+      transition: color var(--ease), gap var(--ease);
+    }
+
+    .svc-link:hover { gap: 9px; }
+
+    /* Bouton "Discover All Services" */
+    .services-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 44px;
+    }
+
+    .btn-outline-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--btn-primary);
+      background: transparent;
+      color: var(--btn-primary);
+      font-family: var(--font);
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background var(--ease), color var(--ease),
+                  transform var(--ease), box-shadow var(--ease),
+                  border-color .35s ease;
+    }
+
+    .btn-outline-more:hover {
+      background: var(--btn-primary);
+      color: var(--btn-p-text);
+      transform: scale(1.04);
+      box-shadow: 0 8px 28px var(--btn-hover-sh);
+    }
+
+    .btn-outline-more:active { transform: scale(.97); }
+
+    /* Responsive services */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    }
+
+    @media (max-width: 580px) {
+      .services-section { padding: 60px 0 40px; }
+      .services-inner   { padding: 0 20px; }
+      .services-grid    { grid-template-columns: 1fr; }
+      .svc-img-wrap     { height: 180px; }
+    }
+
+    /* ══════════════════════════════════════════
+       ③ CTA SECTION
+    ══════════════════════════════════════════ */
+    .cta-section {
+      padding: 40px 0;
+    }
+
+    .cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .cta-card {
+      background: #0d1b2a;
+      border-radius: 28px;
+      padding: 68px 60px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background .35s ease;
+    }
+
+    [data-theme="dark"] .cta-card { background: #1e2a3a; }
+
+    /* Cercles décoratifs de fond */
+    .cta-card::before,
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      pointer-events: none;
+    }
+    .cta-card::before { width: 340px; height: 340px; top: -100px; right: 80px; }
+    .cta-card::after  { width: 200px; height: 200px; bottom: -60px; right: -40px; }
+
+    .cta-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 14px;
+      transition: color .35s ease;
+    }
+
+    [data-theme="dark"] .cta-label { color: var(--text-sub); }
+
+    .cta-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 14px;
+      transition: color .35s ease;
+    }
+
+    [data-theme="dark"] .cta-title { color: var(--text-dark); }
+
+    .cta-title span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cta-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,.4);
+      transition: background .35s ease;
+    }
+
+    [data-theme="dark"] .cta-title span::after { background: rgba(0,0,0,.15); }
+
+    .cta-desc {
+      font-size: .9rem;
+      color: rgba(255,255,255,.68);
+      max-width: 460px;
+      line-height: 1.7;
+      transition: color .35s ease;
+    }
+
+    [data-theme="dark"] .cta-desc { color: var(--text-muted); }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: var(--radius-pill);
+      background: #ffffff; color: var(--btn-primary);
+      font-family: var(--font); font-size: .9rem; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      white-space: nowrap;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .btn-cta-primary:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+
+    [data-theme="dark"] .btn-cta-primary { background: var(--btn-primary); color: var(--btn-p-text); }
+
+    .btn-cta-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font); font-size: .82rem; font-weight: 500;
+      color: rgba(255,255,255,.7); text-decoration: none;
+      background: none; border: none; cursor: pointer;
+      transition: color var(--ease);
+    }
+    .btn-cta-ghost:hover { color: #ffffff; }
+
+    [data-theme="dark"] .btn-cta-ghost { color: rgba(0,0,0,.5); }
+    [data-theme="dark"] .btn-cta-ghost:hover { color: rgba(0,0,0,.8); }
+
+    /* Responsive CTA */
+    @media (max-width: 780px) {
+      .cta-card {
+        grid-template-columns: 1fr;
+        padding: 48px 32px;
+        text-align: center;
+      }
+      .cta-desc { margin: 0 auto; }
+      .cta-actions { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 560px) {
+      .cta-section  { padding: 40px 0; }
+      .cta-inner    { padding: 0 20px; }
+      .cta-card     { padding: 40px 24px; border-radius: 20px; }
+      .cta-actions  { flex-direction: column; }
+    }
+
+  /* ══════════════════════════════════════════
+       ④ BLOG SECTION
+    ══════════════════════════════════════════ */
+    .blog-section {
+      padding: 80px 0;
+    }
+
+    .blog-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .blog-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .blog-eyebrow {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+      transition: color .35s ease;
+    }
+
+    .blog-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+      color: var(--text-dark);
+      transition: color .35s ease;
+    }
+
+    .blog-title .accent {
+      color: #c9a76c;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Carte article */
+    .blog-card {
+      background: var(--bg-nav);
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background .35s ease, border-color .35s ease,
+                  box-shadow .35s ease, transform var(--ease);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-float);
+    }
+
+    /* Image */
+    .blog-img-wrap {
+      width: 100%; height: 210px; overflow: hidden;
+      position: relative;
+    }
+
+    .blog-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+    }
+    .blog-card:hover .blog-img { transform: scale(1.06); }
+
+    /* Corps */
+    .blog-body {
+      padding: 24px 22px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Badge catégorie */
+    .blog-cat {
+      display: inline-flex;
+      align-items: center;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(201,167,108,.14);
+      color: #c9a76c;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+
+    .blog-art-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.4;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      transition: color .35s ease;
+    }
+
+    .blog-excerpt {
+      font-size: .82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 18px;
+      transition: color .35s ease;
+    }
+
+    /* Auteur */
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 0;
+    }
+
+    .blog-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border-nav);
+      transition: border-color .35s ease;
+    }
+
+    .blog-author-info {}
+
+    .blog-author-name {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color .35s ease;
+    }
+
+    .blog-date-read {
+      font-size: .72rem;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1px;
+      transition: color .35s ease;
+    }
+
+    .blog-date-read .dot-sep {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-sub);
+      flex-shrink: 0;
+    }
+
+    /* Pied de carte — lien lire la suite */
+    .blog-footer {
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-top: 1px solid var(--separator);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .35s ease;
+    }
+
+    .blog-read-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-sub); text-decoration: none;
+      transition: color var(--ease), gap var(--ease);
+    }
+    .blog-read-link:hover { color: var(--text-dark); gap: 10px; }
+
+    /* Responsive blog */
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    }
+
+    @media (max-width: 580px) {
+      .blog-section { padding: 60px 0 40px; }
+      .blog-inner   { padding: 0 20px; }
+      .blog-grid    { grid-template-columns: 1fr; }
+      .blog-img-wrap { height: 200px; }
+    }
+
+    /* ══════════════════════════════════════════
+       ⑤ TÉMOIGNAGES
+    ══════════════════════════════════════════ */
+    .testi-section {
+      padding: 80px 0;
+    }
+    .testi-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .testi-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .testi-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(201,167,108,.1); border: 1px solid rgba(201,167,108,.2);
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .testi-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800; letter-spacing: -.04em;
+      color: var(--text-dark);
+      transition: color .35s ease;
+    }
+    .testi-subtitle {
+      font-size: .92rem; color: var(--text-muted);
+      margin-top: 12px; line-height: 1.7;
+      transition: color .35s ease;
+    }
+    /* Grille */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    /* Carte témoignage */
+    .testi-card {
+      background: var(--bg-nav);
+      border-radius: 22px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      padding: 28px 26px;
+      display: flex; flex-direction: column; gap: 18px;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, border-color .35s ease;
+    }
+    .testi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-float);
+    }
+    /* Étoiles */
+    .testi-stars {
+      display: flex; gap: 3px;
+      color: #f59e0b;
+    }
+    /* Citation */
+    .testi-quote {
+      font-size: .9rem; color: var(--text-muted);
+      line-height: 1.75; flex: 1;
+      transition: color .35s ease;
+    }
+    .testi-quote::before {
+      content: '❝';
+      font-size: 1.4rem; line-height: 0;
+      color: var(--accent); vertical-align: -.2em;
+      margin-right: 3px;
+    }
+    /* Auteur */
+    .testi-author {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--separator);
+      transition: border-color .35s ease;
+    }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      border: 2px solid var(--border-nav);
+    }
+    .testi-name {
+      font-size: .85rem; font-weight: 700;
+      color: var(--text-dark); transition: color .35s ease;
+    }
+    .testi-role {
+      font-size: .74rem; color: var(--text-sub);
+      margin-top: 2px; transition: color .35s ease;
+    }
+    /* Badge catégorie */
+    .testi-badge {
+      display: inline-block; margin-left: auto;
+      font-size: .63rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(201,167,108,.1);
+      border: 1px solid rgba(201,167,108,.2);
+      color: var(--accent); white-space: nowrap;
+    }
+    /* Stat barre */
+    .testi-stats {
+      display: flex; align-items: stretch;
+      background: var(--bg-nav);
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      margin-top: 48px; overflow: hidden;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .testi-stat {
+      flex: 1; padding: 24px 20px; text-align: center;
+      border-right: 1px solid var(--separator);
+      transition: border-color .35s ease;
+    }
+    .testi-stat:last-child { border-right: none; }
+    .testi-stat-num {
+      display: block;
+      font-size: 1.7rem; font-weight: 800;
+      letter-spacing: -.04em; color: var(--text-dark);
+      margin-bottom: 4px; transition: color .35s ease;
+    }
+    .testi-stat-num span { color: var(--accent); }
+    .testi-stat-label {
+      font-size: .74rem; font-weight: 500;
+      color: var(--text-sub); transition: color .35s ease;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .testi-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+    @media (max-width: 560px) {
+      .testi-section { padding: 60px 0; }
+      .testi-inner   { padding: 0 20px; }
+      .testi-grid    { grid-template-columns: 1fr; }
+    }
+
+/* ══════════════════════════════════════════
+       ⑥ FOOTER
+    ══════════════════════════════════════════ */
+    .footer-wrapper {
+      width: 100%;
+      padding: 0 14px 14px;
+    }
+
+    .footer-card {
+      background: var(--bg-nav);
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-nav);
+      padding: 48px 48px 0;
+      overflow: hidden;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 40px 32px;
+      padding-bottom: 40px;
+    }
+
+    /* Logo footer */
+    .footer-logo {
+      display: inline-flex; align-items: center; gap: 11px;
+      text-decoration: none; margin-bottom: 16px;
+    }
+
+    .footer-logo-img {
+      width: 40px; height: 40px; border-radius: 50%;
+      object-fit: cover; display: block; flex-shrink: 0;
+      border: 1px solid var(--border-nav);
+      transition: border-color .35s ease;
+    }
+
+    .footer-logo-name {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -.4px;
+      color: var(--text-dark); transition: color .35s ease;
+    }
+
+    .footer-desc {
+      font-size: .83rem; line-height: 1.7;
+      color: var(--text-muted); max-width: 220px; margin-bottom: 22px;
+      transition: color .35s ease;
+    }
+
+    .footer-socials { display: flex; gap: 8px; }
+
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--social-bg); color: var(--text-muted); text-decoration: none;
+      transition: background var(--ease), color var(--ease), transform var(--ease);
+    }
+    .social-link:hover { background: var(--social-bg-h); color: var(--text-dark); transform: translateY(-2px); }
+
+    /* Colonnes liens */
+    .footer-col h4 {
+      font-size: .82rem; font-weight: 700; letter-spacing: .03em;
+      text-transform: uppercase; color: var(--text-dark); margin-bottom: 18px;
+      transition: color .35s ease;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul a {
+      font-size: .84rem; color: var(--text-muted); text-decoration: none;
+      display: inline-flex; align-items: center;
+      transition: color var(--ease), padding-left var(--ease);
+    }
+    .footer-col ul a:hover { color: var(--text-dark); padding-left: 4px; }
+
+    /* Contact */
+    .contact-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-item { display: flex; align-items: flex-start; gap: 10px; }
+
+    .contact-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--social-bg); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--text-muted);
+      transition: background .35s ease, color .35s ease;
+    }
+    .contact-item:hover .contact-icon { background: var(--social-bg-h); color: var(--text-dark); }
+
+    .contact-text { display: flex; flex-direction: column; gap: 1px; }
+
+    .contact-text span, .contact-text a {
+      font-size: .83rem; color: var(--text-muted); line-height: 1.55;
+      text-decoration: none; transition: color .35s ease;
+    }
+    .contact-text a:hover { color: var(--text-dark); }
+
+    /* Barre inférieure */
+    .footer-bottom {
+      border-top: 1px solid var(--separator);
+      margin: 0 -48px; padding: 18px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      transition: border-color .35s ease;
+    }
+
+    .footer-copy { font-size: .78rem; color: var(--text-sub); transition: color .35s ease; }
+
+    .footer-legal { display: flex; align-items: center; gap: 20px; }
+
+    .footer-legal a {
+      font-size: .78rem; color: var(--text-sub); text-decoration: none;
+      transition: color var(--ease);
+    }
+    .footer-legal a:hover { color: var(--text-dark); }
+
+    /* Responsive footer */
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 560px) {
+      .footer-card { padding: 32px 24px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { margin: 0 -24px; padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-legal { flex-wrap: wrap; gap: 12px; }
+    }
+
+  </style>
+  
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       ① NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="nav-wrapper" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="navbar">
+
+      <!-- [CONFIG] Logo texte -->
+      <a href="index.html" class="nav-logo">MPOUCK</a>
+
+      <!-- [CONFIG] Liens desktop -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="pages/services.html">Services</a></li>
+
+        <li class="nav-has-dropdown" id="deskPages">
+          <button class="nav-drop-btn" id="pagesTrigger" aria-haspopup="true" aria-expanded="false">
+            Pages
+            <svg class="chv" width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-drop-panel" id="pagesPanel" role="menu">
+            <a href="pages/about.html"     role="menuitem"><span class="page-icon">👤</span> A propos de nous</a>
+            <a href="pages/projet.html" role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+            <div class="sep"></div>
+            <a href=pages"/blog.html"      role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+          <!--  <a href="/contact.html"   role="menuitem"><span class="page-icon">✉️</span> Contact</a>  -->
+          </div>
+        </li>
+
+        <li><a href="pages/Webtemplates.html">Templates</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <!-- Bouton recherche -->
+        <button class="search-btn" id="searchBtn" aria-label="Rechercher" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Toggle thème — [CONFIG] ordre : toggle → CTA -->
+        <button class="theme-btn" id="themeBtn" aria-label="Mode jour/nuit">
+          <span class="theme-thumb">
+            <svg class="ico-sun"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="ico-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <a href="/pages/projet.html" class="nav-cta">Voir Nos Projets </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="menu">
+      <ul>
+        <li><a href="#hero"    role="menuitem">Home</a></li>
+        <li><a href="pages/services.html" role="menuitem">Services</a></li>
+        <li class="mobile-has-sub" id="mobPages">
+          <button class="mob-sub-trigger" id="mobPagesTrigger" aria-expanded="false">
+            Pages
+            <svg class="mob-chv" width="13" height="13" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="mob-sublist">
+            <div class="mob-sublist-inner">
+              <a href="pages/about.html"     class="mob-sublink" role="menuitem"><span class="page-icon">👤</span> A propos de nous</a>
+              <a href="pages/projet.html" class="mob-sublink" role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+              <a href="pages/blog.html"      class="mob-sublink" role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+              <!-- <a href="/contact.html"   class="mob-sublink" role="menuitem"><span class="page-icon">✉️</span> Contact</a> -->
+            </div>
+          </div>
+        </li>
+        <li><a href="pages/Webtemplates.html" role="menuitem">Templates</a></li>
+        <li><a href="pages/contact.html"    role="menuitem">Contact</a></li>
+      </ul>
+      <a href="pages/projet.html" class="mob-cta" role="menuitem">Voirs Nos Projets</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       SEARCH OVERLAY + MODAL
+  ══════════════════════════════════════════ -->
+  <div class="search-overlay" id="searchOverlay"></div>
+
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Recherche">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Rechercher un article, service, page…"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Champ de recherche"
+      />
+      <button id="searchClose" aria-label="Fermer la recherche" style="
+        display:flex; align-items:center; justify-content:center;
+        width:28px; height:28px; border-radius:8px; flex-shrink:0;
+        border:1px solid var(--border-nav); background:var(--bg-hover);
+        cursor:pointer; color:var(--text-muted);
+        transition:background 220ms ease, color 220ms ease, border-color .35s ease;
+      " onmouseover="this.style.background='var(--social-bg-h)';this.style.color='var(--text-dark)'"
+         onmouseout="this.style.background='var(--bg-hover)';this.style.color='var(--text-muted)'">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Résultats injectés par JS -->
+    <div class="search-results" id="searchResults" role="listbox"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ② HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-content">
+        <span class="hero-badge">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+          Digital Solutions
+        </span>
+
+        <!-- [CONFIG] Titre -->
+        <h1 class="hero-title">
+          Solutions<em class="spark"> ✦</em><br> pour développer votre activité <br>en ligne.
+        </h1>
+
+        <!-- [CONFIG] Sous-titre -->
+        <p class="hero-sub">
+          Passez au niveau supérieur avec des services digitaux performants pour attirer plus de clients et faire évoluer votre business en ligne.
+        </p>
+
+        <!-- [CONFIG] Boutons -->
+        <div class="hero-actions">
+          <a href="pages/contact.html" class="btn-primary">
+            Allez-y maintenant !
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="pages/projet.html" class="btn-secondary">Découvrir</a>
+        </div>
+
+        <!-- [CONFIG] Stats -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Clients satisfaits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1+</div>
+            <div class="stat-label">Année d'activité</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-circle"></div>
+
+        <!--
+        [CONFIG] IMAGE — remplacez src par votre photo PNG fond transparent
+        -->
+        <img
+          src="Images/image2.png"
+          alt="Marketing professional"
+          class="hero-person"
+          loading="eager"
+        />
+
+        <div class="float-card card-chart">
+          <div class="card-chart-label">Grandir</div>
+          <div class="bars">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          </div>
+        </div>
+
+        <div class="float-card card-text">
+          <div class="card-text-line"></div>
+          <div class="card-text-line"></div>
+          <div class="card-text-line accent"></div>
+          <div class="card-text-dots">
+            <span style="background:#4ade80"></span>
+            <span style="background:#60a5fa"></span>
+            <span style="background:#f472b6"></span>
+          </div>
+        </div>
+
+        <div class="float-card card-progress">
+          <div class="progress-label"><span>Performance</span><span>83%</span></div>
+          <div class="progress-track"><div class="progress-fill"></div></div>
+        </div>
+
+        <div class="float-card card-curve">
+          <div class="card-curve-label">évolution</div>
+          <svg class="curve-svg" height="40" viewBox="0 0 110 40" fill="none">
+            <path d="M0 35 C20 30, 30 15, 50 18 S80 5, 110 8" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="110" cy="8" r="4" fill="#a78bfa"/>
+            <circle cx="50"  cy="18" r="3.5" fill="#c4b5fd"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  
+
+  <!-- ══════════════════════════════════════════
+       ② PARTENAIRES — Défilement infini
+  ══════════════════════════════════════════ -->
+  <section class="partners-section" aria-label="Nos partenaires">
+    <div class="partners-header">
+      <p class="partners-label">Ils nous font confiance</p>
+    </div>
+
+    <div class="marquee-outer">
+      <!-- Masque flou gauche + droite -->
+      <div class="marquee-fade marquee-fade--left"></div>
+      <div class="marquee-fade marquee-fade--right"></div>
+
+      <!-- Piste de défilement -->
+      <div class="marquee-track" id="marqueeTrack">
+        <!-- [CONFIG] — Dupliquer autant de logos que nécessaire.
+             Le JS clone automatiquement la liste pour un scroll sans fin. -->
+        <div class="marquee-list" aria-hidden="false">
+
+          <!-- Logo 1 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 100 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M11 4a7 7 0 0 1 0 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M5 8h12M5 14h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <text x="26" y="15.5" font-family="Georgia, serif" font-size="13" font-weight="700" fill="currentColor" letter-spacing="-0.5">Pinterest</text>
+            </svg>
+          </div>
+
+          <!-- Logo 2 -->
+          <div class="partner-logo">
+            <svg height="20" viewBox="0 0 130 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="currentColor" letter-spacing="-0.3">DELL</text>
+              <text x="42" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="currentColor" letter-spacing="0">Technologies</text>
+            </svg>
+          </div>
+
+          <!-- Logo 3 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 130 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="3" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4 11l3.5 3.5L12 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="22" y="16" font-family="Arial, sans-serif" font-size="12.5" font-weight="600" fill="currentColor">Course Hero</text>
+            </svg>
+          </div>
+
+          <!-- Logo 4 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 110 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="7" cy="11" r="4" fill="currentColor" opacity=".9"/>
+              <circle cx="14" cy="7"  r="3" fill="currentColor" opacity=".6"/>
+              <circle cx="14" cy="15" r="3" fill="currentColor" opacity=".6"/>
+              <text x="22" y="16" font-family="Georgia, serif" font-size="14" font-weight="700" fill="currentColor" letter-spacing="-0.3">Chamilo</text>
+            </svg>
+          </div>
+
+          <!-- Logo 5 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 105 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 11 Q6 2, 11 11 Q16 20, 20 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <text x="26" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="currentColor" letter-spacing="1">NOTION</text>
+            </svg>
+          </div>
+
+          <!-- Logo 6 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 110 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="4" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M5 11h6M8 8v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="20" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="currentColor">Figma</text>
+            </svg>
+          </div>
+
+          <!-- Logo 7 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 15 L10 5 L17 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M6 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="22" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="currentColor" letter-spacing="0.5">AWWWARDS</text>
+            </svg>
+          </div>
+
+          <!-- Logo 8 -->
+          <div class="partner-logo">
+            <svg height="22" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="11" r="8" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M10 3v16M3 8h14M3 14h14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <text x="24" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="currentColor">Webflow</text>
+            </svg>
+          </div>
+
+        </div><!-- /.marquee-list -->
+      </div><!-- /.marquee-track -->
+    </div><!-- /.marquee-outer -->
+  </section>
+  
+  
+  
+  
+  <!--- 💥💥💥💥 Service 💥💥💥-->
+
+
+  <section class="services-section" id="services">
+    <div class="services-inner">
+
+      <!-- En-tête -->
+      <div class="services-header">
+        <h2 class="services-title">Nos Services</h2>
+        <p class="services-sub">
+          Boostez votre présence en ligne avec nos solutions modernes — templates captivants et formations IA à la pointe.
+        </p>
+      </div>
+
+      <!-- Grille 3 cartes -->
+      <div class="services-grid">
+
+        <!-- [CONFIG] Carte 1 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/2.jpg"
+              alt="Web Templates"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">Website Templates</h3>
+            <p class="svc-desc">
+              Modèles professionnels, réactifs et entièrement personnalisables conçus pour les entreprises modernes. Prêt à être déployé en quelques minutes.
+            </p>
+            
+            <a href="pages/Webtemplates.html" class="svc-link">
+              Voir le service
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- [CONFIG] Carte 2 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/3.jpg"
+              alt="Graphic Design"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="13.5" cy="6.5" r="2.5"/>
+                <path d="M17 3H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4z"/>
+                <path d="M3 15l5-5 4 4 3-3 4 4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">Design graphique</h3>
+            <p class="svc-desc">
+              Identités de marque, kits d'interface utilisateur, ressources de médias sociaux et contenu visuel qui rendent votre entreprise immédiatement reconnaissable.
+            </p>
+            <a href="pages/GraphicDesign.html" class="svc-link">
+              Consulter ce service 
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- [CONFIG] Carte 3 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/4.jpg "
+              alt="AI Courses"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a9 9 0 0 1 9 9c0 3.6-2.1 6.7-5.2 8.2L15 21H9l-.8-1.8A9 9 0 0 1 12 2z"/>
+                <path d="M9 12h6M12 9v6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">Cours IA</h3>
+            <p class="svc-desc">
+              Formation pratique et pratique pour maîtriser les outils d'intelligence artificielle - chatgpt, milieu de voyage, flux de travail d'automatisation, etc. Apprenez à votre rythme.
+            </p>
+            <a href="pages/cours.html" class="svc-link">
+              Consulter ce service
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+        <!-- [CONFIG] Carte 4 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/3.jpg"
+              alt="SEO & Content"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">SEO &amp; stratégie de contenu</h3>
+            <p class="svc-desc">
+              Augmentez votre visibilité sur les moteurs de recherche grâce à des stratégies de contenu optimisées, à la recherche de mots-clés et aux audits de référencement sur la page.
+            </p>
+            <a href="pages/seoservice.html" class="svc-link">
+              Consulter ce service
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- [CONFIG] Carte 5 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/1.jpg"
+              alt="Social Media"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">Kits pour réseaux sociaux</h3>
+            <p class="svc-desc">
+              Kits visuels prêts à l'emploi pour Instagram, LinkedIn et TikTok - posts, histoires, couvertures et modèles de bobines.
+            </p>
+            <a href="pages/social-media-packs.html" class="svc-link">
+              Consulter ce service
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- [CONFIG] Carte 6 -->
+        <div class="svc-card">
+          <div class="svc-img-wrap">
+            <div class="svc-img-clip">
+              <img
+              src="images/4.jpg"
+              alt="Business Automation"
+              class="svc-img"
+              loading="lazy"
+            />
+            </div>
+            <div class="svc-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 3h2a2 2 0 0 1 2 2v2"/><path d="M8 3H6a2 2 0 0 0-2 2v2"/>
+                <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-body">
+            <h3 class="svc-name">Business Automation</h3>
+            <p class="svc-desc">
+              Automatisez vos flux de travail avec make, zapier et n8n - économisez des heures chaque semaine et laissez vos outils fonctionner pour vous 24h/24 et 7j/7.
+            </p>
+            <a href="pages/businessAutomation.html" class="svc-link">
+              Consulter ce service
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /.services-grid -->
+
+      <!-- Bouton découvrir plus -->
+      <div class="services-more">
+        <a href="pages/services.html" class="btn-outline-more">
+          Tous les Services
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ③ CTA
+  ══════════════════════════════════════════ -->
+  <section class="cta-section" id="cta">
+    <div class="cta-inner">
+      <div class="cta-card">
+        <div class="cta-text">
+          <p class="cta-label">✦ Prêt pour progresser ?</p>
+          <h2 class="cta-title">
+            Booster votre business<br>avec nos <span>Solutions digitales</span>
+          </h2>
+          <p class="cta-desc">
+            Tout ce qu’il vous faut pour réussir en ligne — templates, formations IA et solutions digitales. Rejoignez 30 entrepreneurs qui ont choisi MPOUCK.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="pages/contact.html" class="btn-cta-primary">
+            Allez-y maintenant !
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="pages/services.html" class="btn-cta-ghost">
+            Voir tous les services
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ④ BLOG
+  ══════════════════════════════════════════ -->
+  <section class="blog-section" id="blog">
+    <div class="blog-inner">
+      <div class="blog-header">
+        <p class="blog-eyebrow">Notre Blog</p>
+        <h2 class="blog-title">Les derniers <span class="accent">articles</span></h2>
+      </div>
+      <div class="blog-grid">
+
+        <!-- [CONFIG] Article 1 -->
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80&fit=crop" alt="UI/UX Trends" class="blog-img" loading="lazy"/>
+          </div>
+          <div class="blog-body">
+            <span class="blog-cat">Design</span>
+            <h3 class="blog-art-title">Les tendances UI/UX qui vont dominer 2025</h3>
+            <p class="blog-excerpt">Entre minimalisme radical, bento grids et interfaces dopées à l'IA, le design évolue plus vite que jamais. Tour d'horizon des tendances incontournables.</p>
+            <div class="blog-meta">
+              <img src="images/imageProfil.jpg" alt="Auteur" class="blog-avatar"/>
+              <div class="blog-author-info">
+                <div class="blog-author-name">MPOUCK Jho Chadrack</div>
+                <div class="blog-date-read">
+                  <span>14 fév. 2025</span><span class="dot-sep"></span><span>6 min de lecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-footer">
+            <a href="articles/article-uiux-2026.html" class="blog-read-link">Lire la suite <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          </div>
+        </article>
+
+        <!-- [CONFIG] Article 2 -->
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop" alt="IA & Business" class="blog-img" loading="lazy"/>
+          </div>
+          <div class="blog-body">
+            <span class="blog-cat">Intelligence Artificielle</span>
+            <h3 class="blog-art-title">Comment l'IA transforme la création de contenu en 2025</h3>
+            <p class="blog-excerpt">ChatGPT, Midjourney, Sora… Les outils IA redéfinissent la façon dont les entrepreneurs créent, automatisent et scalent leur contenu digital.</p>
+            <div class="blog-meta">
+              <img src="images/imageProfil.jpg" alt="Auteur" class="blog-avatar"/>
+              <div class="blog-author-info">
+                <div class="blog-author-name">MPOUCK Jho Chadrack</div>
+                <div class="blog-date-read">
+                  <span>2 mars 2025</span><span class="dot-sep"></span><span>8 min de lecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-footer">
+            <a href="articles/article-ia-contenu-2026.html" class="blog-read-link">Lire la suite <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          </div>
+        </article>
+
+        <!-- [CONFIG] Article 3 -->
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop" alt="Template Business" class="blog-img" loading="lazy"/>
+          </div>
+          <div class="blog-body">
+            <span class="blog-cat">Business</span>
+            <h3 class="blog-art-title">5 raisons d'utiliser un template pro plutôt que coder from scratch</h3>
+            <p class="blog-excerpt">Gain de temps, coûts réduits, design validé… Pourquoi les entrepreneurs malins choisissent des templates premium pour lancer leur site rapidement.</p>
+            <div class="blog-meta">
+              <img src="images/imageProfil.jpg" alt="Auteur" class="blog-avatar"/>
+              <div class="blog-author-info">
+                <div class="blog-author-name">MPOUCK Jho Chadrack</div>
+                <div class="blog-date-read">
+                  <span>18 mars 2025</span><span class="dot-sep"></span><span>5 min de lecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-footer">
+            <a href="articles/article1.html" class="blog-read-link">Lire la suite <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ⑤ TÉMOIGNAGES
+  ══════════════════════════════════════════ -->
+  <section class="testi-section" id="testimonials">
+    <div class="testi-inner">
+
+      <!-- En-tête -->
+      <div class="testi-header">
+        <span class="testi-eyebrow">✦ Témoignages</span>
+        <h2 class="testi-title">Ce que disent nos clients</h2>
+        <p class="testi-subtitle">Plus de 200 entrepreneurs nous font confiance. Voici ce qu'ils en pensent.</p>
+      </div>
+
+      <!-- Grille de 6 témoignages -->
+      <div class="testi-grid">
+
+        <!-- [CONFIG] Carte 1 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">Le template que j'ai acheté était prêt à l'emploi en moins de 2 heures. Design impeccable, code propre, support ultra-réactif. Je recommande les yeux fermés.</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80&fit=crop&crop=face" alt="Camille R." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Camille Rousseau</p>
+              <p class="testi-role">Fondatrice, Studio Créa</p>
+            </div>
+            <span class="testi-badge">Template</span>
+          </div>
+        </article>
+
+        <!-- [CONFIG] Carte 2 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">La formation IA de MPOUCK m'a littéralement transformé. En 3 semaines, j'ai automatisé 80% de mes tâches répétitives. Un investissement qui s'est remboursé en moins d'un mois.</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80&fit=crop&crop=face" alt="Marc D." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Marc Delacroix</p>
+              <p class="testi-role">Consultant indépendant</p>
+            </div>
+            <span class="testi-badge">Formation IA</span>
+          </div>
+        </article>
+
+        <!-- [CONFIG] Carte 3 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">J'avais besoin d'une identité visuelle professionnelle rapidement. MPOUCK a livré un kit graphique complet, cohérent, et vraiment à la hauteur de mes attentes. Bravo !</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80&fit=crop&crop=face" alt="Sophie M." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Sophie Martin</p>
+              <p class="testi-role">E-commerçante, Bijoux SM</p>
+            </div>
+            <span class="testi-badge">Design</span>
+          </div>
+        </article>
+
+
+        <!-- [CONFIG] Carte 5 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">L'automatisation avec Make mise en place par MPOUCK nous fait économiser 15h par semaine. Notre équipe peut enfin se concentrer sur ce qui compte vraiment : nos clients.</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&fit=crop&crop=face" alt="Thomas K." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Ibara Mestral</p>
+              <p class="testi-role">CEO, de Maître Ibara réparation service</p>
+            </div>
+            <span class="testi-badge">Automation</span>
+          </div>
+        </article>
+        
+        
+        
+                <!-- [CONFIG] Carte 5 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">L'automatisation avec Make mise en place par MPOUCK nous fait économiser 15h par semaine. Notre équipe peut enfin se concentrer sur ce qui compte vraiment : nos clients.</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&fit=crop&crop=face" alt="Thomas K." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Thomas Keller</p>
+              <p class="testi-role">CEO, Keller Solutions</p>
+            </div>
+            <span class="testi-badge">Automation</span>
+          </div>
+        </article>
+
+
+
+
+        <!-- [CONFIG] Carte 6 -->
+        <article class="testi-card">
+          <div class="testi-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-quote">J'avais peur que ce soit trop technique pour moi, mais les ressources MPOUCK sont ultra-accessibles. Mon site a triplé son trafic organique en 2 mois grâce à leurs conseils SEO.</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80&fit=crop&crop=face" alt="Nadia O." class="testi-avatar" loading="lazy"/>
+            <div>
+              <p class="testi-name">Nadia Ouédraogo</p>
+              <p class="testi-role">Blogueuse, Nadia Lifestyle</p>
+            </div>
+            <span class="testi-badge">SEO</span>
+          </div>
+        </article>
+
+      </div><!-- /.testi-grid -->
+
+      <!-- Barre de statistiques -->
+      <div class="testi-stats">
+        <div class="testi-stat">
+          <span class="testi-stat-num">30<span>+</span></span>
+          <span class="testi-stat-label">Clients satisfaits</span>
+        </div>
+        <div class="testi-stat">
+          <span class="testi-stat-num">5<span>/5</span></span>
+          <span class="testi-stat-label">Note moyenne</span>
+        </div>
+        <div class="testi-stat">
+          <span class="testi-stat-num"><span>%</span></span>
+          <span class="testi-stat-label">Taux de satisfaction</span>
+        </div>
+        <div class="testi-stat">
+          <span class="testi-stat-num">5<span>★</span></span>
+          <span class="testi-stat-label">Avis vérifiés</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ⑥ FOOTER      ⑥ FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer-wrapper" id="contact" role="contentinfo">
+    <div class="footer-card">
+      <div class="footer-grid">
+
+        <!-- Col 1 : Brand -->
+        <div class="footer-brand">
+          <a href="#" class="footer-logo" aria-label="Accueil MPOUCK">
+            <!--
+            [CONFIG] Logo — remplacez src par ./assets/logo.png
+            Image carrée recommandée (sera rognée en cercle)
+            -->
+            <img
+              src="images/favicon.png"
+              alt="MPOUCK logo"
+              class="footer-logo-img"
+              width="40" height="40"
+            />
+            <!-- [CONFIG] Nom du site -->
+            <span class="footer-logo-name">MPOUCK</span>
+          </a>
+
+          <!-- [CONFIG] Description -->
+          <p class="footer-desc">
+            Depuis 2026, nous transformons les entreprises grâce à des solutions innovantes et accompagnons leur croissance efficace et durable.
+          </p>
+
+          <!-- [CONFIG] Réseaux sociaux -->
+          <div class="footer-socials" role="list">
+            <a href="https://www.facebook.com/share/1GBnmUEDKX/" class="social-link" role="listitem" aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Twitter / X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2 : Quick Links -->
+        <!-- [CONFIG] -->
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="pages/about.html">À propos de nous</a></li>
+            <li><a href="pages/services">Nos Services</a></li>
+            <li><a href="pages/projet.html">Nos projets</a></li>
+            <li><a href="index.html#testimonials">Témoignages</a></li>
+            <li><a href="pages/about.html">Notre équipe</a></li>
+            <!-- <li><a href="/careers">Careers</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Col 3 : Services -->
+        <!-- [CONFIG] -->
+        <div class="footer-col">
+          <h4>Nos Services</h4>
+          <ul>
+            <li><a href="/pages/Webtemplates.html">Website Templates</a></li>
+            <li><a href="pages/aicours.html">AI Courses</a></li>
+            <li><a href="pages/seoservice.html">SEO et stratégie de contenu</a></li>
+            <li><a href="pages/social-media-packs.html">Kits pour réseaux sociaux</a></li>
+            <li><a href="pages/GraphicDesign.html">Design graphique</a></li>
+            <li><a href="pages/businessAutomation.html">Automatisation IA</a></li> 
+          </ul>
+        </div>
+
+        <!-- Col 4 : Contact -->
+        <!-- [CONFIG] -->
+        <div class="footer-col footer-contact">
+          <h4>Contactez-nous</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <span>Kintelé, Brazzaville</span>
+                <span>République du Congo</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <a href="/cdn-cgi/l/email-protection#cba2a5ada48ba7a4a8a4a4e5a8a4a6"><span class="__cf_email__" data-cfemail="7e171018113e12111d1111501d1113"><span class="__cf_email__" data-cfemail="b3dec3dcc6d0d8d2d5d5d2dac1d6c0f3d4ded2dadf9dd0dcde">mpouckaffaires@gmail.com</span></span></a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <a href="tel:+12125551234">+242 06 865 21 20</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barre inférieure -->
+      <div class="footer-bottom">
+        <!-- [CONFIG] -->
+        <p class="footer-copy">© 2026 MPOUCK. Tous droits réservés.</p>
+        <nav class="footer-legal" aria-label="Liens légaux">
+          <a href="pages/conditions-utilisation.html">Conditions d'utilisation</a>
+          <a href="pages/politique-confidentialite.html">Politiques de confidentialité</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ── Thème (partagé navbar + footer) ── */
+    const html = document.documentElement;
+    const KEY  = 'mpouck-theme';
+
+    function applyTheme(t) {
+      html.setAttribute('data-theme', t);
+      try { localStorage.setItem(KEY, t); } catch(e) {}
+    }
+
+    (function() {
+      let s; try { s = localStorage.getItem(KEY); } catch(e) {}
+      if (s) applyTheme(s);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    })();
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ── Hamburger ── */
+    const hbg = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+
+    hbg.addEventListener('click', () => {
+      const o = mob.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+      mob.setAttribute('aria-hidden', !o);
+    });
+
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+
+    document.addEventListener('click', e => {
+      if (!document.getElementById('mainNav').contains(e.target)) {
+        closeMob(); closeDrop();
+      }
+    });
+
+    function closeMob() {
+      mob.classList.remove('open'); hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+      mob.setAttribute('aria-hidden', 'true');
+    }
+
+    /* ── Dropdown desktop Pages ── */
+    const deskPages = document.getElementById('deskPages');
+    const pagesTrig = document.getElementById('pagesTrigger');
+
+    pagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = deskPages.classList.toggle('open');
+      pagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    function closeDrop() {
+      deskPages.classList.remove('open');
+      pagesTrig.setAttribute('aria-expanded', 'false');
+    }
+
+    document.getElementById('mainNav').addEventListener('click', e => {
+      if (!deskPages.contains(e.target)) closeDrop();
+    });
+    document.getElementById('pagesPanel').querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', closeDrop)
+    );
+
+    /* ── Accordion mobile Pages ── */
+    const mobPagesMenu = document.getElementById('mobPages');
+    const mobPagesTrig = document.getElementById('mobPagesTrigger');
+    mobPagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = mobPagesMenu.classList.toggle('open');
+      mobPagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    /* ── Marquee partenaires ── */
+    (function() {
+      const track = document.getElementById('marqueeTrack');
+      if (!track) return;
+      const list  = track.querySelector('.marquee-list');
+      if (!list)  return;
+
+      // Clone la liste pour créer le défilement sans fin
+      const clone = list.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+
+      // Lance l'animation
+      track.classList.add('running');
+    })();
+
+
+    /* ══════════════════════════════════════════
+       SEARCH ENGINE
+    ══════════════════════════════════════════ */
+    const CONTENT = [
+      { type:'Page',    icon:'\uD83C\uDFE0', title:'Accueil',             desc:'Page d accueil MPOUCK - solutions numeriques pour entrepreneurs.',   href:'#hero'       },
+      { type:'Page',    icon:'\u26A1',        title:'Services',            desc:'Nos services : templates web, design graphique, formations IA.',     href:'#services'   },
+      { type:'Page',    icon:'\uD83D\uDCF0', title:'Blog',                desc:'Articles sur le design, IA, entrepreneuriat et numerique.',          href:'#blog'       },
+      { type:'Page',    icon:'\uD83D\uDCE7', title:'Newsletter',          desc:'Abonnez-vous pour recevoir ressources et conseils chaque semaine.',   href:'#newsletter' },
+      { type:'Page',    icon:'\u2709\uFE0F', title:'Contact',             desc:'Contactez-nous pour toute demande de collaboration.',                href:'#contact'    },
+      { type:'Service', icon:'\uD83D\uDCBB', title:'Website Templates',   desc:'Templates pro, responsifs et personnalisables. Prets a deployer.',   href:'#services'   },
+      { type:'Service', icon:'\uD83C\uDFA8', title:'Graphic Design',      desc:'Identites visuelles, UI kits et assets pour reseaux sociaux.',       href:'#services'   },
+      { type:'Service', icon:'\uD83E\uDD16', title:'AI Courses',          desc:'Formations : ChatGPT, Midjourney, automatisation, workflows IA.',    href:'#services'   },
+      { type:'Article', icon:'\u270D\uFE0F', title:'Les tendances UI/UX qui vont dominer 2025',
+        desc:'Minimalisme, bento grids, interfaces IA — tour des tendances design.', href:'/blog/ui-ux-2025' },
+      { type:'Article', icon:'\u270D\uFE0F', title:'Comment l IA transforme la creation de contenu en 2025',
+        desc:'ChatGPT, Midjourney, Sora — les outils IA revolutionnent le contenu digital.', href:'/blog/ia-contenu-2025' },
+      { type:'Article', icon:'\u270D\uFE0F', title:'5 raisons d utiliser un template pro plutot que coder from scratch',
+        desc:'Gain de temps, couts reduits, design valide — pourquoi choisir les templates.', href:'/blog/template-vs-scratch' },
+    ];
+
+    var searchBtn     = document.getElementById('searchBtn');
+    var searchOverlay = document.getElementById('searchOverlay');
+    var searchModal   = document.getElementById('searchModal');
+    var searchInput   = document.getElementById('searchInput');
+    var searchResults = document.getElementById('searchResults');
+    var focusedIdx    = -1;
+
+    function openSearch() {
+      searchOverlay.classList.add('open');
+      searchModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      searchBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(function(){ searchInput.focus(); }, 80);
+      renderHints();
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('open');
+      searchModal.classList.remove('open');
+      document.body.style.overflow = '';
+      searchBtn.setAttribute('aria-expanded', 'false');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+      searchResults.classList.remove('visible');
+      focusedIdx = -1;
+    }
+
+    var searchClose   = document.getElementById('searchClose');
+
+    if (searchBtn)     searchBtn.addEventListener('click', openSearch);
+    if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+    if (searchClose)   searchClose.addEventListener('click', closeSearch);
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+      if (e.key === 'Escape' && searchModal && searchModal.classList.contains('open')) closeSearch();
+    });
+
+    function hl(text, q) {
+      if (!q) return text;
+      var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$1') + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function itemHTML(d, q) {
+      return '<a class="search-item" href="' + d.href + '" role="option">' +
+        '<div class="search-item-icon">' + d.icon + '</div>' +
+        '<div class="search-item-body">' +
+          '<div class="search-item-title">' + hl(d.title, q) + '</div>' +
+          '<div class="search-item-desc">'  + d.desc + '</div>' +
+        '</div>' +
+        '<span class="search-item-badge">' + d.type + '</span>' +
+      '</a>';
+    }
+
+    function footerHTML(n) {
+      return '<div class="search-footer">' +
+        '<span>' + n + ' resultat' + (n > 1 ? 's' : '') + '</span>' +
+        '<span>&#8593;&#8595; naviguer &nbsp;&#183;&nbsp; &#8629; ouvrir &nbsp;&#183;&nbsp; ESC fermer</span>' +
+      '</div>';
+    }
+
+    function bindItems() {
+      var items = document.querySelectorAll('.search-item');
+      items.forEach(function(el, i) {
+        el.addEventListener('click', closeSearch);
+        el.addEventListener('mouseenter', function() { focusedIdx = i; updateFocus(); });
+      });
+    }
+
+    function updateFocus() {
+      document.querySelectorAll('.search-item').forEach(function(el, i) {
+        el.classList.toggle('focused', i === focusedIdx);
+      });
+    }
+
+    function renderHints() {
+      var groups = { 'Page': [], 'Service': [], 'Article': [] };
+      CONTENT.forEach(function(d) { if (groups[d.type]) groups[d.type].push(d); });
+      var html = '';
+      Object.keys(groups).forEach(function(label) {
+        var items = groups[label];
+        if (!items.length) return;
+        html += '<div class="search-group-label">' + label + 's</div>';
+        items.slice(0,3).forEach(function(d) { html += itemHTML(d, ''); });
+      });
+      html += footerHTML(CONTENT.length);
+      searchResults.innerHTML = html;
+      searchResults.classList.add('visible');
+      bindItems();
+    }
+
+    var debounceTimer;
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        var val = searchInput.value;
+        debounceTimer = setTimeout(function() { doSearch(val); }, 80);
+      });
+
+      searchInput.addEventListener('keydown', function(e) {
+        var items = document.querySelectorAll('.search-item');
+        if (!items.length) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); focusedIdx = Math.min(focusedIdx+1, items.length-1); updateFocus(); }
+        if (e.key === 'ArrowUp')   { e.preventDefault(); focusedIdx = Math.max(focusedIdx-1, 0); updateFocus(); }
+        if (e.key === 'Enter' && focusedIdx >= 0) { e.preventDefault(); items[focusedIdx].click(); }
+      });
+    }
+
+    function doSearch(raw) {
+      var q = raw.trim().toLowerCase();
+      if (!q) { renderHints(); return; }
+      var hits = CONTENT.filter(function(d) {
+        return d.title.toLowerCase().indexOf(q) >= 0 || d.desc.toLowerCase().indexOf(q) >= 0;
+      }).sort(function(a, b) {
+        var sa = (a.title.toLowerCase().indexOf(q) >= 0 ? 2 : 0) + (a.desc.toLowerCase().indexOf(q) >= 0 ? 1 : 0);
+        var sb = (b.title.toLowerCase().indexOf(q) >= 0 ? 2 : 0) + (b.desc.toLowerCase().indexOf(q) >= 0 ? 1 : 0);
+        return sb - sa;
+      });
+      searchResults.classList.add('visible');
+      if (!hits.length) {
+        searchResults.innerHTML = '<div class="search-empty">Aucun resultat pour <strong>"' + raw + '"</strong></div>';
+        return;
+      }
+      var groups = {};
+      hits.forEach(function(d) {
+        if (!groups[d.type]) groups[d.type] = [];
+        groups[d.type].push(d);
+      });
+      var html = '';
+      Object.keys(groups).forEach(function(label) {
+        html += '<div class="search-group-label">' + label + 's</div>';
+        groups[label].forEach(function(d) { html += itemHTML(d, q); });
+      });
+      html += footerHTML(hits.length);
+      searchResults.innerHTML = html;
+      focusedIdx = -1;
+      bindItems();
+    }
+
+    /* ── Ombre navbar au scroll ── */
+    var navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+      if (!navbar) return;
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 8px 40px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)'
+        : '';
+    }, { passive: true });
+
+  </script>
+</body>
+</html>
