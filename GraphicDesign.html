@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design — MPOUCK</title>
+  <meta name="description" content="Identités de marque, kits d'interface utilisateur, ressources de médias sociaux et contenu visuel qui rendent votre entreprise immédiatement reconnaissable.">
+  <meta name="keywords" content="MPOUCK, graphic design, brand identity, UI kit, social media assets, visual content, logo design">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4VVWXXMJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F4VVWXXMJX');
+</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════ */
+    :root, [data-theme="light"] {
+      --font:          'DM Sans', sans-serif;
+      --bg-page:       #f5f5f7;
+      --bg-nav:        #ffffff;
+      --bg-card:       #ffffff;
+      --bg-hover:      rgba(0,0,0,.045);
+      --text-dark:     #0d1b2a;
+      --text-muted:    #64748b;
+      --text-sub:      #94a3b8;
+      --border-nav:    rgba(0,0,0,.07);
+      --separator:     rgba(0,0,0,.07);
+      --social-bg:     rgba(0,0,0,.055);
+      --social-bg-h:   rgba(0,0,0,.1);
+      --btn-primary:   #0d1b2a;
+      --btn-p-text:    #ffffff;
+      --btn-s-bg:      #ffffff;
+      --btn-s-text:    #0d1b2a;
+      --btn-s-border:  rgba(0,0,0,.15);
+      --btn-hover-sh:  rgba(0,0,0,.22);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.04);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      --toggle-track:  #e4e4e7;
+      --toggle-thumb:  #ffffff;
+      --radius-nav:    20px;
+      --radius-pill:   999px;
+      --ease:          220ms cubic-bezier(.4,0,.2,1);
+      --accent:        #ec4899;
+    }
+
+    [data-theme="dark"] {
+      --bg-page:       #0a0a0f;
+      --bg-nav:        #13131a;
+      --bg-card:       #1a1a24;
+      --bg-hover:      rgba(255,255,255,.06);
+      --text-dark:     #f1f5f9;
+      --text-muted:    #94a3b8;
+      --text-sub:      #64748b;
+      --border-nav:    rgba(255,255,255,.08);
+      --separator:     rgba(255,255,255,.07);
+      --social-bg:     rgba(255,255,255,.07);
+      --social-bg-h:   rgba(255,255,255,.13);
+      --btn-primary:   #f1f5f9;
+      --btn-p-text:    #0d1b2a;
+      --btn-s-bg:      transparent;
+      --btn-s-text:    #f1f5f9;
+      --btn-s-border:  rgba(255,255,255,.2);
+      --btn-hover-sh:  rgba(255,255,255,.15);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.3);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.45), 0 1px 6px rgba(0,0,0,.25);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.3);
+      --toggle-track:  #3f3f46;
+      --toggle-thumb:  #18181b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    /* ══════════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════════ */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 960px;
+      z-index: 200;
+      animation: navIn .6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes navIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; background: var(--bg-nav);
+      border-radius: var(--radius-nav);
+      padding: 10px 12px 10px 22px;
+      box-shadow: var(--shadow-nav);
+      border: 1px solid var(--border-nav);
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700; letter-spacing: -.5px;
+      color: var(--text-dark); text-decoration: none; flex-shrink: 0;
+      transition: color .35s ease;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2px;
+      list-style: none; flex: 1; justify-content: center;
+    }
+
+    .nav-links a {
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-links a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-links a.active { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); background: transparent; border: none;
+      cursor: pointer; font-family: var(--font);
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-btn:hover,
+    .nav-has-dropdown.open .nav-drop-btn { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-drop-btn .chv { transition: transform var(--ease); display: inline-flex; }
+    .nav-has-dropdown.open .chv { transform: rotate(180deg); }
+
+    .nav-drop-panel {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      min-width: 190px; background: var(--bg-card);
+      border-radius: 14px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-float); padding: 7px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px) scale(.97);
+      transition: opacity .2s ease, transform .2s ease,
+                  background .35s ease, border-color .35s ease;
+    }
+    .nav-has-dropdown.open .nav-drop-panel {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .nav-drop-panel::before {
+      content: ''; position: absolute; top: -6px; left: 50%;
+      transform: translateX(-50%); width: 12px; height: 6px;
+      background: var(--bg-card);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 -1px 0 var(--border-nav));
+      transition: background .35s ease;
+    }
+    .nav-drop-panel a {
+      display: flex; align-items: center; gap: 9px;
+      padding: 8px 11px; border-radius: 9px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-panel a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-drop-panel .page-icon {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .77rem; flex-shrink: 0;
+    }
+    .nav-drop-panel .sep { height: 1px; background: var(--border-nav); margin: 4px 3px; }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 9px 18px; border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .82rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 6px 20px var(--btn-hover-sh); }
+
+    .theme-btn {
+      position: relative; display: inline-flex; align-items: center;
+      width: 52px; height: 30px; border-radius: 999px;
+      border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+      background: var(--toggle-track);
+      transition: background .35s cubic-bezier(.4,0,.2,1);
+    }
+    .theme-thumb {
+      position: absolute; left: 3px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--toggle-thumb);
+      box-shadow: 0 1px 6px rgba(0,0,0,.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .35s cubic-bezier(.34,1.4,.64,1), background .35s ease;
+    }
+    [data-theme="dark"] .theme-thumb { transform: translateX(22px); background: #27272a; }
+    .theme-thumb svg { position: absolute; transition: opacity .2s ease; }
+    .ico-sun  { color: #f59e0b; }
+    .ico-moon { color: #818cf8; }
+    [data-theme="light"] .ico-sun  { opacity: 1; }
+    [data-theme="light"] .ico-moon { opacity: 0; }
+    [data-theme="dark"]  .ico-sun  { opacity: 0; }
+    [data-theme="dark"]  .ico-moon { opacity: 1; }
+
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; padding: 7px;
+      border: none; border-radius: 10px; background: transparent;
+      cursor: pointer; flex-shrink: 0; transition: background var(--ease);
+    }
+    .hamburger:hover { background: var(--bg-hover); }
+    .hamburger span {
+      display: block; width: 100%; height: 2px; border-radius: 2px;
+      background: var(--text-dark); transform-origin: center;
+      transition: transform var(--ease), opacity var(--ease), background .35s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0; right: 0;
+      border-radius: 16px; overflow: hidden;
+      max-height: 0; background: transparent;
+      box-shadow: none; border: 1px solid transparent;
+      padding: 0; pointer-events: none;
+      transition: max-height .38s cubic-bezier(.4,0,.2,1),
+                  background .28s ease, box-shadow .28s ease,
+                  border-color .28s ease, padding .28s ease;
+    }
+    .mobile-menu.open {
+      max-height: 700px; background: var(--bg-nav);
+      box-shadow: var(--shadow-float); border-color: var(--border-nav);
+      padding: 10px; pointer-events: auto;
+    }
+    .mobile-menu ul {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 2px; padding: 6px 0 4px;
+    }
+    .mobile-menu ul a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .mobile-menu ul a:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    .mobile-has-sub { display: flex; flex-direction: column; }
+    .mob-sub-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      width: 100%; text-align: left; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sub-trigger:hover,
+    .mobile-has-sub.open .mob-sub-trigger { color: var(--text-dark); background: var(--bg-hover); }
+    .mob-chv { display: inline-flex; transition: transform var(--ease); color: var(--text-sub); }
+    .mobile-has-sub.open .mob-chv { transform: rotate(180deg); }
+    .mob-sublist { overflow: hidden; max-height: 0; transition: max-height .32s cubic-bezier(.4,0,.2,1); }
+    .mobile-has-sub.open .mob-sublist { max-height: 400px; }
+    .mob-sublist-inner { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 4px 10px; }
+    .mob-sublink {
+      display: flex !important; align-items: center !important; gap: 9px;
+      padding: 9px 12px !important; border-radius: 10px;
+      font-size: .84rem !important; color: var(--text-muted) !important;
+      text-decoration: none; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sublink:hover { color: var(--text-dark) !important; background: var(--bg-hover) !important; }
+    .mob-sublink .page-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; flex-shrink: 0;
+    }
+    .mob-cta {
+      display: block; width: 100%; margin-top: 6px; padding: 13px;
+      border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 500;
+      text-align: center; text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), background .35s ease, color .35s ease;
+    }
+    .mob-cta:hover { transform: scale(1.02); }
+
+    @media (max-width: 720px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .hamburger   { display: flex; }
+      .mobile-menu { display: block; }
+      .nav-wrapper { width: calc(100% - 28px); top: 14px; }
+    }
+
+    /* ══════════════════════════════════════════
+       SEARCH
+    ══════════════════════════════════════════ */
+    .search-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 10px;
+      border: none; background: transparent; cursor: pointer;
+      color: var(--text-muted); flex-shrink: 0;
+      transition: background var(--ease), color var(--ease);
+    }
+    .search-btn:hover { background: var(--bg-hover); color: var(--text-dark); }
+
+    .search-overlay {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+    }
+    .search-overlay.open { opacity: 1; pointer-events: auto; }
+
+    .search-modal {
+      position: fixed; top: 80px; left: 50%;
+      transform: translateX(-50%) translateY(-10px) scale(.97);
+      width: calc(100% - 40px); max-width: 640px;
+      z-index: 901; opacity: 0; pointer-events: none;
+      transition: opacity .22s ease, transform .25s cubic-bezier(.34,1.3,.64,1);
+    }
+    .search-modal.open {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.1);
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .search-box svg { color: var(--text-sub); flex-shrink: 0; }
+    .search-input {
+      flex: 1; font-family: var(--font); font-size: .97rem;
+      color: var(--text-dark); background: transparent;
+      border: none; outline: none; transition: color .35s ease;
+    }
+    .search-input::placeholder { color: var(--text-sub); }
+    .search-results {
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; margin-top: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.13);
+      overflow: hidden; max-height: 400px; overflow-y: auto;
+      display: none; transition: background .35s ease, border-color .35s ease;
+    }
+    .search-results.visible { display: block; }
+    .search-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; text-decoration: none;
+      border-bottom: 1px solid var(--separator); transition: background var(--ease);
+    }
+    .search-item:last-child { border-bottom: none; }
+    .search-item:hover, .search-item.focused { background: var(--bg-hover); }
+    .search-item-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--social-bg); display: flex; align-items: center;
+      justify-content: center; font-size: .9rem; flex-shrink: 0;
+    }
+    .search-item-body { flex: 1; min-width: 0; }
+    .search-item-title {
+      font-size: .86rem; font-weight: 600; color: var(--text-dark);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px;
+    }
+    .search-item-desc {
+      font-size: .74rem; color: var(--text-muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .search-item-badge {
+      font-size: .64rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-sub); flex-shrink: 0;
+    }
+    .search-empty {
+      padding: 28px 16px; text-align: center;
+      color: var(--text-sub); font-size: .85rem;
+    }
+    .search-footer {
+      padding: 9px 16px; border-top: 1px solid var(--separator);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .68rem; color: var(--text-sub);
+    }
+    @media (max-width: 560px) { .search-modal { top: 64px; width: calc(100% - 24px); } }
+
+    /* ══════════════════════════════════════════
+       PAGE HERO — GRAPHIC DESIGN
+    ══════════════════════════════════════════ */
+    .page-hero {
+      padding: 100px 0 70px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(236,72,153,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .page-hero::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(236,72,153,.08) 0%, transparent 70%);
+    }
+
+    .page-hero-inner {
+      max-width: 720px; margin: 0 auto; padding: 0 24px;
+      position: relative; z-index: 1;
+      animation: fadeUp .7s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(236,72,153,.1); padding: 5px 14px;
+      border-radius: 999px; margin-bottom: 22px;
+      border: 1px solid rgba(236,72,153,.2);
+    }
+
+    .page-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800;
+      letter-spacing: -.04em; line-height: 1.1;
+      color: var(--text-dark); margin-bottom: 18px;
+    }
+
+    .page-title span {
+      background: linear-gradient(135deg, #ec4899, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-sub {
+      font-size: 1rem; line-height: 1.75; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 36px;
+    }
+
+    .page-hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+
+    .hero-stat-num {
+      font-size: 1.5rem; font-weight: 800; letter-spacing: -.04em;
+      color: var(--text-dark);
+    }
+
+    .hero-stat-label {
+      font-size: .76rem; color: var(--text-muted); font-weight: 450;
+    }
+
+    .hero-stat-sep {
+      width: 1px; height: 30px; background: var(--separator);
+    }
+
+    /* ══════════════════════════════════════════
+       FILTER BAR
+    ══════════════════════════════════════════ */
+    .filter-section {
+      padding: 0 0 48px;
+      position: sticky; top: 86px; z-index: 100;
+    }
+
+    .filter-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    }
+
+    .filter-bar {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg-nav); border-radius: 16px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-nav);
+      padding: 8px; overflow-x: auto;
+      scrollbar-width: none;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .filter-left {
+      display: flex; align-items: center; gap: 6px; flex: 1; flex-wrap: nowrap;
+    }
+
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 15px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500;
+      color: var(--text-muted); background: transparent;
+      border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-btn:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .filter-btn.active {
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-weight: 600;
+    }
+
+    .filter-count {
+      font-size: .68rem; font-weight: 700;
+      background: var(--social-bg); color: var(--text-sub);
+      padding: 1px 7px; border-radius: 999px;
+      transition: background var(--ease), color var(--ease);
+    }
+    .filter-btn.active .filter-count {
+      background: rgba(255,255,255,.2); color: var(--btn-p-text);
+    }
+
+    .filter-sep { width: 1px; height: 24px; background: var(--separator); flex-shrink: 0; }
+
+    .filter-sort {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-sort:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    /* ══════════════════════════════════════════
+       DESIGN GRID
+    ══════════════════════════════════════════ */
+    .templates-section {
+      padding: 0 0 100px;
+    }
+
+    .templates-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .tpl-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, border-color .35s ease;
+      cursor: pointer;
+    }
+    .tpl-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-float);
+    }
+
+    .tpl-card[data-category] { display: block; }
+    .tpl-card.hidden { display: none; }
+
+    .tpl-preview {
+      position: relative; overflow: hidden;
+      aspect-ratio: 16/10; background: var(--bg-hover);
+    }
+
+    .tpl-preview img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+      display: block;
+    }
+    .tpl-card:hover .tpl-preview img { transform: scale(1.04); }
+
+    .tpl-overlay {
+      position: absolute; inset: 0;
+      background: rgba(13,27,42,.55);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      opacity: 0; transition: opacity var(--ease);
+      backdrop-filter: blur(4px);
+    }
+    .tpl-card:hover .tpl-overlay { opacity: 1; }
+
+    .tpl-overlay-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 999px;
+      font-size: .8rem; font-weight: 600; font-family: var(--font);
+      cursor: pointer; text-decoration: none;
+      transition: transform var(--ease), box-shadow var(--ease);
+      border: none;
+    }
+    .tpl-overlay-btn:hover { transform: scale(1.04); }
+    .tpl-overlay-btn.preview {
+      background: #fff; color: #0d1b2a;
+    }
+    .tpl-overlay-btn.buy {
+      background: #ec4899; color: #fff;
+      box-shadow: 0 4px 16px rgba(236,72,153,.4);
+    }
+
+    .tpl-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-size: .67rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      color: #0d1b2a;
+    }
+    .tpl-badge.new     { background: #ec4899; color: #fff; }
+    .tpl-badge.free    { background: #22c55e; color: #fff; }
+    .tpl-badge.popular { background: #f59e0b; color: #fff; }
+
+    .tpl-body {
+      padding: 20px 22px 22px;
+    }
+
+    .tpl-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .tpl-category {
+      font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--accent);
+    }
+
+    .tpl-price {
+      font-size: .92rem; font-weight: 800; letter-spacing: -.02em;
+      color: var(--text-dark);
+    }
+    .tpl-price.free-tag { color: #22c55e; }
+
+    .tpl-name {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -.02em;
+      color: var(--text-dark); margin-bottom: 8px;
+      transition: color .35s ease;
+    }
+
+    .tpl-desc {
+      font-size: .82rem; line-height: 1.6; color: var(--text-muted);
+      margin-bottom: 16px; display: -webkit-box;
+      -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .tpl-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;
+    }
+
+    .tpl-tag {
+      font-size: .7rem; font-weight: 500;
+      padding: 3px 10px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-muted);
+      transition: background .35s ease, color .35s ease;
+    }
+
+    .tpl-footer {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .tpl-btn-preview {
+      flex: 1; padding: 9px; border-radius: 10px;
+      font-size: .8rem; font-weight: 500; font-family: var(--font);
+      text-align: center; text-decoration: none; cursor: pointer;
+      border: 1.5px solid var(--btn-s-border);
+      background: transparent; color: var(--text-dark);
+      transition: background var(--ease), border-color .35s ease, color .35s ease;
+    }
+    .tpl-btn-preview:hover { background: var(--bg-hover); }
+
+    .tpl-btn-buy {
+      flex: 1.4; padding: 9px; border-radius: 10px;
+      font-size: .8rem; font-weight: 600; font-family: var(--font);
+      text-align: center; text-decoration: none; cursor: pointer;
+      background: var(--btn-primary); color: var(--btn-p-text);
+      border: none;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .tpl-btn-buy:hover { transform: scale(1.03); box-shadow: 0 6px 18px var(--btn-hover-sh); }
+
+    /* ══════════════════════════════════════════
+       EMPTY STATE
+    ══════════════════════════════════════════ */
+    .empty-state {
+      display: none; text-align: center; padding: 80px 24px;
+      grid-column: 1 / -1;
+    }
+    .empty-state.visible { display: block; }
+    .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .empty-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .empty-desc  { font-size: .88rem; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════
+       CTA BANNER
+    ══════════════════════════════════════════ */
+    .cta-banner {
+      padding: 0 24px 80px;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .cta-banner-card {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1e1040 100%);
+      border-radius: 24px;
+      padding: 56px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-banner-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(236,72,153,.12);
+      pointer-events: none;
+    }
+    .cta-banner-card::after {
+      content: '';
+      position: absolute; bottom: -80px; right: 200px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(249,115,22,.08);
+      pointer-events: none;
+    }
+
+    .cta-banner-text { position: relative; z-index: 1; }
+    .cta-banner-eyebrow {
+      font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 12px;
+    }
+    .cta-banner-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.2; color: #fff; margin-bottom: 10px;
+    }
+    .cta-banner-desc {
+      font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.6; max-width: 400px;
+    }
+
+    .cta-banner-actions {
+      display: flex; align-items: center; gap: 12px;
+      position: relative; z-index: 1;
+    }
+
+    .cta-banner-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 26px; border-radius: 999px;
+      font-size: .88rem; font-weight: 600; font-family: var(--font);
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .cta-banner-btn:hover { transform: scale(1.04); }
+    .cta-banner-btn.primary {
+      background: #fff; color: #0d1b2a;
+      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    }
+    .cta-banner-btn.ghost {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.3);
+    }
+    .cta-banner-btn.ghost:hover { background: rgba(255,255,255,.08); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer-wrapper {
+      width: 100%; padding: 0 14px 14px;
+    }
+
+    .footer-card {
+      background: var(--bg-nav); border-radius: 24px;
+      box-shadow: var(--shadow-card); border: 1px solid var(--border-nav);
+      padding: 48px 48px 0; overflow: hidden;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 40px 32px; padding-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: inline-flex; align-items: center; gap: 11px;
+      text-decoration: none; margin-bottom: 16px;
+    }
+
+    .footer-logo-img {
+      width: 40px; height: 40px; border-radius: 50%;
+      object-fit: cover; display: block; flex-shrink: 0;
+      border: 1px solid var(--border-nav); transition: border-color .35s ease;
+    }
+
+    .footer-logo-name {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -.4px;
+      color: var(--text-dark); transition: color .35s ease;
+    }
+
+    .footer-desc {
+      font-size: .83rem; line-height: 1.7; color: var(--text-muted);
+      max-width: 220px; margin-bottom: 22px; transition: color .35s ease;
+    }
+
+    .footer-socials { display: flex; gap: 8px; }
+
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--social-bg); color: var(--text-muted); text-decoration: none;
+      transition: background var(--ease), color var(--ease), transform var(--ease);
+    }
+    .social-link:hover { background: var(--social-bg-h); color: var(--text-dark); transform: translateY(-2px); }
+
+    .footer-col h4 {
+      font-size: .82rem; font-weight: 700; letter-spacing: .03em;
+      text-transform: uppercase; color: var(--text-dark); margin-bottom: 18px;
+      transition: color .35s ease;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul a {
+      font-size: .84rem; color: var(--text-muted); text-decoration: none;
+      display: inline-flex; align-items: center;
+      transition: color var(--ease), padding-left var(--ease);
+    }
+    .footer-col ul a:hover { color: var(--text-dark); padding-left: 4px; }
+
+    .contact-list { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 10px; }
+    .contact-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--social-bg); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--text-muted); transition: background .35s ease, color .35s ease;
+    }
+    .contact-item:hover .contact-icon { background: var(--social-bg-h); color: var(--text-dark); }
+    .contact-text { display: flex; flex-direction: column; gap: 1px; }
+    .contact-text span, .contact-text a {
+      font-size: .83rem; color: var(--text-muted); line-height: 1.55;
+      text-decoration: none; transition: color .35s ease;
+    }
+    .contact-text a:hover { color: var(--text-dark); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--separator);
+      margin: 0 -48px; padding: 18px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; transition: border-color .35s ease;
+    }
+
+    .footer-copy { font-size: .78rem; color: var(--text-sub); transition: color .35s ease; }
+
+    .footer-legal { display: flex; align-items: center; gap: 20px; }
+    .footer-legal a {
+      font-size: .78rem; color: var(--text-sub); text-decoration: none;
+      transition: color var(--ease);
+    }
+    .footer-legal a:hover { color: var(--text-dark); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .templates-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .footer-card { padding: 32px 24px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { margin: 0 -24px; padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-legal { flex-wrap: wrap; gap: 12px; }
+      .templates-grid { grid-template-columns: 1fr; }
+      .cta-banner-card { padding: 36px 28px; }
+      .cta-banner-actions { width: 100%; }
+      .page-hero-stats { gap: 16px; }
+      .hero-stat-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="nav-wrapper" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="navbar">
+
+      <a href="../index.html" class="nav-logo">MPOUCK</a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Acceuil</a></li>
+        <li><a href="services.html">Services</a></li>
+
+        <li class="nav-has-dropdown" id="deskPages">
+          <button class="nav-drop-btn" id="pagesTrigger" aria-haspopup="true" aria-expanded="false">
+            Pages
+            <svg class="chv" width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-drop-panel" id="pagesPanel" role="menu">
+            <a href="about.html" role="menuitem"><span class="page-icon">👤</span> A propos</a>
+            <a href="projet.html"  role="menuitem"><span class="page-icon">🖼️</span>Projets</a>
+            <div class="sep"></div>
+            <a href="blog.html"     role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+         <!--   <a href="/contact.html"  role="menuitem"><span class="page-icon">✉️</span> Contact</a>.-->
+          </div>
+        </li>
+
+        <li><a href="Webtemplates.html">Templates</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Search" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle day/night mode">
+          <span class="theme-thumb">
+            <svg class="ico-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="ico-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <a href="contact.html" class="nav-cta">Nos projets</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="menu">
+      <ul>
+        <li><a href="../index.html" role="menuitem">Acceuil</a></li>
+        <li><a href="services.html" role="menuitem">Services</a></li>
+        <li class="mobile-has-sub" id="mobPages">
+          <button class="mob-sub-trigger" id="mobPagesTrigger" aria-expanded="false">
+            Pages
+            <svg class="mob-chv" width="13" height="13" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="mob-sublist">
+            <div class="mob-sublist-inner">
+              <a href="about.html"   class="mob-sublink" role="menuitem"><span class="page-icon">👤</span> A propos</a>
+              <a href="projet.html"    class="mob-sublink" role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+              <a href="blog.html"    class="mob-sublink" role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+           <!--   <a href="/contact.html" class="mob-sublink" role="menuitem"><span class="page-icon">✉️</span> Contact</a> -->
+            </div>
+          </div>
+        </li>
+        <li><a href="Webtemplates.html" role="menuitem">Templates</a></li>
+        <li><a href="contact.html" role="menuitem">Contact</a></li>
+      </ul>
+      <a href="projet.html" class="mob-cta" role="menuitem">Nos projets</a>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY + MODAL -->
+  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search a design asset…" autocomplete="off" spellcheck="false" aria-label="Search field"/>
+      <button id="searchClose" aria-label="Close search" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;flex-shrink:0;border:1px solid var(--border-nav);background:var(--bg-hover);cursor:pointer;color:var(--text-muted);transition:background 220ms ease;">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">
+        <svg width="7" height="7" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        MPOUCK Creative Studio
+      </div>
+
+      <h1 class="page-title">
+        Conception graphique qui rend<br>votre marque <span>inoubliable</span>
+      </h1>
+
+      <p class="page-sub">
+        Identités de marque, kits d'interface utilisateur, ressources de médias sociaux et contenu visuel qui rendent votre entreprise immédiatement reconnaissable.
+      </p>
+
+      <div class="page-hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">60+</div>
+          <div class="hero-stat-label">Design assets</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.9★</div>
+          <div class="hero-stat-label">Average rating</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1.8k+</div>
+          <div class="hero-stat-label">Brands elevated</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Vector & editable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FILTER BAR
+  ══════════════════════════════════════════ -->
+  <section class="filter-section">
+    <div class="filter-inner">
+      <div class="filter-bar">
+        <div class="filter-left">
+          <button class="filter-btn active" data-filter="all">
+            Tous <span class="filter-count">12</span>
+          </button>
+          <button class="filter-btn" data-filter="brand">
+            Identité de marque <span class="filter-count">3</span>
+          </button>
+          <button class="filter-btn" data-filter="uikit">
+            UI Kit <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="social">
+            Réseau social<span class="filter-count">3</span>
+          </button>
+          <button class="filter-btn" data-filter="visual">
+           Contenu visuel <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="logo">
+            Logo & Icons <span class="filter-count">2</span>
+          </button>
+        </div>
+        <div class="filter-sep"></div>
+        <button class="filter-sort">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/>
+          </svg>
+          Sort
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DESIGN GRID
+  ══════════════════════════════════════════ -->
+  <section class="templates-section">
+    <div class="templates-inner">
+      <div class="templates-grid">
+
+        <!-- ──────── CARD 1 ──────── -->
+        <div class="tpl-card" data-category="brand">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1636633762833-5d1658f1e29b?w=800&q=80&fit=crop" alt="BrandCore Identity Kit"/>
+            <div class="tpl-badge popular">Populaire</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder 
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter→</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Brand Identity</span>
+              <span class="tpl-price">$89</span>
+            </div>
+            <h3 class="tpl-name">BrandCore — Full Identity Kit</h3>
+            <p class="tpl-desc">Complete brand identity system: primary logo, variations, color palette, typography scale, and brand usage guidelines in one deliverable.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Logo Suite</span>
+              <span class="tpl-tag">Style Guide</span>
+              <span class="tpl-tag">Color Palette</span>
+              <span class="tpl-tag">Typography</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $89</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 2 ──────── -->
+        <div class="tpl-card" data-category="logo">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&fit=crop" alt="Palette Logo & Brand Guidelines"/>
+            <div class="tpl-badge free">Gratuit</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy" style="background:#22c55e;">Télécharger →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Logo & Icons</span>
+              <span class="tpl-price free-tag">Gratuit</span>
+            </div>
+            <h3 class="tpl-name">Palette — Logo Starter Kit</h3>
+            <p class="tpl-desc">A free logo starter pack with 3 editable Figma logo templates, color swatches, and a one-page mini brand guide to kickstart your identity.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Free</span>
+              <span class="tpl-tag">Figma</span>
+              <span class="tpl-tag">Editable</span>
+              <span class="tpl-tag">SVG Ready</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy" style="background:#22c55e;">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 3 ──────── -->
+        <div class="tpl-card" data-category="uikit">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80&fit=crop" alt="UIverse Design System"/>
+            <div class="tpl-badge new">New</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder 
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">UI Kit</span>
+              <span class="tpl-price">$69</span>
+            </div>
+            <h3 class="tpl-name">UIverse — Design System</h3>
+            <p class="tpl-desc">Comprehensive Figma UI kit with 400+ components, 6 themes, auto-layout, and design tokens ready for design-to-code handoff.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">400+ Components</span>
+              <span class="tpl-tag">Dark Mode</span>
+              <span class="tpl-tag">Design Tokens</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter  — $69</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 4 ──────── -->
+        <div class="tpl-card" data-category="social">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&fit=crop" alt="SocialPack Templates"/>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Réseau social</span>
+              <span class="tpl-price">$39</span>
+            </div>
+            <h3 class="tpl-name">SocialPack — Content Bundle</h3>
+            <p class="tpl-desc">120 editable social media templates for Instagram, LinkedIn, X and Facebook. Posts, banners and ads — all on-brand and ready to publish.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">120 Templates</span>
+              <span class="tpl-tag">Multi-platform</span>
+              <span class="tpl-tag">Canva Ready</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $39</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 5 ──────── -->
+        <div class="tpl-card" data-category="social">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1600096194534-95cf5ece3b73?w=800&q=80&fit=crop" alt="GridFlow Instagram Pack"/>
+            <div class="tpl-badge free">Gratuit</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder 
+              </a>
+              <a href="#" class="tpl-overlay-btn buy" style="background:#22c55e;">Télécharger →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Réseau social</span>
+              <span class="tpl-price free-tag">Free</span>
+            </div>
+            <h3 class="tpl-name">GridFlow — Instagram Pack</h3>
+            <p class="tpl-desc">Free set of 30 Instagram post and Story templates designed for a cohesive grid aesthetic. Minimal, clean, and fully editable in Canva or Figma.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Gratuit</span>
+              <span class="tpl-tag">30 Posts</span>
+              <span class="tpl-tag">Stories</span>
+              <span class="tpl-tag">Grid Layout</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy" style="background:#22c55e;">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 6 ──────── -->
+        <div class="tpl-card" data-category="social">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1592495981488-073153776d9a?w=800&q=80&fit=crop" alt="StoryKit Reels Pack"/>
+            <div class="tpl-badge new">New</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Réseau social</span>
+              <span class="tpl-price">$29</span>
+            </div>
+            <h3 class="tpl-name">StoryKit — Stories & Reels</h3>
+            <p class="tpl-desc">50 animated Story and Reels templates with motion-ready frames. Plug in your brand colors and go live in minutes.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Animated</span>
+              <span class="tpl-tag">Reels</span>
+              <span class="tpl-tag">Stories</span>
+              <span class="tpl-tag">After Effects</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $29</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 7 ──────── -->
+        <div class="tpl-card" data-category="visual">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80&fit=crop" alt="VisualCraft Marketing Kit"/>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Visual Content</span>
+              <span class="tpl-price">$55</span>
+            </div>
+            <h3 class="tpl-name">VisualCraft — Marketing Kit</h3>
+            <p class="tpl-desc">Print-ready marketing visuals: flyers, brochures, email headers, ad banners, and promotional materials in one consistent design system.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Print Ready</span>
+              <span class="tpl-tag">Flyers</span>
+              <span class="tpl-tag">Ad Banners</span>
+              <span class="tpl-tag">CMYK</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $55</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 8 ──────── -->
+        <div class="tpl-card" data-category="visual">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&fit=crop" alt="PitchDeck Presentation Kit"/>
+            <div class="tpl-badge popular">Populaire</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Visual Content</span>
+              <span class="tpl-price">$45</span>
+            </div>
+            <h3 class="tpl-name">PitchDeck — Presentation Kit</h3>
+            <p class="tpl-desc">60-slide investor-ready presentation template with charts, infographics, team bios, and roadmap layouts. PowerPoint & Keynote included.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">60 Slides</span>
+              <span class="tpl-tag">PowerPoint</span>
+              <span class="tpl-tag">Keynote</span>
+              <span class="tpl-tag">Infographics</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $45</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 9 ──────── -->
+        <div class="tpl-card" data-category="logo">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80&fit=crop" alt="IconSet Custom Icons"/>
+            <div class="tpl-badge free">Gratuit</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder 
+              </a>
+              <a href="#" class="tpl-overlay-btn buy" style="background:#22c55e;">Télécharger →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Logo & Icons</span>
+              <span class="tpl-price free-tag">Gratuit</span>
+            </div>
+            <h3 class="tpl-name">IconSet — 200 Free Icons</h3>
+            <p class="tpl-desc">A free collection of 200 hand-crafted line icons covering business, tech, lifestyle and UI. Available in SVG, PNG, and Figma component format.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Free</span>
+              <span class="tpl-tag">200 Icons</span>
+              <span class="tpl-tag">SVG & PNG</span>
+              <span class="tpl-tag">Figma</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Live Preview</a>
+              <a href="#" class="tpl-btn-buy" style="background:#22c55e;">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 10 ──────── -->
+        <div class="tpl-card" data-category="brand">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80&fit=crop" alt="MoodBoard Brand Mood Kit"/>
+            <div class="tpl-badge new">New</div>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Brand Identity</span>
+              <span class="tpl-price">$35</span>
+            </div>
+            <h3 class="tpl-name">MoodBoard — Brand Direction Kit</h3>
+            <p class="tpl-desc">Strategic brand mood board templates to define your visual direction before design starts. Helps clients align on look, feel, and tone of voice.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">Mood Board</span>
+              <span class="tpl-tag">Brand Strategy</span>
+              <span class="tpl-tag">Client Ready</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $35</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 11 ──────── -->
+        <div class="tpl-card" data-category="brand">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80&fit=crop" alt="BrandBook Guidelines"/>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">Brand Identity</span>
+              <span class="tpl-price">$59</span>
+            </div>
+            <h3 class="tpl-name">BrandBook — Guidelines Template</h3>
+            <p class="tpl-desc">A 40-page brand guidelines document template covering logo usage, color system, fonts, tone of voice, photography style, and do's & don'ts.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">40 Pages</span>
+              <span class="tpl-tag">PDF Export</span>
+              <span class="tpl-tag">Fully Editable</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $59</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── CARD 12 ──────── -->
+        <div class="tpl-card" data-category="uikit">
+          <div class="tpl-preview">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop" alt="ComponentX React UI Kit"/>
+            <div class="tpl-overlay">
+              <a href="#" class="tpl-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Regarder 
+              </a>
+              <a href="#" class="tpl-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="tpl-body">
+            <div class="tpl-meta">
+              <span class="tpl-category">UI Kit</span>
+              <span class="tpl-price">$79</span>
+            </div>
+            <h3 class="tpl-name">ComponentX — React UI Kit</h3>
+            <p class="tpl-desc">Production-ready React component library with Tailwind, Storybook, and Figma source files. 300+ components across 12 categories.</p>
+            <div class="tpl-tags">
+              <span class="tpl-tag">React</span>
+              <span class="tpl-tag">Tailwind</span>
+              <span class="tpl-tag">Storybook</span>
+              <span class="tpl-tag">300+ Items</span>
+            </div>
+            <div class="tpl-footer">
+              <a href="#" class="tpl-btn-preview">Voir le demo</a>
+              <a href="#" class="tpl-btn-buy">Acheter — $79</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">🎨</div>
+          <p class="empty-title">No assets in this category</p>
+          <p class="empty-desc">New design assets are coming soon. Check back later!</p>
+        </div>
+
+      </div><!-- /.templates-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="cta-banner-card">
+      <div class="cta-banner-text">
+        <p class="cta-banner-eyebrow">✦ Conception personnalisée</p>
+        <h2 class="cta-banner-title">Besoin de quelque chose<br>fait juste pour vous ?</h2>
+        <p class="cta-banner-desc">
+          Notre équipe créative conçoit des identités de marque, des systèmes visuels et des actifs sur mesure adaptés à votre entreprise, du concept aux fichiers finaux.
+        </p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="contact.html" class="cta-banner-btn primary">
+          Commencer un projet 
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="projet.html" class="cta-banner-btn ghost">Nos projets</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer-wrapper" id="contact" role="contentinfo">
+    <div class="footer-card">
+      <div class="footer-grid">
+
+        <!-- Col 1 : Brand -->
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo" aria-label="MPOUCK Home">
+            <img src="../images/favicon.png" alt="MPOUCK logo" class="footer-logo-img" width="40" height="40"/>
+            <span class="footer-logo-name">MPOUCK</span>
+          </a>
+          <p class="footer-desc">
+            Depuis 2026, nous transformons les entreprises grâce à des solutions de conception innovantes et les aidons à croître de manière efficace et durable.
+          </p>
+          <div class="footer-socials" role="list">
+            <a href="#" class="social-link" role="listitem" aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Twitter / X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2 : Quick links -->
+        <div class="footer-col">
+          <h4>Liens Rapides</h4>
+          <ul>
+            <li><a href="about.html">A propos</a></li>
+            <li><a href="services.html">Nos Services</a></li>
+            <li><a href="projet.html">Nos projets</a></li>
+            <li><a href="../index.html#testimonials">Testimonials</a></li>
+            <li><a href="about.html#team-section">Notre équipe</a></li>
+           <!-- <li><a href="/careers">Careers</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Col 3 : Design Services -->
+        <div class="footer-col">
+          <h4>Nos services</h4>
+          <ul>
+            <li><a href="Webtemplates.html">Website template</a></li>
+            <li><a href="aicours.html">Cours IA</a></li>
+            <li><a href="seoservice.html">SEO et stratégie de contenu</a></li>
+            <li><a href="social-media-packs.html">Packs réseaux sociaux</a></li>
+            <li><a href="GraphicDesign.html">Design graphique</a></li>
+            <li><a href="businessAutomation.html">Automatisation  IA</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 : Contact -->
+        <div class="footer-col footer-contact">
+          <h4>Contactez-nous</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-text">
+                <span>Kintelé, Brazzaville</span>
+                <span>République du Congo</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-text">
+                <a href="contact.html">mpouckaffaires@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-text">
+                <a href="tel:+242068652120">+242 06 865 21 20</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 MPOUCK. Tous droits réservés.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="conditions-utilisation.html">Conditions d'utilisation</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script>
+    /* ── Theme ── */
+    const html = document.documentElement;
+    const KEY  = 'mpouck-theme';
+
+    function applyTheme(t) {
+      html.setAttribute('data-theme', t);
+      try { localStorage.setItem(KEY, t); } catch(e) {}
+    }
+
+    (function() {
+      let s; try { s = localStorage.getItem(KEY); } catch(e) {}
+      if (s) applyTheme(s);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    })();
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ── Hamburger ── */
+    const hbg = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+
+    hbg.addEventListener('click', () => {
+      const o = mob.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+      mob.setAttribute('aria-hidden', !o);
+    });
+
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+
+    document.addEventListener('click', e => {
+      if (!document.getElementById('mainNav').contains(e.target)) {
+        closeMob(); closeDrop();
+      }
+    });
+
+    function closeMob() {
+      mob.classList.remove('open'); hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+      mob.setAttribute('aria-hidden', 'true');
+    }
+
+    /* ── Dropdown desktop Pages ── */
+    const deskPages = document.getElementById('deskPages');
+    const pagesTrig = document.getElementById('pagesTrigger');
+
+    pagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = deskPages.classList.toggle('open');
+      pagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    function closeDrop() {
+      deskPages.classList.remove('open');
+      pagesTrig.setAttribute('aria-expanded', 'false');
+    }
+
+    document.getElementById('mainNav').addEventListener('click', e => {
+      if (!deskPages.contains(e.target)) closeDrop();
+    });
+    document.getElementById('pagesPanel').querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', closeDrop)
+    );
+
+    /* ── Accordion mobile Pages ── */
+    const mobPagesMenu = document.getElementById('mobPages');
+    const mobPagesTrig = document.getElementById('mobPagesTrigger');
+    mobPagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = mobPagesMenu.classList.toggle('open');
+      mobPagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    /* ── Navbar shadow on scroll ── */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+      if (!navbar) return;
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 8px 40px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)'
+        : '';
+    }, { passive: true });
+
+    /* ── FILTER SYSTEM ── */
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const cards       = document.querySelectorAll('.tpl-card[data-category]');
+    const emptyState  = document.getElementById('emptyState');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        let visible  = 0;
+
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+
+        emptyState.classList.toggle('visible', visible === 0);
+      });
+    });
+
+    /* ── SEARCH ── */
+    var searchBtn     = document.getElementById('searchBtn');
+    var searchOverlay = document.getElementById('searchOverlay');
+    var searchModal   = document.getElementById('searchModal');
+    var searchInput   = document.getElementById('searchInput');
+    var searchResults = document.getElementById('searchResults');
+    var focusedIdx    = -1;
+
+    var CONTENT = [
+      { type:'Design', icon:'🎨', title:'BrandCore — Full Identity Kit',      desc:'Complete brand identity system with logo, colors, typography.',    href:'#' },
+      { type:'Design', icon:'🖌️', title:'Palette — Logo Starter Kit',         desc:'Free logo starter pack with 3 Figma templates.',                  href:'#' },
+      { type:'Design', icon:'📐', title:'UIverse — Design System',            desc:'400+ Figma components with 6 themes and design tokens.',           href:'#' },
+      { type:'Design', icon:'📱', title:'ComponentX — React UI Kit',          desc:'Production-ready React component library with Tailwind.',          href:'#' },
+      { type:'Design', icon:'📸', title:'SocialPack — Content Bundle',        desc:'120 editable social media templates for all platforms.',            href:'#' },
+      { type:'Design', icon:'🌿', title:'GridFlow — Instagram Pack',          desc:'Free set of 30 Instagram post and Story templates.',               href:'#' },
+      { type:'Design', icon:'🎬', title:'StoryKit — Stories & Reels',         desc:'50 animated Story and Reels templates.',                           href:'#' },
+      { type:'Design', icon:'🖼️', title:'VisualCraft — Marketing Kit',        desc:'Print-ready marketing visuals and ad banners.',                    href:'#' },
+      { type:'Design', icon:'📊', title:'PitchDeck — Presentation Kit',       desc:'60-slide investor-ready presentation template.',                   href:'#' },
+      { type:'Design', icon:'✏️', title:'IconSet — 200 Free Icons',           desc:'200 hand-crafted line icons in SVG, PNG, and Figma.',              href:'#' },
+      { type:'Design', icon:'🎯', title:'MoodBoard — Brand Direction Kit',    desc:'Strategic brand mood board templates.',                            href:'#' },
+      { type:'Design', icon:'📖', title:'BrandBook — Guidelines Template',    desc:'40-page brand guidelines document template.',                      href:'#' },
+    ];
+
+    function openSearch() {
+      searchOverlay.classList.add('open');
+      searchModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      searchBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(function(){ searchInput.focus(); }, 80);
+      renderHints();
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('open');
+      searchModal.classList.remove('open');
+      document.body.style.overflow = '';
+      searchBtn.setAttribute('aria-expanded', 'false');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+      searchResults.classList.remove('visible');
+      focusedIdx = -1;
+    }
+
+    var searchClose = document.getElementById('searchClose');
+    if (searchBtn)     searchBtn.addEventListener('click', openSearch);
+    if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+    if (searchClose)   searchClose.addEventListener('click', closeSearch);
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+      if (e.key === 'Escape' && searchModal.classList.contains('open')) closeSearch();
+    });
+
+    function hl(text, q) {
+      if (!q) return text;
+      var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$1') + ')', 'gi');
+      return text.replace(re, '<mark style="background:rgba(236,72,153,.2);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+    }
+
+    function itemHTML(d, q) {
+      return '<a class="search-item" href="' + d.href + '" role="option">' +
+        '<div class="search-item-icon">' + d.icon + '</div>' +
+        '<div class="search-item-body">' +
+          '<div class="search-item-title">' + hl(d.title, q) + '</div>' +
+          '<div class="search-item-desc">'  + d.desc + '</div>' +
+        '</div>' +
+        '<span class="search-item-badge">' + d.type + '</span>' +
+      '</a>';
+    }
+
+    function footerHTML(n) {
+      return '<div class="search-footer">' +
+        '<span>' + n + ' result' + (n > 1 ? 's' : '') + '</span>' +
+        '<span>↑↓ navigate &nbsp;·&nbsp; ↵ open &nbsp;·&nbsp; ESC close</span>' +
+      '</div>';
+    }
+
+    function bindItems() {
+      document.querySelectorAll('.search-item').forEach(function(el, i) {
+        el.addEventListener('click', closeSearch);
+        el.addEventListener('mouseenter', function() { focusedIdx = i; updateFocus(); });
+      });
+    }
+
+    function updateFocus() {
+      document.querySelectorAll('.search-item').forEach(function(el, i) {
+        el.classList.toggle('focused', i === focusedIdx);
+      });
+    }
+
+    function renderHints() {
+      var html = '';
+      CONTENT.slice(0, 6).forEach(function(d) { html += itemHTML(d, ''); });
+      html += footerHTML(CONTENT.length);
+      searchResults.innerHTML = html;
+      searchResults.classList.add('visible');
+      bindItems();
+    }
+
+    var debounceTimer;
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        var val = searchInput.value;
+        debounceTimer = setTimeout(function() {
+          var q = val.trim().toLowerCase();
+          if (!q) { renderHints(); return; }
+          var hits = CONTENT.filter(function(d) {
+            return d.title.toLowerCase().indexOf(q) >= 0 || d.desc.toLowerCase().indexOf(q) >= 0;
+          });
+          searchResults.classList.add('visible');
+          if (!hits.length) {
+            searchResults.innerHTML = '<div class="search-empty">No results for <strong>"' + val + '"</strong></div>';
+            return;
+          }
+          var html = '';
+          hits.forEach(function(d) { html += itemHTML(d, q); });
+          html += footerHTML(hits.length);
+          searchResults.innerHTML = html;
+          focusedIdx = -1; bindItems();
+        }, 80);
+      });
+
+      searchInput.addEventListener('keydown', function(e) {
+        var items = document.querySelectorAll('.search-item');
+        if (!items.length) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); focusedIdx = Math.min(focusedIdx+1, items.length-1); updateFocus(); }
+        if (e.key === 'ArrowUp')   { e.preventDefault(); focusedIdx = Math.max(focusedIdx-1, 0); updateFocus(); }
+        if (e.key === 'Enter' && focusedIdx >= 0) { items[focusedIdx].click(); }
+      });
+    }
+  </script>
+
+</body>
+</html>

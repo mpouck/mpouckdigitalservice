@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cours & Formations — MPOUCK</title>
+  <meta name="description" content="Maîtrisez l'IA, le design et le business en ligne avec les formations pratiques MPOUCK. ChatGPT, Midjourney, automatisation et bien plus.">
+  <meta name="keywords" content="MPOUCK, cours IA, formation, ChatGPT, Midjourney, design, automatisation">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
+  
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4VVWXXMJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F4VVWXXMJX');
+</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root, [data-theme="light"] {
+      --font:          'DM Sans', sans-serif;
+      --bg-page:       #f5f5f7;
+      --bg-nav:        #ffffff;
+      --bg-card:       #ffffff;
+      --bg-hover:      rgba(0,0,0,.045);
+      --text-dark:     #0d1b2a;
+      --text-muted:    #64748b;
+      --text-sub:      #94a3b8;
+      --border-nav:    rgba(0,0,0,.07);
+      --separator:     rgba(0,0,0,.07);
+      --social-bg:     rgba(0,0,0,.055);
+      --social-bg-h:   rgba(0,0,0,.1);
+      --btn-primary:   #0d1b2a;
+      --btn-p-text:    #ffffff;
+      --btn-s-bg:      #ffffff;
+      --btn-s-text:    #0d1b2a;
+      --btn-s-border:  rgba(0,0,0,.15);
+      --btn-hover-sh:  rgba(0,0,0,.22);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.04);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      --toggle-track:  #e4e4e7;
+      --toggle-thumb:  #ffffff;
+      --radius-nav:    20px;
+      --radius-pill:   999px;
+      --ease:          220ms cubic-bezier(.4,0,.2,1);
+      --accent:        #f59e0b;
+      --accent-2:      #ef4444;
+    }
+
+    [data-theme="dark"] {
+      --bg-page:       #0a0a0f;
+      --bg-nav:        #13131a;
+      --bg-card:       #1a1a24;
+      --bg-hover:      rgba(255,255,255,.06);
+      --text-dark:     #f1f5f9;
+      --text-muted:    #94a3b8;
+      --text-sub:      #64748b;
+      --border-nav:    rgba(255,255,255,.08);
+      --separator:     rgba(255,255,255,.07);
+      --social-bg:     rgba(255,255,255,.07);
+      --social-bg-h:   rgba(255,255,255,.13);
+      --btn-primary:   #f1f5f9;
+      --btn-p-text:    #0d1b2a;
+      --btn-s-bg:      transparent;
+      --btn-s-text:    #f1f5f9;
+      --btn-s-border:  rgba(255,255,255,.2);
+      --btn-hover-sh:  rgba(255,255,255,.15);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.3);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.45), 0 1px 6px rgba(0,0,0,.25);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.3);
+      --toggle-track:  #3f3f46;
+      --toggle-thumb:  #18181b;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    /* ══════ NAVBAR ══════ */
+    .nav-wrapper {
+      position: fixed; top: 20px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px); max-width: 960px;
+      z-index: 200;
+      animation: navIn .6s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes navIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; background: var(--bg-nav);
+      border-radius: var(--radius-nav);
+      padding: 10px 12px 10px 22px;
+      box-shadow: var(--shadow-nav);
+      border: 1px solid var(--border-nav);
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700; letter-spacing: -.5px;
+      color: var(--text-dark); text-decoration: none; flex-shrink: 0;
+      transition: color .35s ease;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2px;
+      list-style: none; flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-links a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-links a.active { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-has-dropdown { position: relative; }
+    .nav-drop-btn {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); background: transparent; border: none;
+      cursor: pointer; font-family: var(--font);
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-btn:hover,
+    .nav-has-dropdown.open .nav-drop-btn { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-drop-btn .chv { transition: transform var(--ease); display: inline-flex; }
+    .nav-has-dropdown.open .chv { transform: rotate(180deg); }
+    .nav-drop-panel {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      min-width: 190px; background: var(--bg-card);
+      border-radius: 14px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-float); padding: 7px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px) scale(.97);
+      transition: opacity .2s ease, transform .2s ease, background .35s ease, border-color .35s ease;
+    }
+    .nav-has-dropdown.open .nav-drop-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
+    .nav-drop-panel::before {
+      content: ''; position: absolute; top: -6px; left: 50%;
+      transform: translateX(-50%); width: 12px; height: 6px;
+      background: var(--bg-card);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 -1px 0 var(--border-nav));
+      transition: background .35s ease;
+    }
+    .nav-drop-panel a {
+      display: flex; align-items: center; gap: 9px;
+      padding: 8px 11px; border-radius: 9px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-panel a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-drop-panel .page-icon {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .77rem; flex-shrink: 0;
+    }
+    .nav-drop-panel .sep { height: 1px; background: var(--border-nav); margin: 4px 3px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 9px 18px; border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .82rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease), background .35s ease, color .35s ease;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 6px 20px var(--btn-hover-sh); }
+    .theme-btn {
+      position: relative; display: inline-flex; align-items: center;
+      width: 52px; height: 30px; border-radius: 999px;
+      border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+      background: var(--toggle-track);
+      transition: background .35s cubic-bezier(.4,0,.2,1);
+    }
+    .theme-thumb {
+      position: absolute; left: 3px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--toggle-thumb);
+      box-shadow: 0 1px 6px rgba(0,0,0,.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .35s cubic-bezier(.34,1.4,.64,1), background .35s ease;
+    }
+    [data-theme="dark"] .theme-thumb { transform: translateX(22px); background: #27272a; }
+    .theme-thumb svg { position: absolute; transition: opacity .2s ease; }
+    .ico-sun  { color: #f59e0b; }
+    .ico-moon { color: #818cf8; }
+    [data-theme="light"] .ico-sun  { opacity: 1; }
+    [data-theme="light"] .ico-moon { opacity: 0; }
+    [data-theme="dark"]  .ico-sun  { opacity: 0; }
+    [data-theme="dark"]  .ico-moon { opacity: 1; }
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; padding: 7px;
+      border: none; border-radius: 10px; background: transparent;
+      cursor: pointer; flex-shrink: 0; transition: background var(--ease);
+    }
+    .hamburger:hover { background: var(--bg-hover); }
+    .hamburger span {
+      display: block; width: 100%; height: 2px; border-radius: 2px;
+      background: var(--text-dark); transform-origin: center;
+      transition: transform var(--ease), opacity var(--ease), background .35s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0; right: 0;
+      border-radius: 16px; overflow: hidden;
+      max-height: 0; background: transparent;
+      box-shadow: none; border: 1px solid transparent;
+      padding: 0; pointer-events: none;
+      transition: max-height .38s cubic-bezier(.4,0,.2,1), background .28s ease, box-shadow .28s ease, border-color .28s ease, padding .28s ease;
+    }
+    .mobile-menu.open {
+      max-height: 700px; background: var(--bg-nav);
+      box-shadow: var(--shadow-float); border-color: var(--border-nav);
+      padding: 10px; pointer-events: auto;
+    }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 2px; padding: 6px 0 4px; }
+    .mobile-menu ul a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .mobile-menu ul a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .mobile-has-sub { display: flex; flex-direction: column; }
+    .mob-sub-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      width: 100%; text-align: left; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sub-trigger:hover,
+    .mobile-has-sub.open .mob-sub-trigger { color: var(--text-dark); background: var(--bg-hover); }
+    .mob-chv { display: inline-flex; transition: transform var(--ease); color: var(--text-sub); }
+    .mobile-has-sub.open .mob-chv { transform: rotate(180deg); }
+    .mob-sublist { overflow: hidden; max-height: 0; transition: max-height .32s cubic-bezier(.4,0,.2,1); }
+    .mobile-has-sub.open .mob-sublist { max-height: 400px; }
+    .mob-sublist-inner { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 4px 10px; }
+    .mob-sublink {
+      display: flex !important; align-items: center !important; gap: 9px;
+      padding: 9px 12px !important; border-radius: 10px;
+      font-size: .84rem !important; color: var(--text-muted) !important;
+      text-decoration: none; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sublink:hover { color: var(--text-dark) !important; background: var(--bg-hover) !important; }
+    .mob-sublink .page-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      background: var(--social-bg); display: flex; align-items: center;
+      justify-content: center; font-size: .72rem; flex-shrink: 0;
+    }
+    .mob-cta {
+      display: block; width: 100%; margin-top: 6px; padding: 13px;
+      border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 500;
+      text-align: center; text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), background .35s ease, color .35s ease;
+    }
+    .mob-cta:hover { transform: scale(1.02); }
+    @media (max-width: 720px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .nav-wrapper { width: calc(100% - 28px); top: 14px; }
+    }
+
+    /* ══════ SEARCH ══════ */
+    .search-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 10px;
+      border: none; background: transparent; cursor: pointer;
+      color: var(--text-muted); flex-shrink: 0;
+      transition: background var(--ease), color var(--ease);
+    }
+    .search-btn:hover { background: var(--bg-hover); color: var(--text-dark); }
+    .search-overlay {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(5px);
+      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+    }
+    .search-overlay.open { opacity: 1; pointer-events: auto; }
+    .search-modal {
+      position: fixed; top: 80px; left: 50%;
+      transform: translateX(-50%) translateY(-10px) scale(.97);
+      width: calc(100% - 40px); max-width: 640px;
+      z-index: 901; opacity: 0; pointer-events: none;
+      transition: opacity .22s ease, transform .25s cubic-bezier(.34,1.3,.64,1);
+    }
+    .search-modal.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .search-box svg { color: var(--text-sub); flex-shrink: 0; }
+    .search-input {
+      flex: 1; font-family: var(--font); font-size: .97rem;
+      color: var(--text-dark); background: transparent; border: none; outline: none;
+    }
+    .search-input::placeholder { color: var(--text-sub); }
+    .search-results {
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; margin-top: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.13);
+      overflow: hidden; max-height: 400px; overflow-y: auto;
+      display: none; transition: background .35s ease, border-color .35s ease;
+    }
+    .search-results.visible { display: block; }
+    .search-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; text-decoration: none;
+      border-bottom: 1px solid var(--separator); transition: background var(--ease);
+    }
+    .search-item:last-child { border-bottom: none; }
+    .search-item:hover, .search-item.focused { background: var(--bg-hover); }
+    .search-item-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--social-bg); display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+    .search-item-body { flex: 1; min-width: 0; }
+    .search-item-title { font-size: .86rem; font-weight: 600; color: var(--text-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
+    .search-item-desc { font-size: .74rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .search-item-badge { font-size: .64rem; font-weight: 700; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: var(--social-bg); color: var(--text-sub); flex-shrink: 0; }
+    .search-empty { padding: 28px 16px; text-align: center; color: var(--text-sub); font-size: .85rem; }
+    .search-footer { padding: 9px 16px; border-top: 1px solid var(--separator); display: flex; justify-content: space-between; font-size: .68rem; color: var(--text-sub); }
+    @media (max-width: 560px) { .search-modal { top: 64px; width: calc(100% - 24px); } }
+
+    /* ══════ PAGE HERO ══════ */
+    .page-hero {
+      padding: 140px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 600px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .page-hero::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,.06) 0%, transparent 70%);
+    }
+
+    .page-hero-inner {
+      max-width: 800px; margin: 0 auto; padding: 0 24px;
+      text-align: center; position: relative; z-index: 1;
+      animation: fadeUp .7s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: #d97706;
+      background: rgba(245,158,11,.1); padding: 5px 14px;
+      border-radius: 999px; margin-bottom: 22px;
+      border: 1px solid rgba(245,158,11,.25);
+    }
+
+    .page-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800;
+      letter-spacing: -.04em; line-height: 1.1;
+      color: var(--text-dark); margin-bottom: 18px;
+    }
+    .page-title span {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-sub {
+      font-size: 1rem; line-height: 1.75; color: var(--text-muted);
+      max-width: 540px; margin: 0 auto 36px;
+    }
+
+    .page-hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap; margin-bottom: 44px;
+    }
+    .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .hero-stat-num { font-size: 1.5rem; font-weight: 800; letter-spacing: -.04em; color: var(--text-dark); }
+    .hero-stat-label { font-size: .76rem; color: var(--text-muted); font-weight: 450; }
+    .hero-stat-sep { width: 1px; height: 30px; background: var(--separator); }
+
+    /* Badges de preuves sociales */
+    .hero-trust {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 15px; border-radius: 999px;
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      font-size: .78rem; font-weight: 500; color: var(--text-muted);
+      box-shadow: var(--shadow-card);
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .trust-badge svg { color: #22c55e; flex-shrink: 0; }
+
+    /* ══════ FILTER BAR ══════ */
+    .filter-section {
+      padding: 0 0 48px;
+      position: sticky; top: 86px; z-index: 100;
+    }
+    .filter-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .filter-bar {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg-nav); border-radius: 16px;
+      border: 1px solid var(--border-nav); box-shadow: var(--shadow-nav);
+      padding: 8px; overflow-x: auto; scrollbar-width: none;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-left { display: flex; align-items: center; gap: 6px; flex: 1; }
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 15px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500;
+      color: var(--text-muted); background: transparent;
+      border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-btn:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .filter-btn.active { background: var(--btn-primary); color: var(--btn-p-text); font-weight: 600; }
+    .filter-count {
+      font-size: .68rem; font-weight: 700;
+      background: var(--social-bg); color: var(--text-sub);
+      padding: 1px 7px; border-radius: 999px;
+      transition: background var(--ease), color var(--ease);
+    }
+    .filter-btn.active .filter-count { background: rgba(255,255,255,.2); color: var(--btn-p-text); }
+    .filter-sep { width: 1px; height: 24px; background: var(--separator); flex-shrink: 0; }
+    .filter-sort {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-sort:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    /* ══════ COURS GRID ══════ */
+    .cours-section { padding: 0 0 100px; }
+    .cours-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .cours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    /* Course Card */
+    .crs-card {
+      background: var(--bg-card);
+      border-radius: 20px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card); overflow: hidden;
+      transition: transform var(--ease), box-shadow var(--ease), background .35s ease, border-color .35s ease;
+      display: flex; flex-direction: column;
+    }
+    .crs-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-float); }
+    .crs-card.hidden { display: none; }
+
+    .crs-thumb {
+      position: relative; overflow: hidden; aspect-ratio: 16/9;
+      background: var(--bg-hover);
+    }
+    .crs-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+    }
+    .crs-card:hover .crs-thumb img { transform: scale(1.04); }
+
+    /* Play overlay */
+    .crs-play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(13,27,42,.45);
+      opacity: 0; transition: opacity var(--ease);
+      backdrop-filter: blur(2px);
+    }
+    .crs-card:hover .crs-play-overlay { opacity: 1; }
+    .crs-play-btn {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      transition: transform var(--ease);
+    }
+    .crs-play-btn:hover { transform: scale(1.1); }
+    .crs-play-btn svg { color: #0d1b2a; margin-left: 3px; }
+
+    .crs-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-size: .67rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+    }
+    .crs-badge.bestseller { background: #f59e0b; color: #fff; }
+    .crs-badge.new        { background: #6366f1; color: #fff; }
+    .crs-badge.free       { background: #22c55e; color: #fff; }
+    .crs-badge.hot        { background: #ef4444; color: #fff; }
+
+    /* Progress bar (optionnel — si déjà commencé) */
+    .crs-progress-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: rgba(255,255,255,.2);
+    }
+    .crs-progress-fill {
+      height: 100%; background: #f59e0b; border-radius: 0 3px 3px 0;
+    }
+
+    .crs-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+
+    .crs-meta-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .crs-category {
+      font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: #d97706;
+    }
+    .crs-level {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .7rem; font-weight: 500;
+      padding: 3px 9px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-muted);
+    }
+
+    .crs-name {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -.02em;
+      color: var(--text-dark); margin-bottom: 8px; line-height: 1.35;
+    }
+    .crs-desc {
+      font-size: .82rem; line-height: 1.6; color: var(--text-muted);
+      margin-bottom: 14px; display: -webkit-box;
+      -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* Infos rapides */
+    .crs-info {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .crs-info-item {
+      display: flex; align-items: center; gap: 5px;
+      font-size: .75rem; color: var(--text-muted);
+    }
+    .crs-info-item svg { color: var(--text-sub); flex-shrink: 0; }
+
+    /* Étoiles */
+    .crs-rating {
+      display: flex; align-items: center; gap: 5px; margin-bottom: 16px;
+    }
+    .crs-stars { display: flex; gap: 2px; }
+    .crs-stars svg { color: #f59e0b; }
+    .crs-rating-num { font-size: .82rem; font-weight: 700; color: var(--text-dark); }
+    .crs-rating-count { font-size: .75rem; color: var(--text-sub); }
+
+    /* Instructeur */
+    .crs-instructor {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 18px;
+      padding-top: 14px; border-top: 1px solid var(--separator);
+    }
+    .crs-avatar {
+      width: 28px; height: 28px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+      border: 1px solid var(--border-nav);
+    }
+    .crs-instructor-name { font-size: .78rem; color: var(--text-muted); }
+    .crs-instructor-name strong { font-weight: 600; color: var(--text-dark); }
+
+    /* Footer carte */
+    .crs-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; margin-top: auto;
+    }
+    .crs-price-block { display: flex; align-items: baseline; gap: 6px; }
+    .crs-price { font-size: 1.2rem; font-weight: 800; letter-spacing: -.03em; color: var(--text-dark); }
+    .crs-price-old { font-size: .82rem; color: var(--text-sub); text-decoration: line-through; }
+    .crs-price.free-tag { color: #22c55e; }
+
+    .crs-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 10px;
+      font-size: .82rem; font-weight: 600; font-family: var(--font);
+      text-decoration: none; border: none; cursor: pointer;
+      background: var(--btn-primary); color: var(--btn-p-text);
+      transition: transform var(--ease), box-shadow var(--ease), background .35s ease, color .35s ease;
+    }
+    .crs-btn:hover { transform: scale(1.04); box-shadow: 0 6px 18px var(--btn-hover-sh); }
+    .crs-btn.free-btn { background: #22c55e; color: #fff; box-shadow: none; }
+    .crs-btn.free-btn:hover { box-shadow: 0 6px 18px rgba(34,197,94,.35); }
+
+    /* Empty state */
+    .empty-state { display: none; text-align: center; padding: 80px 24px; grid-column: 1 / -1; }
+    .empty-state.visible { display: block; }
+    .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .empty-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .empty-desc { font-size: .88rem; color: var(--text-muted); }
+
+    /* ══════ FEATURED COURSE (grande carte) ══════ */
+    .featured-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px 40px;
+    }
+    .featured-card {
+      background: var(--bg-card);
+      border-radius: 24px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card); overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .featured-media { position: relative; overflow: hidden; min-height: 360px; }
+    .featured-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .featured-media-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(245,158,11,.7), rgba(239,68,68,.5));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .featured-play {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,.3);
+      cursor: pointer; transition: transform var(--ease);
+    }
+    .featured-play:hover { transform: scale(1.08); }
+    .featured-play svg { color: #0d1b2a; margin-left: 4px; }
+    .featured-label {
+      position: absolute; top: 20px; left: 20px;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.9); backdrop-filter: blur(8px);
+      font-size: .72rem; font-weight: 700; color: #d97706; letter-spacing: .04em;
+    }
+    .featured-body {
+      padding: 44px 48px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .featured-eyebrow {
+      font-size: .73rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: #d97706; margin-bottom: 12px;
+    }
+    .featured-title {
+      font-size: 1.7rem; font-weight: 800; letter-spacing: -.03em;
+      line-height: 1.2; color: var(--text-dark); margin-bottom: 14px;
+    }
+    .featured-desc {
+      font-size: .88rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 24px;
+    }
+    .featured-includes {
+      display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px;
+    }
+    .fi-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .82rem; color: var(--text-muted);
+    }
+    .fi-item svg { color: #22c55e; flex-shrink: 0; }
+    .featured-footer { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .featured-price {
+      font-size: 2rem; font-weight: 800; letter-spacing: -.04em;
+      color: var(--text-dark);
+    }
+    .featured-price-old { font-size: .9rem; color: var(--text-sub); text-decoration: line-through; }
+    .featured-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 28px; border-radius: 999px;
+      font-size: .88rem; font-weight: 700; font-family: var(--font);
+      text-decoration: none; border: none; cursor: pointer;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #fff; box-shadow: 0 6px 24px rgba(245,158,11,.4);
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .featured-btn:hover { transform: scale(1.04); box-shadow: 0 10px 32px rgba(245,158,11,.5); }
+
+    @media (max-width: 900px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-media { min-height: 260px; }
+      .featured-body { padding: 32px 28px; }
+    }
+
+    /* ══════ CTA BANNER ══════ */
+    .cta-banner { padding: 0 24px 80px; max-width: 1200px; margin: 0 auto; }
+    .cta-banner-card {
+      background: linear-gradient(135deg, #1a1a24, #0d1b2a);
+      border-radius: 24px; padding: 56px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap; position: relative; overflow: hidden;
+    }
+    [data-theme="light"] .cta-banner-card { background: linear-gradient(135deg, #0d1b2a, #1e293b); }
+    .cta-banner-card::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,.15), transparent 70%);
+    }
+    .cta-banner-card::after {
+      content: '';
+      position: absolute; bottom: -100px; left: 200px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(239,68,68,.1), transparent 70%);
+    }
+    .cta-banner-text { position: relative; z-index: 1; }
+    .cta-banner-eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #f59e0b; margin-bottom: 12px; }
+    .cta-banner-title { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.2; color: #fff; margin-bottom: 10px; }
+    .cta-banner-desc { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.6; max-width: 420px; }
+    .cta-banner-actions { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+    .cta-banner-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 26px; border-radius: 999px;
+      font-size: .88rem; font-weight: 700; font-family: var(--font);
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .cta-banner-btn:hover { transform: scale(1.04); }
+    .cta-banner-btn.primary { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; box-shadow: 0 4px 20px rgba(245,158,11,.35); }
+    .cta-banner-btn.ghost { background: transparent; color: rgba(255,255,255,.7); border: 1.5px solid rgba(255,255,255,.2); }
+    .cta-banner-btn.ghost:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    /* ══════ FOOTER ══════ */
+    .footer-wrapper { width: 100%; padding: 0 14px 14px; }
+    .footer-card {
+      background: var(--bg-nav); border-radius: 24px;
+      box-shadow: var(--shadow-card); border: 1px solid var(--border-nav);
+      padding: 48px 48px 0; overflow: hidden;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px 32px; padding-bottom: 40px; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; margin-bottom: 16px; }
+    .footer-logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--border-nav); }
+    .footer-logo-name { font-size: 1.1rem; font-weight: 700; letter-spacing: -.4px; color: var(--text-dark); }
+    .footer-desc { font-size: .83rem; line-height: 1.7; color: var(--text-muted); max-width: 220px; margin-bottom: 22px; }
+    .footer-socials { display: flex; gap: 8px; }
+    .social-link { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: var(--social-bg); color: var(--text-muted); text-decoration: none; transition: background var(--ease), color var(--ease), transform var(--ease); }
+    .social-link:hover { background: var(--social-bg-h); color: var(--text-dark); transform: translateY(-2px); }
+    .footer-col h4 { font-size: .82rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: .84rem; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; transition: color var(--ease), padding-left var(--ease); }
+    .footer-col ul a:hover { color: var(--text-dark); padding-left: 4px; }
+    .contact-list { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 10px; }
+    .contact-icon { width: 30px; height: 30px; border-radius: 8px; background: var(--social-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--text-muted); transition: background .35s ease; }
+    .contact-item:hover .contact-icon { background: var(--social-bg-h); color: var(--text-dark); }
+    .contact-text { display: flex; flex-direction: column; gap: 1px; }
+    .contact-text span, .contact-text a { font-size: .83rem; color: var(--text-muted); line-height: 1.55; text-decoration: none; }
+    .contact-text a:hover { color: var(--text-dark); }
+    .footer-bottom { border-top: 1px solid var(--separator); margin: 0 -48px; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: .78rem; color: var(--text-sub); }
+    .footer-legal { display: flex; align-items: center; gap: 20px; }
+    .footer-legal a { font-size: .78rem; color: var(--text-sub); text-decoration: none; transition: color var(--ease); }
+    .footer-legal a:hover { color: var(--text-dark); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .cours-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .footer-card { padding: 32px 24px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { margin: 0 -24px; padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-legal { flex-wrap: wrap; gap: 12px; }
+      .cours-grid { grid-template-columns: 1fr; }
+      .cta-banner-card { padding: 36px 28px; }
+      .cta-banner-actions { width: 100%; }
+      .page-hero-stats { gap: 16px; }
+      .hero-stat-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="nav-wrapper" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="navbar">
+      <a href="index.html" class="nav-logo">MPOUCK</a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li class="nav-has-dropdown" id="deskPages">
+          <button class="nav-drop-btn" id="pagesTrigger" aria-haspopup="true" aria-expanded="false">
+            Pages
+            <svg class="chv" width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-drop-panel" id="pagesPanel" role="menu">
+            <a href="about.html" role="menuitem"><span class="page-icon">👤</span>A propos</a>
+            <a href="projet.html"  role="menuitem"><span class="page-icon">🖼️</span>Projets</a>
+            <div class="sep"></div>
+            <a href="blog.html"    role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+            <!--<a href="/contact.html" role="menuitem"><span class="page-icon">✉️</span> Contact</a> -->
+          </div>
+        </li>
+        <li><a href="Webtemplates.html">Templates</a></li>
+        <li><a href="contact">Contact</a></li>
+      <!--  <li><a href="cours.html" class="active">Cours</a></li> -->
+      </ul>
+
+      <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Rechercher" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <button class="theme-btn" id="themeBtn" aria-label="Mode jour/nuit">
+          <span class="theme-thumb">
+            <svg class="ico-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="ico-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+          </span>
+        </button>
+        <a href="projet.html" class="nav-cta">Noos projets</a>
+        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="menu">
+      <ul>
+        <li><a href="index.html" role="menuitem">Acceuil</a></li>
+        <li><a href="services.html" role="menuitem">Services</a></li>
+        <li class="mobile-has-sub" id="mobPages">
+          <button class="mob-sub-trigger" id="mobPagesTrigger" aria-expanded="false">
+            Pages
+            <svg class="mob-chv" width="13" height="13" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="mob-sublist">
+            <div class="mob-sublist-inner">
+              <a href="about.html"   class="mob-sublink" role="menuitem"><span class="page-icon">👤</span> A propos</a>
+              <a href="projet.html"    class="mob-sublink" role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+              <a href="/blog.html"    class="mob-sublink" role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+            <!--  <a href="/contact.html" class="mob-sublink" role="menuitem"><span class="page-icon">✉️</span> Contact</a> -->
+            </div>
+          </div>
+        </li>
+        <li><a href="Webtemplates.html" role="menuitem">Templates</a></li>
+        <li><a href="templates.html" role="menuitem">Templates</a></li>
+      <!--  <li><a href="cours.html" role="menuitem">Cours</a></li> -->
+      </ul>
+      <a href="projet.html" class="mob-cta" role="menuitem">Nos projets</a>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY + MODAL -->
+  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Recherche">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un cours…" autocomplete="off" spellcheck="false"/>
+      <button id="searchClose" aria-label="Fermer" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;flex-shrink:0;border:1px solid var(--border-nav);background:var(--bg-hover);cursor:pointer;color:var(--text-muted);">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">
+        <svg width="7" height="7" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        Formations MPOUCK
+      </div>
+      <h1 class="page-title">
+        Maîtrisez <span>l'IA, le design</span><br>et le business en ligne
+      </h1>
+      <p class="page-sub">
+        Des formations pratiques, 100 % en ligne et à votre rythme. Apprenez les outils qui transforment votre business — ChatGPT, Midjourney, automatisation et bien plus.
+      </p>
+
+      <div class="page-hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">18+</div>
+          <div class="hero-stat-label">Cours disponibles</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3.2k+</div>
+          <div class="hero-stat-label">Apprenants</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.8★</div>
+          <div class="hero-stat-label">Note moyenne</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">À votre rythme</div>
+        </div>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Accès à vie
+        </div>
+        <div class="trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Certificat inclus
+        </div>
+        <div class="trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Mises à jour gratuites
+        </div>
+        <div class="trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Remboursement 30j
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       COURS VEDETTE
+  ══════════════════════════════════════════ -->
+  <div class="featured-wrap">
+    <div class="featured-card">
+      <div class="featured-media">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80&fit=crop" alt="Maîtrisez ChatGPT"/>
+        <div class="featured-label">⭐ Cours Vedette</div>
+      </div>
+      <div class="featured-body">
+        <p class="featured-eyebrow">🤖 Intelligence Artificielle</p>
+        <h2 class="featured-title">ChatGPT Pro : Maîtrisez l'IA pour votre business</h2>
+        <p class="featured-desc">De zéro à expert — automatisez, créez et scalez votre activité grâce à ChatGPT. 12 heures de contenu pratique, cas réels et exercices guidés.</p>
+        <div class="featured-includes">
+          <div class="fi-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            48 leçons vidéo HD + ressources téléchargeables
+          </div>
+          <div class="fi-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            100 prompts professionnels prêts à l'emploi
+          </div>
+          <div class="fi-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificat de réussite + accès à vie
+          </div>
+          <div class="fi-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Communauté privée + suivi personnalisé
+          </div>
+        </div>
+        <div class="featured-footer">
+          <div>
+            <div class="featured-price">79€</div>
+            <div class="featured-price-old">Prix normal : 149€</div>
+          </div>
+          <a href="#" class="featured-btn">
+            Je m'inscris maintenant
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FILTER BAR
+  ══════════════════════════════════════════ -->
+  <div class="filter-section">
+    <div class="filter-inner">
+      <div class="filter-bar">
+        <div class="filter-left">
+          <button class="filter-btn active" data-filter="all">Tous <span class="filter-count">9</span></button>
+          <button class="filter-btn" data-filter="ia">Intelligence Artificielle <span class="filter-count">3</span></button>
+          <button class="filter-btn" data-filter="design">Design & UI <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="business">Business <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="automatisation">Automatisation <span class="filter-count">2</span></button>
+        </div>
+        <div class="filter-sep"></div>
+        <button class="filter-sort">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="12" y1="18" x2="21" y2="18"/>
+          </svg>
+          Trier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       COURS GRID
+  ══════════════════════════════════════════ -->
+  <section class="cours-section">
+    <div class="cours-inner">
+      <div class="cours-grid" id="coursGrid">
+
+        <!-- ───── COURS 1 ───── -->
+        <div class="crs-card" data-category="ia">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&q=80&fit=crop" alt="Midjourney"/>
+            <div class="crs-badge bestseller">Bestseller</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">🤖 IA</span>
+              <span class="crs-level">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Intermédiaire
+              </span>
+            </div>
+            <h3 class="crs-name">Midjourney Maîtrise : Créer des visuels IA pro</h3>
+            <p class="crs-desc">Générez des visuels époustouflants pour vos projets, clients et réseaux sociaux avec Midjourney V6.</p>
+            <div class="crs-info">
+              <div class="crs-info-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                8h de contenu
+              </div>
+              <div class="crs-info-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                32 leçons
+              </div>
+              <div class="crs-info-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                1.4k élèves
+              </div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.9</span>
+              <span class="crs-rating-count">(312 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">59€</span>
+                <span class="crs-price-old">99€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 2 ───── -->
+        <div class="crs-card" data-category="design">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=700&q=80&fit=crop" alt="UI/UX Figma"/>
+            <div class="crs-badge new">Nouveau</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">🎨 Design</span>
+              <span class="crs-level">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Débutant
+              </span>
+            </div>
+            <h3 class="crs-name">UI/UX avec Figma : Du wireframe au prototype</h3>
+            <p class="crs-desc">Apprenez à concevoir des interfaces belles et intuitives avec Figma, de zéro jusqu'au prototype interactif.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>40 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>890 élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.8</span>
+              <span class="crs-rating-count">(184 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">69€</span>
+                <span class="crs-price-old">129€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 3 ───── -->
+        <div class="crs-card" data-category="automatisation">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80&fit=crop" alt="Automatisation Make"/>
+            <div class="crs-badge hot">🔥 Hot</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">⚙️ Automatisation</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Intermédiaire</span>
+            </div>
+            <h3 class="crs-name">Make & Zapier : Automatisez votre business</h3>
+            <p class="crs-desc">Construisez des workflows puissants qui tournent 24h/7j. Économisez des heures chaque semaine et scalez sans effort.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>25 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>760 élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.7</span>
+              <span class="crs-rating-count">(98 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">49€</span>
+                <span class="crs-price-old">89€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 4 ───── -->
+        <div class="crs-card" data-category="business">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80&fit=crop" alt="Lancer son business"/>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">💼 Business</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Débutant</span>
+            </div>
+            <h3 class="crs-name">Lancer son business en ligne de A à Z</h3>
+            <p class="crs-desc">De l'idée au premier client — stratégie, site web, réseaux sociaux, offre et vente. Le guide complet pour entrepreneurs.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>58 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>2.1k élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.9</span>
+              <span class="crs-rating-count">(431 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">89€</span>
+                <span class="crs-price-old">169€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 5 ───── -->
+        <div class="crs-card" data-category="ia">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&q=80&fit=crop" alt="Prompt Engineering"/>
+            <div class="crs-badge free">Gratuit</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">🤖 IA</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Débutant</span>
+            </div>
+            <h3 class="crs-name">Introduction au Prompt Engineering</h3>
+            <p class="crs-desc">Apprenez les bases pour rédiger des prompts efficaces et tirer le meilleur de tous les outils IA. Cours d'initiation offert.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>12 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>3.8k élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.8</span>
+              <span class="crs-rating-count">(876 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price free-tag">Gratuit</span>
+              </div>
+              <a href="#" class="crs-btn free-btn">Accès gratuit →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 6 ───── -->
+        <div class="crs-card" data-category="design">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=700&q=80&fit=crop" alt="Design Graphique"/>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">🎨 Design</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Avancé</span>
+            </div>
+            <h3 class="crs-name">Identité visuelle & Branding professionnel</h3>
+            <p class="crs-desc">Créez des identités visuelles mémorables — logo, charte graphique, moodboard et kit de marque complet pour vos clients.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>36 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>540 élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.9</span>
+              <span class="crs-rating-count">(127 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">79€</span>
+                <span class="crs-price-old">139€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 7 ───── -->
+        <div class="crs-card" data-category="automatisation">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=700&q=80&fit=crop" alt="n8n Automation"/>
+            <div class="crs-badge new">Nouveau</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">⚙️ Automatisation</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Avancé</span>
+            </div>
+            <h3 class="crs-name">n8n Expert : Automatisation avancée & IA</h3>
+            <p class="crs-desc">Combinez n8n et les APIs d'IA pour créer des agents intelligents et des flux de travail entièrement autonomes.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>28 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>340 élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.8</span>
+              <span class="crs-rating-count">(56 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="../images/imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">69€</span>
+                <span class="crs-price-old">119€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 8 ───── -->
+        <div class="crs-card" data-category="business">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=700&q=80&fit=crop" alt="Content Marketing"/>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">💼 Business</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Intermédiaire</span>
+            </div>
+            <h3 class="crs-name">Content Marketing & Stratégie de contenu IA</h3>
+            <p class="crs-desc">Construisez une machine à contenu grâce à l'IA — blogs, newsletters, réseaux sociaux. Attirez des clients sans publicité payante.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>44 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>980 élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.7</span>
+              <span class="crs-rating-count">(209 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">55€</span>
+                <span class="crs-price-old">99€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ───── COURS 9 ───── -->
+        <div class="crs-card" data-category="ia">
+          <div class="crs-thumb">
+            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=700&q=80&fit=crop" alt="IA pour les réseaux"/>
+            <div class="crs-badge bestseller">Bestseller</div>
+            <div class="crs-play-overlay">
+              <div class="crs-play-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="crs-body">
+            <div class="crs-meta-top">
+              <span class="crs-category">🤖 IA</span>
+              <span class="crs-level"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Débutant</span>
+            </div>
+            <h3 class="crs-name">IA pour les réseaux sociaux : Virality System</h3>
+            <p class="crs-desc">Système complet pour produire 30 posts/mois en 2h grâce à l'IA. Hooks, scripts vidéo, légendes — le tout automatisé.</p>
+            <div class="crs-info">
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5h de contenu</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>22 leçons</div>
+              <div class="crs-info-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>1.7k élèves</div>
+            </div>
+            <div class="crs-rating">
+              <div class="crs-stars">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="crs-rating-num">4.9</span>
+              <span class="crs-rating-count">(388 avis)</span>
+            </div>
+            <div class="crs-instructor">
+              <img src="imageProfil.jpg" alt="instructeur" class="crs-avatar"/>
+              <span class="crs-instructor-name">Par <strong>MPOUCK Jho Chadrack</strong></span>
+            </div>
+            <div class="crs-footer">
+              <div class="crs-price-block">
+                <span class="crs-price">45€</span>
+                <span class="crs-price-old">79€</span>
+              </div>
+              <a href="#" class="crs-btn">S'inscrire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">🎓</div>
+          <p class="empty-title">Aucun cours dans cette catégorie</p>
+          <p class="empty-desc">De nouvelles formations arrivent bientôt. Restez connecté !</p>
+        </div>
+
+      </div><!-- /.cours-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="cta-banner-card">
+      <div class="cta-banner-text">
+        <p class="cta-banner-eyebrow">✦ Accès Illimité : INDISPONIBLE</p>
+        <h2 class="cta-banner-title">Accédez à tous les cours<br>avec le Pass MPOUCK</h2>
+        <p class="cta-banner-desc">
+          Un abonnement, tous les cours inclus. Nouvelles formations chaque mois, communauté privée et coaching personnalisé.
+        </p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="contact.html" class="cta-banner-btn primary">
+          Découvrir le Pass
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#" class="cta-banner-btn ghost">Voir les tarifs</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer-wrapper" role="contentinfo">
+    <div class="footer-card">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="favicon.png" alt="MPOUCK logo" class="footer-logo-img" width="40" height="40"/>
+            <span class="footer-logo-name">MPOUCK</span>
+          </a>
+          <p class="footer-desc">Depuis 2026, nous transformons les entreprises grâce à des solutions innovantes et accompagnons leur croissance efficace et durable.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liens Rapides</h4>
+          <ul>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="/services.html">Nos Services</a></li>
+            <li><a href="projet.html">Nos projets</a></li>
+            <li><a href="cours.html">Cours</a></li>
+            <li><a href="index.html#testimonials">Témoignages</a></li>
+            <li><a href="about.html">Notre équipe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Nos services</h4>
+          <ul>
+            <li><a href="Webtemplates.html">Website templates</a></li>
+            <li><a href="aicours.html">Cours IA</a></li>
+            <li><a href="seoservice.html">SEO et stratégie de contenu</a></li>
+            <li><a href="businessAutomation.html">Automatisation</a></li>
+            <li><a href="social-media-packs.html">Packs réseaux sociaux</a></li>
+            <li><a href="GraphicDesign.html">Design graphique</a></li> 
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contactez-nous</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="contact-text"><span> Brazzaville</span><span>République du Congo</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="contact-text"><a href="/cdn-cgi/l/email-protection#fd9e9293899c9e89bd908d92889e96d39e9290"><span class="__cf_email__" data-cfemail="d0b3bfbea4b1b3a490bda0bfa5b3bbfeb3bfbd">mpouckaffaires@gmail.com</span></a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="contact-text"><a href="tel:+242068777246">+242 06 865 21 20</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 MPOUCK. Tous droits réservés.</p>
+        <nav class="footer-legal">
+          <a href="/terms">Conditions d'utilisation</a>
+          <a href="politique-confidentialite.html">Politiques de confidentialité</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ── Thème ── */
+    const html = document.documentElement;
+    const KEY  = 'mpouck-theme';
+    function applyTheme(t) { html.setAttribute('data-theme', t); try { localStorage.setItem(KEY, t); } catch(e) {} }
+    (function() {
+      let s; try { s = localStorage.getItem(KEY); } catch(e) {}
+      if (s) applyTheme(s);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    })();
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ── Hamburger ── */
+    const hbg = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    hbg.addEventListener('click', () => {
+      const o = mob.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+      mob.setAttribute('aria-hidden', !o);
+    });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+    document.addEventListener('click', e => {
+      if (!document.getElementById('mainNav').contains(e.target)) { closeMob(); closeDrop(); }
+    });
+    function closeMob() {
+      mob.classList.remove('open'); hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false'); mob.setAttribute('aria-hidden', 'true');
+    }
+
+    /* ── Dropdown Pages ── */
+    const deskPages = document.getElementById('deskPages');
+    const pagesTrig = document.getElementById('pagesTrigger');
+    pagesTrig.addEventListener('click', e => { e.stopPropagation(); const o = deskPages.classList.toggle('open'); pagesTrig.setAttribute('aria-expanded', o); });
+    function closeDrop() { deskPages.classList.remove('open'); pagesTrig.setAttribute('aria-expanded', 'false'); }
+    document.getElementById('mainNav').addEventListener('click', e => { if (!deskPages.contains(e.target)) closeDrop(); });
+    document.getElementById('pagesPanel').querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrop));
+
+    /* ── Mobile accordion ── */
+    const mobPagesMenu = document.getElementById('mobPages');
+    const mobPagesTrig = document.getElementById('mobPagesTrigger');
+    mobPagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = mobPagesMenu.classList.toggle('open');
+      mobPagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    /* ── Navbar scroll shadow ── */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (!navbar) return;
+      navbar.style.boxShadow = window.scrollY > 10 ? '0 8px 40px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)' : '';
+    }, { passive: true });
+
+    /* ── FILTRES ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards      = document.querySelectorAll('.crs-card[data-category]');
+    const emptyState = document.getElementById('emptyState');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+        emptyState.classList.toggle('visible', visible === 0);
+      });
+    });
+
+    /* ── SEARCH ── */
+    var searchBtn     = document.getElementById('searchBtn');
+    var searchOverlay = document.getElementById('searchOverlay');
+    var searchModal   = document.getElementById('searchModal');
+    var searchInput   = document.getElementById('searchInput');
+    var searchResults = document.getElementById('searchResults');
+    var focusedIdx    = -1;
+
+    var CONTENT = [
+      { icon:'🤖', title:'ChatGPT Pro — cours vedette',           desc:'De zéro à expert IA pour votre business.',              href:'#' },
+      { icon:'🎨', title:'Midjourney Maîtrise',                   desc:'Créez des visuels IA professionnels.',                  href:'#' },
+      { icon:'🖥️', title:'UI/UX avec Figma',                     desc:'Du wireframe au prototype interactif.',                 href:'#' },
+      { icon:'⚙️', title:'Make & Zapier — Automatisation',        desc:'Workflows puissants pour scaler votre activité.',      href:'#' },
+      { icon:'💼', title:'Lancer son business en ligne',          desc:'De l\'idée au premier client — guide complet.',        href:'#' },
+      { icon:'✨', title:'Introduction au Prompt Engineering',    desc:'Cours d\'initiation gratuit — maîtrisez les prompts.', href:'#' },
+      { icon:'🎯', title:'Identité visuelle & Branding',          desc:'Créez des marques mémorables avec Figma.',             href:'#' },
+      { icon:'🔧', title:'n8n Expert — Automatisation avancée',   desc:'Agents IA et workflows entièrement autonomes.',        href:'#' },
+      { icon:'📱', title:'Content Marketing & IA',                desc:'30 posts/mois en 2h grâce à l\'IA.',                  href:'#' },
+      { icon:'📊', title:'IA pour les réseaux sociaux',           desc:'Système complet de création de contenu viral.',       href:'#' },
+    ];
+
+    function openSearch() {
+      searchOverlay.classList.add('open'); searchModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      searchBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(() => searchInput.focus(), 80);
+      renderHints();
+    }
+    function closeSearch() {
+      searchOverlay.classList.remove('open'); searchModal.classList.remove('open');
+      document.body.style.overflow = '';
+      searchBtn.setAttribute('aria-expanded', 'false');
+      searchInput.value = ''; searchResults.innerHTML = '';
+      searchResults.classList.remove('visible'); focusedIdx = -1;
+    }
+
+    var searchClose = document.getElementById('searchClose');
+    if (searchBtn)     searchBtn.addEventListener('click', openSearch);
+    if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+    if (searchClose)   searchClose.addEventListener('click', closeSearch);
+
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+      if (e.key === 'Escape' && searchModal.classList.contains('open')) closeSearch();
+    });
+
+    function hl(text, q) {
+      if (!q) return text;
+      return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$1') + ')', 'gi'), '<mark style="background:rgba(245,158,11,.2);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+    }
+    function itemHTML(d, q) {
+      return '<a class="search-item" href="' + d.href + '" role="option">' +
+        '<div class="search-item-icon">' + d.icon + '</div>' +
+        '<div class="search-item-body"><div class="search-item-title">' + hl(d.title, q) + '</div><div class="search-item-desc">' + d.desc + '</div></div>' +
+        '<span class="search-item-badge">Cours</span></a>';
+    }
+    function footerHTML(n) {
+      return '<div class="search-footer"><span>' + n + ' résultat' + (n > 1 ? 's' : '') + '</span><span>↑↓ naviguer · ↵ ouvrir · ESC fermer</span></div>';
+    }
+    function bindItems() {
+      document.querySelectorAll('.search-item').forEach((el, i) => {
+        el.addEventListener('click', closeSearch);
+        el.addEventListener('mouseenter', () => { focusedIdx = i; updateFocus(); });
+      });
+    }
+    function updateFocus() { document.querySelectorAll('.search-item').forEach((el, i) => el.classList.toggle('focused', i === focusedIdx)); }
+    function renderHints() {
+      var h = CONTENT.slice(0,6).map(d => itemHTML(d,'')).join('') + footerHTML(CONTENT.length);
+      searchResults.innerHTML = h; searchResults.classList.add('visible'); bindItems();
+    }
+
+    var debounceTimer;
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        var val = searchInput.value;
+        debounceTimer = setTimeout(() => {
+          var q = val.trim().toLowerCase();
+          if (!q) { renderHints(); return; }
+          var hits = CONTENT.filter(d => d.title.toLowerCase().includes(q) || d.desc.toLowerCase().includes(q));
+          searchResults.classList.add('visible');
+          if (!hits.length) { searchResults.innerHTML = '<div class="search-empty">Aucun résultat pour <strong>"' + val + '"</strong></div>'; return; }
+          searchResults.innerHTML = hits.map(d => itemHTML(d, q)).join('') + footerHTML(hits.length);
+          focusedIdx = -1; bindItems();
+        }, 80);
+      });
+      searchInput.addEventListener('keydown', e => {
+        var items = document.querySelectorAll('.search-item');
+        if (!items.length) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); focusedIdx = Math.min(focusedIdx+1, items.length-1); updateFocus(); }
+        if (e.key 

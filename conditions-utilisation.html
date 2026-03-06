@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditions d'Utilisation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4VVWXXMJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F4VVWXXMJX');
+</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #1a1714;
+      --paper:   #f5f1eb;
+      --cream:   #ede8e0;
+      --rust:    #b94a2c;
+      --gold:    #c8a96e;
+      --muted:   #7a7570;
+      --rule:    #d4cdc4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--rust); width: 0%;
+      z-index: 100; transition: width .1s linear;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      padding: 72px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,.04) 39px,
+          rgba(255,255,255,.04) 40px
+        );
+    }
+
+    .header-eyebrow {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: .7rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .header-eyebrow::before,
+    .header-eyebrow::after {
+      content: '—';
+      margin: 0 10px;
+      opacity: .5;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      position: relative;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .header-meta {
+      margin-top: 24px;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      color: rgba(245,241,235,.45);
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      border: 1px solid var(--rule);
+      background: var(--cream);
+      padding: 32px 36px;
+      margin: 52px 0 64px;
+      position: relative;
+    }
+    .toc::before {
+      content: 'Sommaire';
+      position: absolute;
+      top: -11px; left: 24px;
+      background: var(--cream);
+      padding: 0 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .toc ol {
+      list-style: none;
+      columns: 2;
+      column-gap: 40px;
+    }
+    @media(max-width: 560px){ .toc ol { columns: 1; } }
+    .toc li {
+      padding: 5px 0;
+      border-bottom: 1px dotted var(--rule);
+      counter-increment: toc;
+    }
+    .toc li:last-child { border-bottom: none; }
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .875rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color .2s;
+    }
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: .7rem;
+      font-weight: 500;
+      color: var(--rust);
+      letter-spacing: .05em;
+      min-width: 22px;
+    }
+    .toc a:hover { color: var(--rust); }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--rule);
+      line-height: 1;
+      min-width: 48px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .section p {
+      margin-bottom: 14px;
+      color: #3a3530;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul, .section ol {
+      margin: 12px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .section li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      font-size: .94rem;
+      color: #3a3530;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .section li:last-child { border-bottom: none; }
+    .section li::before {
+      content: '›';
+      position: absolute; left: 4px;
+      color: var(--rust);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* callout boxes */
+    .callout {
+      border-left: 3px solid var(--rust);
+      background: rgba(185,74,44,.06);
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: .9rem;
+    }
+    .callout strong {
+      font-weight: 500;
+      color: var(--rust);
+      display: block;
+      margin-bottom: 4px;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(245,241,235,.5);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: .78rem;
+      letter-spacing: .08em;
+    }
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    footer strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    /* ── BACK TO TOP ── */
+    #back-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--ink);
+      color: var(--paper);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    #back-top.show { opacity: 1; pointer-events: all; }
+    #back-top:hover { background: var(--rust); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header>
+  <div class="header-eyebrow">Document légal</div>
+  <h1>Conditions<br><em>d'Utilisation</em></h1>
+  <p class="header-meta">Dernière mise à jour&nbsp;: 3 mars 2026</p>
+</header>
+
+<div class="wrapper">
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc" aria-label="Table des matières">
+    <ol>
+      <li><a href="#s1">Acceptation des conditions</a></li>
+      <li><a href="#s2">Description du service</a></li>
+      <li><a href="#s3">Comptes utilisateurs</a></li>
+      <li><a href="#s4">Utilisation acceptable</a></li>
+      <li><a href="#s5">Propriété intellectuelle</a></li>
+      <li><a href="#s6">Confidentialité &amp; données</a></li>
+      <li><a href="#s7">Limitation de responsabilité</a></li>
+      <li><a href="#s8">Résiliation</a></li>
+      <li><a href="#s9">Modifications</a></li>
+      <li><a href="#s10">Contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <article class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Acceptation des conditions</h2>
+    </div>
+    <p>En accédant à ce site ou en utilisant nos services, vous reconnaissez avoir lu, compris et accepté d'être lié par les présentes Conditions d'Utilisation, ainsi que par notre Politique de Confidentialité.</p>
+    <p>Si vous n'acceptez pas l'intégralité de ces conditions, vous devez cesser immédiatement toute utilisation de notre site et de nos services. L'accès continu au site vaut acceptation pleine et entière des présentes conditions.</p>
+    <div class="callout">
+      <strong>Important</strong>
+      Ces conditions constituent un contrat juridiquement contraignant entre vous et notre société. Veuillez les lire attentivement.
+    </div>
+  </article>
+
+  <!-- SECTION 2 -->
+  <article class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Description du service</h2>
+    </div>
+    <p>Notre plateforme fournit un ensemble de services numériques accessibles via internet. Les fonctionnalités disponibles peuvent varier selon le type de compte et le forfait souscrit.</p>
+    <p>Nous nous réservons le droit de modifier, suspendre ou interrompre tout ou partie du service à tout moment, avec ou sans préavis, sans engager notre responsabilité envers vous ou tout tiers.</p>
+  </article>
+
+  <!-- SECTION 3 -->
+  <article class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Comptes utilisateurs</h2>
+    </div>
+    <p>Pour accéder à certaines fonctionnalités, vous devez créer un compte. Lors de l'inscription, vous vous engagez à :</p>
+    <ul>
+      <li>Fournir des informations exactes, complètes et à jour.</li>
+      <li>Maintenir la confidentialité de vos identifiants de connexion.</li>
+      <li>Notifier immédiatement tout accès non autorisé à votre compte.</li>
+      <li>Ne pas créer plusieurs comptes sans autorisation préalable.</li>
+      <li>Être âgé d'au moins 18 ans ou avoir obtenu le consentement parental requis.</li>
+    </ul>
+    <p>Vous êtes seul responsable de toute activité effectuée depuis votre compte.</p>
+  </article>
+
+  <!-- SECTION 4 -->
+  <article class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Utilisation acceptable</h2>
+    </div>
+    <p>Vous vous engagez à utiliser le service uniquement à des fins licites et conformément aux présentes conditions. Il vous est strictement interdit de :</p>
+    <ul>
+      <li>Contourner, désactiver ou interférer avec les mesures de sécurité du site.</li>
+      <li>Transmettre tout contenu illégal, diffamatoire, obscène ou menaçant.</li>
+      <li>Collecter des informations personnelles d'autres utilisateurs sans leur consentement.</li>
+      <li>Utiliser le service à des fins de spam, hameçonnage ou fraude.</li>
+      <li>Tenter d'accéder sans autorisation à nos systèmes ou réseaux.</li>
+      <li>Revendre ou exploiter commercialement le service sans accord écrit.</li>
+    </ul>
+    <div class="callout">
+      <strong>Avertissement</strong>
+      Toute violation de cette section peut entraîner la résiliation immédiate de votre compte et des poursuites judiciaires.
+    </div>
+  </article>
+
+  <!-- SECTION 5 -->
+  <article class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Propriété intellectuelle</h2>
+    </div>
+    <p>L'ensemble du contenu présent sur ce site — textes, graphiques, logos, images, clips audio, téléchargements numériques et logiciels — est la propriété de notre société ou de ses fournisseurs de contenu, et est protégé par les lois françaises et internationales sur la propriété intellectuelle.</p>
+    <p>Vous bénéficiez d'une licence limitée, non exclusive et non transférable pour accéder au service et l'utiliser à des fins personnelles et non commerciales. Cette licence ne vous autorise pas à :</p>
+    <ul>
+      <li>Reproduire, distribuer ou modifier notre contenu sans autorisation écrite.</li>
+      <li>Utiliser nos marques déposées sans notre accord préalable.</li>
+      <li>Procéder à toute ingénierie inverse de nos logiciels.</li>
+    </ul>
+  </article>
+
+  <!-- SECTION 6 -->
+  <article class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Confidentialité &amp; données personnelles</h2>
+    </div>
+    <p>La collecte et le traitement de vos données personnelles sont régis par notre Politique de Confidentialité, conforme au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.</p>
+    <p>En utilisant notre service, vous consentez à la collecte et à l'utilisation de vos informations telles que décrites dans notre Politique de Confidentialité. Vous disposez à tout moment d'un droit d'accès, de rectification, de suppression et de portabilité de vos données.</p>
+  </article>
+
+  <!-- SECTION 7 -->
+  <article class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Limitation de responsabilité</h2>
+    </div>
+    <p>Dans toute la mesure permise par la loi applicable, notre société ne saurait être tenue responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, notamment la perte de profits, de données ou de clientèle, résultant de votre utilisation ou de votre incapacité à utiliser le service.</p>
+    <p>Le service est fourni « en l'état » et « selon disponibilité », sans garantie d'aucune sorte, expresse ou implicite, incluant notamment les garanties de qualité marchande, d'adéquation à un usage particulier ou d'absence de violation.</p>
+    <div class="callout">
+      <strong>Note</strong>
+      Certaines juridictions ne permettent pas l'exclusion de certaines garanties. Ces exclusions peuvent ne pas s'appliquer à votre situation.
+    </div>
+  </article>
+
+  <!-- SECTION 8 -->
+  <article class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Résiliation</h2>
+    </div>
+    <p>Nous nous réservons le droit de suspendre ou de résilier votre accès au service, avec ou sans préavis, pour tout motif, notamment en cas de violation des présentes conditions.</p>
+    <p>Vous pouvez à tout moment clôturer votre compte en nous contactant via les coordonnées indiquées à la section 10. La résiliation entraîne la suppression de vos données conformément à notre Politique de Confidentialité.</p>
+  </article>
+
+  <!-- SECTION 9 -->
+  <article class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Modifications des conditions</h2>
+    </div>
+    <p>Nous nous réservons le droit de modifier les présentes conditions à tout moment. Les modifications prennent effet dès leur publication sur cette page. La date de dernière mise à jour figurant en haut du document sera actualisée en conséquence.</p>
+    <p>Il vous appartient de consulter régulièrement cette page. La poursuite de l'utilisation du service après publication des modifications vaut acceptation des nouvelles conditions.</p>
+  </article>
+
+  <!-- SECTION 10 -->
+  <article class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Contact</h2>
+    </div>
+    <p>Pour toute question relative aux présentes Conditions d'Utilisation, veuillez nous contacter :</p>
+    <ul>
+      <li>Par e-mail : <a href="mailto:legal@votresite.fr" style="color:var(--rust);text-decoration:none;">legal@votresite.fr</a></li>
+      <li>Par courrier : 12 rue de la République, 75001 Paris, France</li>
+      <li>Par téléphone : +33 (0)1 00 00 00 00 — du lundi au vendredi, 9h–18h</li>
+    </ul>
+    <p>Tout litige relatif à ces conditions sera soumis à la juridiction exclusive des tribunaux compétents de Paris, et régi par le droit français.</p>
+  </article>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <p><strong>© 2026 VotreSociété SAS.</strong> Tous droits réservés.</p>
+  <p style="margin-top:8px;">
+    <a href="#">Politique de confidentialité</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="#">Mentions légales</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="#">Cookies</a>
+  </p>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+  // Progress bar
+  const prog = document.getElementById('progress');
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    prog.style.width = pct + '%';
+    backTop.classList.toggle('show', h.scrollTop > 400);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

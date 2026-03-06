@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Politique de Confidentialité</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4VVWXXMJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F4VVWXXMJX');
+</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #16191f;
+      --paper:  #f0f2f5;
+      --cream:  #e6e9ee;
+      --blue:   #2a5caa;
+      --accent: #4a82d4;
+      --gold:   #a8c0e8;
+      --muted:  #6b7280;
+      --rule:   #ced4dd;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.85;
+      min-height: 100vh;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent); width: 0%;
+      z-index: 100; transition: width .1s linear;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      padding: 80px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(42,92,170,.45) 0%, transparent 70%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 79px,
+          rgba(255,255,255,.025) 79px,
+          rgba(255,255,255,.025) 80px
+        );
+    }
+
+    .header-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: .68rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .header-eyebrow svg {
+      width: 14px; height: 14px;
+      opacity: .7;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .header-meta {
+      margin-top: 20px;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      color: rgba(240,242,245,.38);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border: 1px solid rgba(168,192,232,.3);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .badge svg { width: 11px; height: 11px; }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: var(--blue);
+      color: #fff;
+      padding: 22px 32px;
+      font-size: .88rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+    .intro-strip a { color: var(--gold); text-decoration: underline; }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      border: 1px solid var(--rule);
+      background: var(--cream);
+      padding: 32px 36px;
+      margin: 52px 0 64px;
+      position: relative;
+    }
+    .toc::before {
+      content: 'Sommaire';
+      position: absolute;
+      top: -11px; left: 24px;
+      background: var(--cream);
+      padding: 0 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: .67rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .toc ol {
+      list-style: none;
+      columns: 2;
+      column-gap: 40px;
+      counter-reset: toc;
+    }
+    @media(max-width: 560px){ .toc ol { columns: 1; } }
+    .toc li {
+      padding: 5px 0;
+      border-bottom: 1px dotted var(--rule);
+      counter-increment: toc;
+    }
+    .toc li:last-child { border-bottom: none; }
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .875rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color .2s;
+    }
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: .7rem;
+      font-weight: 500;
+      color: var(--blue);
+      letter-spacing: .05em;
+      min-width: 22px;
+    }
+    .toc a:hover { color: var(--blue); }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--rule);
+      line-height: 1;
+      min-width: 48px;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.42rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .section p {
+      margin-bottom: 14px;
+      color: #2e3340;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul, .section ol {
+      margin: 12px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .section li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      font-size: .93rem;
+      color: #2e3340;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .section li:last-child { border-bottom: none; }
+    .section li::before {
+      content: '›';
+      position: absolute; left: 4px;
+      color: var(--blue);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* sub-list */
+    .section ul ul {
+      margin-left: 20px;
+      margin-top: 4px;
+    }
+    .section ul ul li::before { color: var(--accent); }
+
+    /* data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: .875rem;
+    }
+    .data-table th {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      font-size: .72rem;
+      text-transform: uppercase;
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rule);
+      color: #2e3340;
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: var(--cream); }
+
+    /* callout boxes */
+    .callout {
+      border-left: 3px solid var(--blue);
+      background: rgba(42,92,170,.06);
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: .9rem;
+    }
+    .callout strong {
+      font-weight: 500;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 4px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .callout-green {
+      border-left-color: #2e7d52;
+      background: rgba(46,125,82,.06);
+    }
+    .callout-green strong { color: #2e7d52; }
+
+    /* rights grid */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .right-card {
+      border: 1px solid var(--rule);
+      padding: 18px 16px;
+      background: var(--cream);
+    }
+    .right-card .icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .right-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .right-card p {
+      font-size: .82rem;
+      color: var(--muted);
+      margin: 0 !important;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(240,242,245,.45);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: .78rem;
+      letter-spacing: .07em;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer strong { color: var(--paper); font-weight: 500; }
+
+    /* ── BACK TO TOP ── */
+    #back-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--ink); color: var(--paper);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    #back-top.show { opacity: 1; pointer-events: all; }
+    #back-top:hover { background: var(--blue); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header>
+  <div class="header-eyebrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Document légal
+  </div>
+  <h1>Politique de<br><em>Confidentialité</em></h1>
+  <p class="header-meta">Dernière mise à jour&nbsp;: 3 mars 2026</p>
+  <div class="header-badges">
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Conforme RGPD
+    </span>
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      Loi Informatique &amp; Libertés
+    </span>
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      Transparence totale
+    </span>
+  </div>
+</header>
+
+<div class="intro-strip">
+  Chez <strong>VotreSociété</strong>, votre vie privée est notre priorité. Cette politique explique clairement quelles données nous collectons, pourquoi, et comment vous pouvez exercer vos droits.
+  Des questions ? Contactez notre <a href="mailto:dpo@votresite.fr">Délégué à la Protection des Données</a>.
+</div>
+
+<div class="wrapper">
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc" aria-label="Table des matières">
+    <ol>
+      <li><a href="#s1">Qui sommes-nous ?</a></li>
+      <li><a href="#s2">Données collectées</a></li>
+      <li><a href="#s3">Finalités &amp; bases légales</a></li>
+      <li><a href="#s4">Durée de conservation</a></li>
+      <li><a href="#s5">Partage des données</a></li>
+      <li><a href="#s6">Transferts internationaux</a></li>
+      <li><a href="#s7">Vos droits RGPD</a></li>
+      <li><a href="#s8">Cookies &amp; traceurs</a></li>
+      <li><a href="#s9">Sécurité des données</a></li>
+      <li><a href="#s10">Mineurs</a></li>
+      <li><a href="#s11">Modifications</a></li>
+      <li><a href="#s12">Nous contacter</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <article class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Qui sommes-nous ?</h2>
+    </div>
+    <p><strong>VotreSociété SAS</strong>, immatriculée au RCS de Paris sous le numéro 000 000 000, dont le siège social est situé au 12 rue de la République, 75001 Paris, est le responsable du traitement de vos données personnelles au sens du RGPD.</p>
+    <p>Notre Délégué à la Protection des Données (DPO) est joignable à l'adresse <a href="mailto:dpo@votresite.fr" style="color:var(--blue)">dpo@votresite.fr</a>.</p>
+  </article>
+
+  <!-- SECTION 2 -->
+  <article class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Données que nous collectons</h2>
+    </div>
+    <p>Nous ne collectons que les données strictement nécessaires à la fourniture de nos services. Voici les catégories concernées :</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Catégorie</th>
+          <th>Exemples</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Identité</strong></td>
+          <td>Nom, prénom, photo de profil</td>
+          <td>Fournie par vous</td>
+        </tr>
+        <tr>
+          <td><strong>Contact</strong></td>
+          <td>Adresse e-mail, numéro de téléphone</td>
+          <td>Fournie par vous</td>
+        </tr>
+        <tr>
+          <td><strong>Connexion</strong></td>
+          <td>Adresse IP, navigateur, horodatage</td>
+          <td>Collecte automatique</td>
+        </tr>
+        <tr>
+          <td><strong>Navigation</strong></td>
+          <td>Pages visitées, clics, durée de session</td>
+          <td>Cookies / analytics</td>
+        </tr>
+        <tr>
+          <td><strong>Paiement</strong></td>
+          <td>4 derniers chiffres de carte, pays de facturation</td>
+          <td>Via prestataire sécurisé</td>
+        </tr>
+        <tr>
+          <td><strong>Communications</strong></td>
+          <td>Contenu de vos messages au support</td>
+          <td>Fournie par vous</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Engagement</strong>
+      Nous ne collectons jamais de données sensibles (origine raciale, santé, opinions politiques, etc.) sauf consentement explicite et motif légal valable.
+    </div>
+  </article>
+
+  <!-- SECTION 3 -->
+  <article class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Finalités &amp; bases légales du traitement</h2>
+    </div>
+    <p>Chaque traitement de vos données repose sur une base légale au sens de l'article 6 du RGPD :</p>
+    <ul>
+      <li><strong>Exécution du contrat</strong> — Création et gestion de votre compte, fourniture du service, support client.</li>
+      <li><strong>Intérêt légitime</strong> — Sécurité informatique, prévention des fraudes, amélioration de nos services, statistiques agrégées.</li>
+      <li><strong>Obligation légale</strong> — Conservation des données de facturation (10 ans), réponse aux réquisitions judiciaires.</li>
+      <li><strong>Consentement</strong> — Envoi de newsletters et communications marketing, dépôt de cookies non essentiels.</li>
+    </ul>
+    <p>Vous pouvez retirer votre consentement à tout moment sans que cela affecte la licéité du traitement antérieur.</p>
+  </article>
+
+  <!-- SECTION 4 -->
+  <article class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Durée de conservation</h2>
+    </div>
+    <p>Nous conservons vos données uniquement le temps nécessaire aux finalités pour lesquelles elles ont été collectées :</p>
+    <ul>
+      <li><strong>Données de compte actif</strong> — Pendant toute la durée de la relation contractuelle.</li>
+      <li><strong>Données de compte clôturé</strong> — 3 ans à compter de la clôture (délai de prescription).</li>
+      <li><strong>Données de facturation</strong> — 10 ans (obligation comptable légale).</li>
+      <li><strong>Logs de connexion</strong> — 12 mois maximum.</li>
+      <li><strong>Cookies analytics</strong> — 13 mois maximum.</li>
+      <li><strong>Données du support</strong> — 3 ans après la résolution du ticket.</li>
+    </ul>
+    <div class="callout callout-green">
+      <strong>Suppression</strong>
+      À l'issue de ces délais, vos données sont supprimées ou anonymisées de manière irréversible.
+    </div>
+  </article>
+
+  <!-- SECTION 5 -->
+  <article class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Partage des données</h2>
+    </div>
+    <p>Nous ne vendons jamais vos données personnelles. Nous pouvons les partager dans les cas suivants :</p>
+    <ul>
+      <li><strong>Sous-traitants techniques</strong> — Hébergement, paiement, envoi d'e-mails, analytics. Tous sont liés par un accord de traitement conforme au RGPD.</li>
+      <li><strong>Autorités compétentes</strong> — Sur réquisition légale, judiciaire ou administrative.</li>
+      <li><strong>Partenaires commerciaux</strong> — Uniquement avec votre consentement préalable explicite.</li>
+      <li><strong>Cession d'activité</strong> — En cas de fusion, acquisition ou cession partielle, dans le respect du RGPD et avec notification préalable.</li>
+    </ul>
+  </article>
+
+  <!-- SECTION 6 -->
+  <article class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Transferts internationaux</h2>
+    </div>
+    <p>Certains de nos sous-traitants sont établis hors de l'Union Européenne. Dans ce cas, nous nous assurons que le transfert est encadré par l'un des mécanismes suivants :</p>
+    <ul>
+      <li>Décision d'adéquation de la Commission européenne.</li>
+      <li>Clauses contractuelles types (CCT) approuvées par la Commission.</li>
+      <li>Règles d'entreprise contraignantes (BCR).</li>
+    </ul>
+    <p>La liste de nos sous-traitants et les garanties applicables est disponible sur simple demande à <a href="mailto:dpo@votresite.fr" style="color:var(--blue)">dpo@votresite.fr</a>.</p>
+  </article>
+
+  <!-- SECTION 7 -->
+  <article class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Vos droits RGPD</h2>
+    </div>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous bénéficiez des droits suivants :</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <span class="icon">👁️</span>
+        <h3>Droit d'accès</h3>
+        <p>Obtenir une copie de vos données personnelles que nous détenons.</p>
+      </div>
+      <div class="right-card">
+        <span class="icon">✏️</span>
+        <h3>Droit de rectification</h3>
+        <p>Corriger des données inexactes ou incomplètes vous concernant.</p>
+      </div>
+      <div class="right-card">
+        <span class="icon">🗑️</span>
+        <h3>Droit à l'effacement</h3>
+        <p>Demander la suppression de vos données (« droit à l'oubli »).</p>
+      </div>
+      <div class="right-card">
+        <span class="icon">⏸️</span>
+        <h3>Droit à la limitation</h3>
+        <p>Geler l'utilisation de vos données dans certaines circonstances.</p>
+      </div>
+      <div class="right-card">
+        <span class="icon">📦</span>
+        <h3>Droit à la portabilité</h3>
+        <p>Recevoir vos données dans un format structuré et lisible par machine.</p>
+      </div>
+      <div class="right-card">
+        <span class="icon">🚫</span>
+        <h3>Droit d'opposition</h3>
+        <p>Vous opposer au traitement fondé sur l'intérêt légitime ou à des fins de prospection.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:20px">Pour exercer l'un de ces droits, envoyez votre demande à <a href="mailto:dpo@votresite.fr" style="color:var(--blue)">dpo@votresite.fr</a> en joignant une copie de votre pièce d'identité. Nous y répondrons dans un délai d'un mois.</p>
+    <p>En cas de réponse insatisfaisante, vous avez le droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" style="color:var(--blue)">www.cnil.fr</a>).</p>
+  </article>
+
+  <!-- SECTION 8 -->
+  <article class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Cookies &amp; traceurs</h2>
+    </div>
+    <p>Notre site utilise des cookies et technologies similaires. Nous distinguons trois catégories :</p>
+    <ul>
+      <li><strong>Cookies essentiels</strong> — Indispensables au fonctionnement du site (session, panier, sécurité). Ils ne requièrent pas votre consentement.</li>
+      <li><strong>Cookies analytiques</strong> — Mesure d'audience anonymisée pour améliorer nos contenus. Soumis à votre consentement.</li>
+      <li><strong>Cookies marketing</strong> — Personnalisation de la publicité. Soumis à votre consentement préalable.</li>
+    </ul>
+    <p>Vous pouvez gérer vos préférences à tout moment via notre <strong>Centre de préférences cookies</strong> accessible en pied de page, ou via les paramètres de votre navigateur.</p>
+    <div class="callout">
+      <strong>Durée de vie</strong>
+      Les cookies analytiques et marketing sont automatiquement supprimés après 13 mois conformément aux recommandations de la CNIL.
+    </div>
+  </article>
+
+  <!-- SECTION 9 -->
+  <article class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Sécurité des données</h2>
+    </div>
+    <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte, destruction ou divulgation accidentelle :</p>
+    <ul>
+      <li>Chiffrement des données en transit (TLS 1.3) et au repos (AES-256).</li>
+      <li>Contrôle d'accès strict basé sur le principe du moindre privilège.</li>
+      <li>Audits de sécurité réguliers et tests d'intrusion annuels.</li>
+      <li>Procédure de gestion des violations de données avec notification à la CNIL sous 72 heures.</li>
+      <li>Formation régulière de nos équipes à la protection des données.</li>
+    </ul>
+    <p>Malgré nos efforts, aucun système n'est infaillible. En cas de violation susceptible d'engendrer un risque élevé pour vous, nous vous en informerons dans les meilleurs délais.</p>
+  </article>
+
+  <!-- SECTION 10 -->
+  <article class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Mineurs</h2>
+    </div>
+    <p>Nos services sont destinés aux personnes âgées d'au moins <strong>18 ans</strong>. Nous ne collectons pas sciemment de données personnelles concernant des mineurs.</p>
+    <p>Si vous êtes parent ou tuteur légal et que vous pensez que votre enfant nous a fourni des données personnelles sans votre consentement, veuillez nous contacter immédiatement à <a href="mailto:dpo@votresite.fr" style="color:var(--blue)">dpo@votresite.fr</a>. Nous procéderons à la suppression de ces données dans les plus brefs délais.</p>
+  </article>
+
+  <!-- SECTION 11 -->
+  <article class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Modifications de la politique</h2>
+    </div>
+    <p>Nous pouvons mettre à jour cette politique à tout moment pour refléter des évolutions légales, réglementaires ou opérationnelles. La date de dernière mise à jour figurant en haut du document est actualisée à chaque révision.</p>
+    <p>En cas de modification substantielle affectant vos droits, nous vous en informerons par e-mail ou par un avis visible sur notre site au moins <strong>30 jours avant</strong> l'entrée en vigueur des changements.</p>
+  </article>
+
+  <!-- SECTION 12 -->
+  <article class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>Nous contacter</h2>
+    </div>
+    <p>Pour toute question relative à cette politique ou à vos données personnelles, vous pouvez joindre notre équipe :</p>
+    <ul>
+      <li><strong>DPO :</strong> <a href="mailto:dpo@votresite.fr" style="color:var(--blue)">dpo@votresite.fr</a></li>
+      <li><strong>Support général :</strong> <a href="mailto:contact@votresite.fr" style="color:var(--blue)">contact@votresite.fr</a></li>
+      <li><strong>Courrier :</strong> VotreSociété SAS — DPO, 12 rue de la République, 75001 Paris, France</li>
+      <li><strong>Téléphone :</strong> +33 (0)1 00 00 00 00 — lundi au vendredi, 9h–18h</li>
+    </ul>
+    <div class="callout callout-green">
+      <strong>Délai de réponse</strong>
+      Nous nous engageons à répondre à toute demande relative à vos droits dans un délai maximum d'un mois à compter de la réception de votre demande.
+    </div>
+  </article>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <p><strong>© 2026 VotreSociété SAS.</strong> Tous droits réservés.</p>
+  <p style="margin-top:8px;">
+    <a href="conditions-utilisation.html">Conditions d'utilisation</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="#">Mentions légales</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="#">Gestion des cookies</a>
+  </p>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+  const prog = document.getElementById('progress');
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    prog.style.width = pct + '%';
+    backTop.classList.toggle('show', h.scrollTop > 400);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

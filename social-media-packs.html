@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packs réseaux sociaux— MPOUCK</title>
+  <meta name="description" content="Découvrez les packs Social Media MPOUCK. Visuels prêts pour Instagram, Facebook, TikTok, LinkedIn et plus — formats optimisés, designs professionnels.">
+  <meta name="keywords" content="MPOUCK, social media, pack Instagram, pack Facebook, pack TikTok, pack LinkedIn, templates réseaux sociaux">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
+  
+  
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4VVWXXMJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F4VVWXXMJX');
+</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════ */
+    :root, [data-theme="light"] {
+      --font:          'DM Sans', sans-serif;
+      --bg-page:       #f5f5f7;
+      --bg-nav:        #ffffff;
+      --bg-card:       #ffffff;
+      --bg-hover:      rgba(0,0,0,.045);
+      --text-dark:     #0d1b2a;
+      --text-muted:    #64748b;
+      --text-sub:      #94a3b8;
+      --border-nav:    rgba(0,0,0,.07);
+      --separator:     rgba(0,0,0,.07);
+      --social-bg:     rgba(0,0,0,.055);
+      --social-bg-h:   rgba(0,0,0,.1);
+      --btn-primary:   #0d1b2a;
+      --btn-p-text:    #ffffff;
+      --btn-s-bg:      #ffffff;
+      --btn-s-text:    #0d1b2a;
+      --btn-s-border:  rgba(0,0,0,.15);
+      --btn-hover-sh:  rgba(0,0,0,.22);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.08), 0 1px 6px rgba(0,0,0,.04);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      --toggle-track:  #e4e4e7;
+      --toggle-thumb:  #ffffff;
+      --radius-nav:    20px;
+      --radius-pill:   999px;
+      --ease:          220ms cubic-bezier(.4,0,.2,1);
+      --accent:        #6366f1;
+    }
+
+    [data-theme="dark"] {
+      --bg-page:       #0a0a0f;
+      --bg-nav:        #13131a;
+      --bg-card:       #1a1a24;
+      --bg-hover:      rgba(255,255,255,.06);
+      --text-dark:     #f1f5f9;
+      --text-muted:    #94a3b8;
+      --text-sub:      #64748b;
+      --border-nav:    rgba(255,255,255,.08);
+      --separator:     rgba(255,255,255,.07);
+      --social-bg:     rgba(255,255,255,.07);
+      --social-bg-h:   rgba(255,255,255,.13);
+      --btn-primary:   #f1f5f9;
+      --btn-p-text:    #0d1b2a;
+      --btn-s-bg:      transparent;
+      --btn-s-text:    #f1f5f9;
+      --btn-s-border:  rgba(255,255,255,.2);
+      --btn-hover-sh:  rgba(255,255,255,.15);
+      --shadow-nav:    0 4px 28px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.3);
+      --shadow-card:   0 8px 40px rgba(0,0,0,.45), 0 1px 6px rgba(0,0,0,.25);
+      --shadow-float:  0 16px 48px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.3);
+      --toggle-track:  #3f3f46;
+      --toggle-thumb:  #18181b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    /* ══════════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════════ */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 960px;
+      z-index: 200;
+      animation: navIn .6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes navIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; background: var(--bg-nav);
+      border-radius: var(--radius-nav);
+      padding: 10px 12px 10px 22px;
+      box-shadow: var(--shadow-nav);
+      border: 1px solid var(--border-nav);
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700; letter-spacing: -.5px;
+      color: var(--text-dark); text-decoration: none; flex-shrink: 0;
+      transition: color .35s ease;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2px;
+      list-style: none; flex: 1; justify-content: center;
+    }
+
+    .nav-links a {
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-links a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-links a.active { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 13px; border-radius: 10px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); background: transparent; border: none;
+      cursor: pointer; font-family: var(--font);
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-btn:hover,
+    .nav-has-dropdown.open .nav-drop-btn { color: var(--text-dark); background: var(--bg-hover); }
+
+    .nav-drop-btn .chv { transition: transform var(--ease); display: inline-flex; }
+    .nav-has-dropdown.open .chv { transform: rotate(180deg); }
+
+    .nav-drop-panel {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      min-width: 190px; background: var(--bg-card);
+      border-radius: 14px; border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-float); padding: 7px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px) scale(.97);
+      transition: opacity .2s ease, transform .2s ease,
+                  background .35s ease, border-color .35s ease;
+    }
+    .nav-has-dropdown.open .nav-drop-panel {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .nav-drop-panel::before {
+      content: ''; position: absolute; top: -6px; left: 50%;
+      transform: translateX(-50%); width: 12px; height: 6px;
+      background: var(--bg-card);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 -1px 0 var(--border-nav));
+      transition: background .35s ease;
+    }
+    .nav-drop-panel a {
+      display: flex; align-items: center; gap: 9px;
+      padding: 8px 11px; border-radius: 9px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-drop-panel a:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .nav-drop-panel .page-icon {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .77rem; flex-shrink: 0;
+    }
+    .nav-drop-panel .sep { height: 1px; background: var(--border-nav); margin: 4px 3px; }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 9px 18px; border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .82rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 6px 20px var(--btn-hover-sh); }
+
+    .theme-btn {
+      position: relative; display: inline-flex; align-items: center;
+      width: 52px; height: 30px; border-radius: 999px;
+      border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+      background: var(--toggle-track);
+      transition: background .35s cubic-bezier(.4,0,.2,1);
+    }
+    .theme-thumb {
+      position: absolute; left: 3px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--toggle-thumb);
+      box-shadow: 0 1px 6px rgba(0,0,0,.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .35s cubic-bezier(.34,1.4,.64,1), background .35s ease;
+    }
+    [data-theme="dark"] .theme-thumb { transform: translateX(22px); background: #27272a; }
+    .theme-thumb svg { position: absolute; transition: opacity .2s ease; }
+    .ico-sun  { color: #f59e0b; }
+    .ico-moon { color: #818cf8; }
+    [data-theme="light"] .ico-sun  { opacity: 1; }
+    [data-theme="light"] .ico-moon { opacity: 0; }
+    [data-theme="dark"]  .ico-sun  { opacity: 0; }
+    [data-theme="dark"]  .ico-moon { opacity: 1; }
+
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; padding: 7px;
+      border: none; border-radius: 10px; background: transparent;
+      cursor: pointer; flex-shrink: 0; transition: background var(--ease);
+    }
+    .hamburger:hover { background: var(--bg-hover); }
+    .hamburger span {
+      display: block; width: 100%; height: 2px; border-radius: 2px;
+      background: var(--text-dark); transform-origin: center;
+      transition: transform var(--ease), opacity var(--ease), background .35s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0; right: 0;
+      border-radius: 16px; overflow: hidden;
+      max-height: 0; background: transparent;
+      box-shadow: none; border: 1px solid transparent;
+      padding: 0; pointer-events: none;
+      transition: max-height .38s cubic-bezier(.4,0,.2,1),
+                  background .28s ease, box-shadow .28s ease,
+                  border-color .28s ease, padding .28s ease;
+    }
+    .mobile-menu.open {
+      max-height: 700px; background: var(--bg-nav);
+      box-shadow: var(--shadow-float); border-color: var(--border-nav);
+      padding: 10px; pointer-events: auto;
+    }
+    .mobile-menu ul {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 2px; padding: 6px 0 4px;
+    }
+    .mobile-menu ul a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color var(--ease), background var(--ease);
+    }
+    .mobile-menu ul a:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    .mobile-has-sub { display: flex; flex-direction: column; }
+    .mob-sub-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      width: 100%; text-align: left; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sub-trigger:hover,
+    .mobile-has-sub.open .mob-sub-trigger { color: var(--text-dark); background: var(--bg-hover); }
+    .mob-chv { display: inline-flex; transition: transform var(--ease); color: var(--text-sub); }
+    .mobile-has-sub.open .mob-chv { transform: rotate(180deg); }
+    .mob-sublist { overflow: hidden; max-height: 0; transition: max-height .32s cubic-bezier(.4,0,.2,1); }
+    .mobile-has-sub.open .mob-sublist { max-height: 400px; }
+    .mob-sublist-inner { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 4px 10px; }
+    .mob-sublink {
+      display: flex !important; align-items: center !important; gap: 9px;
+      padding: 9px 12px !important; border-radius: 10px;
+      font-size: .84rem !important; color: var(--text-muted) !important;
+      text-decoration: none; transition: color var(--ease), background var(--ease);
+    }
+    .mob-sublink:hover { color: var(--text-dark) !important; background: var(--bg-hover) !important; }
+    .mob-sublink .page-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; flex-shrink: 0;
+    }
+    .mob-cta {
+      display: block; width: 100%; margin-top: 6px; padding: 13px;
+      border-radius: var(--radius-pill);
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-family: var(--font); font-size: .88rem; font-weight: 500;
+      text-align: center; text-decoration: none; border: none; cursor: pointer;
+      transition: transform var(--ease), background .35s ease, color .35s ease;
+    }
+    .mob-cta:hover { transform: scale(1.02); }
+
+    @media (max-width: 720px) {
+      .nav-links, .nav-cta { display: none !important; }
+      .hamburger   { display: flex; }
+      .mobile-menu { display: block; }
+      .nav-wrapper { width: calc(100% - 28px); top: 14px; }
+    }
+
+    /* ══════════════════════════════════════════
+       SEARCH
+    ══════════════════════════════════════════ */
+    .search-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 10px;
+      border: none; background: transparent; cursor: pointer;
+      color: var(--text-muted); flex-shrink: 0;
+      transition: background var(--ease), color var(--ease);
+    }
+    .search-btn:hover { background: var(--bg-hover); color: var(--text-dark); }
+
+    .search-overlay {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+    }
+    .search-overlay.open { opacity: 1; pointer-events: auto; }
+
+    .search-modal {
+      position: fixed; top: 80px; left: 50%;
+      transform: translateX(-50%) translateY(-10px) scale(.97);
+      width: calc(100% - 40px); max-width: 640px;
+      z-index: 901; opacity: 0; pointer-events: none;
+      transition: opacity .22s ease, transform .25s cubic-bezier(.34,1.3,.64,1);
+    }
+    .search-modal.open {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.1);
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .search-box svg { color: var(--text-sub); flex-shrink: 0; }
+    .search-input {
+      flex: 1; font-family: var(--font); font-size: .97rem;
+      color: var(--text-dark); background: transparent;
+      border: none; outline: none; transition: color .35s ease;
+    }
+    .search-input::placeholder { color: var(--text-sub); }
+    .search-results {
+      background: var(--bg-nav); border: 1px solid var(--border-nav);
+      border-radius: 16px; margin-top: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.13);
+      overflow: hidden; max-height: 400px; overflow-y: auto;
+      display: none; transition: background .35s ease, border-color .35s ease;
+    }
+    .search-results.visible { display: block; }
+    .search-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; text-decoration: none;
+      border-bottom: 1px solid var(--separator); transition: background var(--ease);
+    }
+    .search-item:last-child { border-bottom: none; }
+    .search-item:hover, .search-item.focused { background: var(--bg-hover); }
+    .search-item-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--social-bg); display: flex; align-items: center;
+      justify-content: center; font-size: .9rem; flex-shrink: 0;
+    }
+    .search-item-body { flex: 1; min-width: 0; }
+    .search-item-title {
+      font-size: .86rem; font-weight: 600; color: var(--text-dark);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px;
+    }
+    .search-item-desc { font-size: .74rem; color: var(--text-muted); }
+    .search-item-badge {
+      font-size: .68rem; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-sub); flex-shrink: 0;
+    }
+    .search-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px; font-size: .7rem; color: var(--text-sub);
+      background: var(--bg-hover);
+    }
+    .search-empty { padding: 24px 16px; text-align: center; font-size: .85rem; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════
+       PAGE HERO
+    ══════════════════════════════════════════ */
+    .page-hero {
+      padding: 100px 24px 60px;
+      text-align: center;
+    }
+
+    .page-hero-inner {
+      max-width: 700px; margin: 0 auto;
+    }
+
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800;
+      letter-spacing: -.04em; line-height: 1.1;
+      color: var(--text-dark); margin-bottom: 20px;
+      transition: color .35s ease;
+    }
+
+    .page-title span {
+      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-sub {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 40px;
+      transition: color .35s ease;
+    }
+
+    .page-hero-stats {
+      display: inline-flex; align-items: center; gap: 0;
+      background: var(--bg-card); border-radius: 16px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card); padding: 16px 28px;
+      flex-wrap: wrap; justify-content: center;
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    .hero-stat { text-align: center; padding: 0 20px; }
+    .hero-stat-num {
+      font-size: 1.4rem; font-weight: 800; letter-spacing: -.04em;
+      color: var(--text-dark); transition: color .35s ease;
+    }
+    .hero-stat-label {
+      font-size: .72rem; color: var(--text-muted); margin-top: 2px;
+      transition: color .35s ease;
+    }
+    .hero-stat-sep {
+      width: 1px; height: 36px; background: var(--separator);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero-stat-sep { display: none; }
+      .hero-stat { padding: 8px 14px; }
+    }
+
+    /* ══════════════════════════════════════════
+       FILTER BAR
+    ══════════════════════════════════════════ */
+    .filter-section {
+      padding: 0 24px 32px;
+      position: sticky; top: 80px; z-index: 100;
+    }
+
+    .filter-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .filter-bar {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg-nav); border-radius: 14px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-nav);
+      padding: 8px; overflow-x: auto;
+      scrollbar-width: none;
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .filter-left {
+      display: flex; align-items: center; gap: 6px; flex: 1; flex-wrap: nowrap;
+    }
+
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 15px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500;
+      color: var(--text-muted); background: transparent;
+      border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-btn:hover { color: var(--text-dark); background: var(--bg-hover); }
+    .filter-btn.active {
+      background: var(--btn-primary); color: var(--btn-p-text);
+      font-weight: 600;
+    }
+
+    .filter-count {
+      font-size: .68rem; font-weight: 700;
+      background: var(--social-bg); color: var(--text-sub);
+      padding: 1px 7px; border-radius: 999px;
+      transition: background var(--ease), color var(--ease);
+    }
+    .filter-btn.active .filter-count {
+      background: rgba(255,255,255,.2); color: var(--btn-p-text);
+    }
+
+    .filter-sep { width: 1px; height: 24px; background: var(--separator); flex-shrink: 0; }
+
+    .filter-sort {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 10px;
+      font-size: .81rem; font-weight: 500; color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer; font-family: var(--font);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color var(--ease), background var(--ease);
+    }
+    .filter-sort:hover { color: var(--text-dark); background: var(--bg-hover); }
+
+    /* ══════════════════════════════════════════
+       PACKS GRID
+    ══════════════════════════════════════════ */
+    .packs-section { padding: 0 0 100px; }
+
+    .packs-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) { .packs-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .packs-grid { grid-template-columns: 1fr; } }
+
+    /* Pack Card */
+    .pack-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, border-color .35s ease;
+      cursor: pointer;
+    }
+    .pack-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-float);
+    }
+
+    .pack-card[data-platform] { display: block; }
+    .pack-card.hidden { display: none; }
+
+    .pack-preview {
+      position: relative; overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+
+    /* Platform-specific gradient previews */
+    .pack-preview-bg {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+    }
+    .pack-card:hover .pack-preview-bg { transform: scale(1.04); }
+
+    /* Platform colours */
+    .pack-preview-bg.insta  { background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%); }
+    .pack-preview-bg.fb     { background: linear-gradient(135deg, #1877f2 0%, #0a5fcd 100%); }
+    .pack-preview-bg.tiktok { background: linear-gradient(135deg, #010101 0%, #69c9d0 50%, #ee1d52 100%); }
+    .pack-preview-bg.linkedin { background: linear-gradient(135deg, #0077b5 0%, #004e87 100%); }
+    .pack-preview-bg.pinterest { background: linear-gradient(135deg, #e60023 0%, #ad081b 100%); }
+    .pack-preview-bg.multi  { background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); }
+
+    /* Mockup inside preview */
+    .preview-mockup {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+
+    .mockup-post {
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .mockup-post.sq  { width: 72px; height: 72px; }
+    .mockup-post.st  { width: 42px; height: 74px; border-radius: 8px; }
+    .mockup-post.wide { width: 100px; height: 56px; }
+    .mockup-post.sm  { width: 56px; height: 56px; }
+
+    .mockup-inner {
+      width: 100%; height: 100%; border-radius: inherit;
+      background: rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .mockup-icon {
+      font-size: 1.4rem; opacity: .9;
+    }
+    .mockup-post.st .mockup-icon { font-size: 1.1rem; }
+    .mockup-post.sm .mockup-icon { font-size: 1rem; }
+
+    /* platform logo pill */
+    .platform-logo {
+      position: absolute; top: 14px; right: 14px;
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 11px; border-radius: 999px;
+      background: rgba(255,255,255,.22);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.35);
+      font-size: .7rem; font-weight: 700; color: #fff;
+      letter-spacing: .01em;
+    }
+    .platform-logo svg { flex-shrink: 0; }
+
+    .pack-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-size: .67rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .pack-badge.new     { background: #6366f1; color: #fff; }
+    .pack-badge.free    { background: #22c55e; color: #fff; }
+    .pack-badge.popular { background: #f59e0b; color: #fff; }
+    .pack-badge.bundle  { background: rgba(255,255,255,.9); color: #0d1b2a; }
+
+    .pack-overlay {
+      position: absolute; inset: 0;
+      background: rgba(13,27,42,.55);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      opacity: 0; transition: opacity var(--ease);
+      backdrop-filter: blur(4px);
+    }
+    .pack-card:hover .pack-overlay { opacity: 1; }
+
+    .pack-overlay-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 999px;
+      font-size: .8rem; font-weight: 600; font-family: var(--font);
+      cursor: pointer; text-decoration: none;
+      transition: transform var(--ease), box-shadow var(--ease);
+      border: none;
+    }
+    .pack-overlay-btn:hover { transform: scale(1.04); }
+    .pack-overlay-btn.preview { background: #fff; color: #0d1b2a; }
+    .pack-overlay-btn.buy     { background: #6366f1; color: #fff; box-shadow: 0 4px 16px rgba(99,102,241,.4); }
+
+    /* Pack Body */
+    .pack-body { padding: 20px 22px 22px; }
+
+    .pack-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .pack-platform {
+      font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--accent);
+    }
+
+    .pack-price {
+      font-size: .92rem; font-weight: 800; letter-spacing: -.02em;
+      color: var(--text-dark);
+    }
+    .pack-price.free-tag { color: #22c55e; }
+
+    .pack-name {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -.02em;
+      color: var(--text-dark); margin-bottom: 8px;
+      transition: color .35s ease;
+    }
+
+    .pack-desc {
+      font-size: .82rem; line-height: 1.6; color: var(--text-muted);
+      margin-bottom: 14px; display: -webkit-box;
+      -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* formats row */
+    .pack-formats {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 14px; flex-wrap: wrap;
+    }
+
+    .format-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .7rem; font-weight: 500;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-muted);
+      transition: background .35s ease, color .35s ease;
+    }
+
+    .format-chip svg { flex-shrink: 0; opacity: .7; }
+
+    .pack-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;
+    }
+
+    .pack-tag {
+      font-size: .7rem; font-weight: 500;
+      padding: 3px 10px; border-radius: 999px;
+      background: var(--social-bg); color: var(--text-muted);
+      transition: background .35s ease, color .35s ease;
+    }
+
+    .pack-footer { display: flex; align-items: center; gap: 8px; }
+
+    .pack-btn-preview {
+      flex: 1; padding: 9px; border-radius: 10px;
+      font-size: .8rem; font-weight: 500; font-family: var(--font);
+      text-align: center; text-decoration: none; cursor: pointer;
+      border: 1.5px solid var(--btn-s-border);
+      background: transparent; color: var(--text-dark);
+      transition: background var(--ease), border-color .35s ease, color .35s ease;
+    }
+    .pack-btn-preview:hover { background: var(--bg-hover); }
+
+    .pack-btn-buy {
+      flex: 1.4; padding: 9px; border-radius: 10px;
+      font-size: .8rem; font-weight: 600; font-family: var(--font);
+      text-align: center; text-decoration: none; cursor: pointer;
+      background: var(--btn-primary); color: var(--btn-p-text);
+      border: none;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, color .35s ease;
+    }
+    .pack-btn-buy:hover { transform: scale(1.03); box-shadow: 0 6px 18px var(--btn-hover-sh); }
+
+    /* files count badge */
+    .pack-files {
+      display: flex; align-items: center; gap: 5px;
+      font-size: .74rem; font-weight: 600; color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .pack-files svg { color: var(--accent); }
+
+    /* ══════════════════════════════════════════
+       EMPTY STATE
+    ══════════════════════════════════════════ */
+    .empty-state {
+      display: none; text-align: center; padding: 80px 24px;
+      grid-column: 1 / -1;
+    }
+    .empty-state.visible { display: block; }
+    .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .empty-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .empty-desc  { font-size: .88rem; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════
+       PLATFORM HIGHLIGHTS (above grid)
+    ══════════════════════════════════════════ */
+    .platform-row {
+      max-width: 1200px; margin: 0 auto 36px;
+      padding: 0 24px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+
+    .platform-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 12px;
+      background: var(--bg-card); border: 1px solid var(--border-nav);
+      box-shadow: var(--shadow-card);
+      font-size: .78rem; font-weight: 600; color: var(--text-muted);
+      cursor: pointer; text-decoration: none;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  background .35s ease, border-color .35s ease, color .35s ease;
+    }
+    .platform-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+      color: var(--text-dark);
+    }
+    .platform-pill .dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .dot-insta    { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); }
+    .dot-fb       { background: #1877f2; }
+    .dot-tiktok   { background: #010101; border: 1px solid #aaa; }
+    .dot-linkedin { background: #0077b5; }
+    .dot-pinterest{ background: #e60023; }
+    .dot-multi    { background: linear-gradient(135deg, #6366f1, #ec4899); }
+
+    /* ══════════════════════════════════════════
+       CTA BANNER
+    ══════════════════════════════════════════ */
+    .cta-banner {
+      padding: 0 24px 80px;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .cta-banner-card {
+      background: var(--btn-primary);
+      border-radius: 24px;
+      padding: 56px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+      transition: background .35s ease;
+    }
+
+    .cta-banner-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(255,255,255,.05); pointer-events: none;
+    }
+    .cta-banner-card::after {
+      content: '';
+      position: absolute; bottom: -80px; right: 200px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,.04); pointer-events: none;
+    }
+
+    .cta-banner-text { position: relative; z-index: 1; }
+    .cta-banner-eyebrow {
+      font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 12px;
+    }
+    .cta-banner-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.2; color: #fff; margin-bottom: 10px;
+    }
+    .cta-banner-desc {
+      font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.6; max-width: 400px;
+    }
+    .cta-banner-actions {
+      display: flex; align-items: center; gap: 12px;
+      position: relative; z-index: 1;
+    }
+    .cta-banner-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 26px; border-radius: 999px;
+      font-size: .88rem; font-weight: 600; font-family: var(--font);
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .cta-banner-btn:hover { transform: scale(1.04); }
+    .cta-banner-btn.primary { background: #fff; color: #0d1b2a; box-shadow: 0 4px 20px rgba(0,0,0,.25); }
+    .cta-banner-btn.ghost   { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
+    .cta-banner-btn.ghost:hover { background: rgba(255,255,255,.08); }
+
+    @media (max-width: 680px) {
+      .cta-banner-card { padding: 36px 28px; }
+      .cta-banner-actions { flex-wrap: wrap; }
+      .cta-banner-btn { width: 100%; justify-content: center; }
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer-wrapper { width: 100%; padding: 0 14px 14px; }
+
+    .footer-card {
+      background: var(--bg-nav); border-radius: 24px;
+      box-shadow: var(--shadow-card); border: 1px solid var(--border-nav);
+      padding: 48px 48px 0; overflow: hidden;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 40px 32px; padding-bottom: 40px;
+    }
+
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } .footer-card { padding: 32px 24px 0; } }
+
+    .footer-logo {
+      display: inline-flex; align-items: center; gap: 11px;
+      text-decoration: none; margin-bottom: 16px;
+    }
+    .footer-logo-img {
+      width: 40px; height: 40px; border-radius: 50%;
+      object-fit: cover; display: block; flex-shrink: 0;
+      border: 1px solid var(--border-nav); transition: border-color .35s ease;
+    }
+    .footer-logo-name {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -.4px;
+      color: var(--text-dark); transition: color .35s ease;
+    }
+    .footer-desc {
+      font-size: .83rem; line-height: 1.7; color: var(--text-muted);
+      max-width: 220px; margin-bottom: 22px; transition: color .35s ease;
+    }
+    .footer-socials { display: flex; gap: 8px; }
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--social-bg); color: var(--text-muted); text-decoration: none;
+      transition: background var(--ease), color var(--ease), transform var(--ease);
+    }
+    .social-link:hover { background: var(--social-bg-h); color: var(--text-dark); transform: translateY(-2px); }
+
+    .footer-col h4 {
+      font-size: .82rem; font-weight: 700; letter-spacing: .03em;
+      text-transform: uppercase; color: var(--text-dark); margin-bottom: 18px;
+      transition: color .35s ease;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a {
+      font-size: .84rem; color: var(--text-muted); text-decoration: none;
+      display: inline-flex; align-items: center;
+      transition: color var(--ease), padding-left var(--ease);
+    }
+    .footer-col ul a:hover { color: var(--text-dark); padding-left: 4px; }
+
+    .contact-list { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 10px; }
+    .contact-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--social-bg); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--text-muted); transition: background .35s ease, color .35s ease;
+    }
+    .contact-item:hover .contact-icon { background: var(--social-bg-h); color: var(--text-dark); }
+    .contact-text { display: flex; flex-direction: column; gap: 1px; }
+    .contact-text span, .contact-text a {
+      font-size: .83rem; color: var(--text-muted); line-height: 1.55;
+      text-decoration: none; transition: color .35s ease;
+    }
+    .contact-text a:hover { color: var(--text-dark); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--separator);
+      margin: 0 -48px; padding: 18px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; transition: border-color .35s ease;
+    }
+    .footer-copy { font-size: .78rem; color: var(--text-sub); transition: color .35s ease; }
+    .footer-legal { display: flex; align-items: center; gap: 20px; }
+    .footer-legal a {
+      font-size: .78rem; color: var(--text-sub); text-decoration: none;
+      transition: color var(--ease);
+    }
+    .footer-legal a:hover { color: var(--text-dark); }
+
+    @media (max-width: 500px) {
+      .footer-bottom { margin: 0 -24px; padding: 18px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="nav-wrapper" role="navigation" aria-label="Navigation principale">
+    <div class="navbar" id="mainNav">
+      <a href="index.html" class="nav-logo" aria-label="Accueil MPOUCK">MPOUCK</a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+
+        <li class="nav-has-dropdown" id="deskPages">
+          <button class="nav-drop-btn" id="pagesTrigger" aria-haspopup="true" aria-expanded="false">
+            Pages
+            <svg class="chv" width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-drop-panel" id="pagesPanel" role="menu">
+            <a href="/about.html" role="menuitem"><span class="page-icon">👤</span> A propos</a>
+            <a href="projet.html"  role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+            <div class="sep"></div>
+            <a href="/blog.html"     role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+           <!--  <a href="/contact.html"  role="menuitem"><span class="page-icon">✉️</span> Contact</a >.
+-->
+            </div>
+        </li>
+
+        <li><a href="Webtemplates.html">Templates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+       <!-- <li><a href="social-media-packs.html" class="active">Social Media</a></li> -->
+      </ul>
+
+      <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Rechercher" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <button class="theme-btn" id="themeBtn" aria-label="Mode jour/nuit">
+          <span class="theme-thumb">
+            <svg class="ico-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="ico-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <a href="projet.html" class="nav-cta">Nos projets</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="menu">
+      <ul>
+        <li><a href="../index.html" role="menuitem">Acceuil</a></li>
+        <li><a href="services.html" role="menuitem">Services</a></li>
+        <li class="mobile-has-sub" id="mobPages">
+          <button class="mob-sub-trigger" id="mobPagesTrigger" aria-expanded="false">
+            Pages
+            <svg class="mob-chv" width="13" height="13" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="mob-sublist">
+            <div class="mob-sublist-inner">
+              <a href="/about.html"    class="mob-sublink" role="menuitem"><span class="page-icon">👤</span> A propos</a>
+              <a href="projet.html"     class="mob-sublink" role="menuitem"><span class="page-icon">🖼️</span> Projets</a>
+              <a href="/blog.html"     class="mob-sublink" role="menuitem"><span class="page-icon">✍️</span> Blog</a>
+           <!--   <a href="/contact.html"  class="mob-sublink" role="menuitem"><span class="page-icon">✉️</span> Contact</a> -->
+            </div>
+          </div>
+        </li>
+        <li><a href="Webtemplates.html" role="menuitem">Templates</a></li>
+        <li><a href="contact.html" role="menuitem">Contact</a></li>
+        <!--<li><a href="social-media-packs.html" role="menuitem">Social Media</a></li> -->
+      </ul>
+      <a href="projet.html" class="mob-cta" role="menuitem">Nos projets</a>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY + MODAL -->
+  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Recherche">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un pack…" autocomplete="off" spellcheck="false" aria-label="Champ de recherche"/>
+      <button id="searchClose" aria-label="Fermer la recherche" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;flex-shrink:0;border:1px solid var(--border-nav);background:var(--bg-hover);cursor:pointer;color:var(--text-muted);transition:background 220ms ease;">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">
+        <svg width="7" height="7" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        Collections MPOUCK
+      </div>
+
+      <h1 class="page-title">
+        Des visuels <span>social media</span><br>prêts à publier
+      </h1>
+
+      <p class="page-sub">
+        Packs de templates pour Instagram, Facebook, TikTok, LinkedIn et plus. Formats optimisés, identité cohérente — publiez comme un pro dès aujourd'hui.
+      </p>
+
+      <div class="page-hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">200+</div>
+          <div class="hero-stat-label">Visuels inclus</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-label">Plateformes couvertes</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.8★</div>
+          <div class="hero-stat-label">Note moyenne</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Personnalisable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FILTER BAR
+  ══════════════════════════════════════════ -->
+  <div class="filter-section">
+    <div class="filter-inner">
+      <div class="filter-bar">
+        <div class="filter-left">
+          <button class="filter-btn active" data-filter="all">
+            Tous <span class="filter-count" id="count-all">12</span>
+          </button>
+          <button class="filter-btn" data-filter="instagram">
+            Instagram <span class="filter-count">4</span>
+          </button>
+          <button class="filter-btn" data-filter="facebook">
+            Facebook <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="tiktok">
+            TikTok <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="linkedin">
+            LinkedIn <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="pinterest">
+            Pinterest <span class="filter-count">1</span>
+          </button>
+          <button class="filter-btn" data-filter="multi">
+            Multi-plateforme <span class="filter-count">1</span>
+          </button>
+        </div>
+
+        <div class="filter-sep"></div>
+
+        <button class="filter-sort" id="sortBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="12" y1="18" x2="21" y2="18"/>
+          </svg>
+          Trier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PLATFORM QUICK ACCESS
+  ══════════════════════════════════════════ -->
+  <div class="platform-row">
+    <a href="#" class="platform-pill"><span class="dot dot-insta"></span>Instagram</a>
+    <a href="#" class="platform-pill"><span class="dot dot-fb"></span>Facebook</a>
+    <a href="#" class="platform-pill"><span class="dot dot-tiktok"></span>TikTok</a>
+    <a href="#" class="platform-pill"><span class="dot dot-linkedin"></span>LinkedIn</a>
+    <a href="#" class="platform-pill"><span class="dot dot-pinterest"></span>Pinterest</a>
+    <a href="#" class="platform-pill"><span class="dot dot-multi"></span>Multi-plateforme</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PACKS GRID
+  ══════════════════════════════════════════ -->
+  <section class="packs-section">
+    <div class="packs-inner">
+      <div class="packs-grid" id="packsGrid">
+
+        <!-- ──────── PACK 1 ──────── -->
+        <div class="pack-card" data-platform="instagram">
+          <div class="pack-preview">
+            <div class="pack-preview-bg insta">
+              <div class="preview-mockup">
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🌸</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">✨</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">💜</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge popular">Populaire</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Instagram</span>
+              <span class="pack-price">19€</span>
+            </div>
+            <h3 class="pack-name">Bloom — Pack Lifestyle</h3>
+            <p class="pack-desc">Pack élégant pour influenceurs lifestyle. Posts carrés, stories animées et Reels covers pour un feed cohérent et engageant.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              30 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                Post 1080×1080
+              </span>
+              <span class="format-chip">
+                <svg width="8" height="11" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="1" width="14" height="18" rx="2"/></svg>
+                Story 1080×1920
+              </span>
+              <span class="format-chip">🎬 Reels Cover</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Photoshop</span>
+              <span class="pack-tag">Animé</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 19€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 2 ──────── -->
+        <div class="pack-card" data-platform="instagram">
+          <div class="pack-preview">
+            <div class="pack-preview-bg insta">
+              <div class="preview-mockup">
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🍔</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🥗</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🍕</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge new">Nouveau</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Instagram</span>
+              <span class="pack-price">24€</span>
+            </div>
+            <h3 class="pack-name">Saveur — Pack Food & Resto</h3>
+            <p class="pack-desc">Idéal pour restaurants, cafés et food bloggers. Mise en avant de plats, menus du jour et promotions hebdomadaires.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              40 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1080×1080</span>
+              <span class="format-chip">Story 1080×1920</span>
+              <span class="format-chip">🎠 Carrousel</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Figma</span>
+              <span class="pack-tag">Carrousel</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 24€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 3 ──────── -->
+        <div class="pack-card" data-platform="facebook">
+          <div class="pack-preview">
+            <div class="pack-preview-bg fb">
+              <div class="preview-mockup">
+                <div class="mockup-post wide"><div class="mockup-inner"><span class="mockup-icon">📢</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🎯</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge popular">Populaire</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Facebook</span>
+              <span class="pack-price">22€</span>
+            </div>
+            <h3 class="pack-name">Boost — Pack Business FB</h3>
+            <p class="pack-desc">Templates pour pages business Facebook. Bannières de couverture, posts promotionnels, annonces événements et publicités.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              25 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1200×630</span>
+              <span class="format-chip">Cover 820×312</span>
+              <span class="format-chip">📣 Pub</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Photoshop</span>
+              <span class="pack-tag">Pub FB</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 22€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 4 ──────── -->
+        <div class="pack-card" data-platform="tiktok">
+          <div class="pack-preview">
+            <div class="pack-preview-bg tiktok">
+              <div class="preview-mockup">
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🎵</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">💃</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🔥</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge new">Nouveau</div>
+            <div class="platform-logo" style="font-size:.7rem;">
+              <svg width="11" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34l-.01-8.53a8.19 8.19 0 0 0 4.79 1.52V5a4.85 4.85 0 0 1-1.01-.31z"/></svg>
+              TikTok
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">TikTok</span>
+              <span class="pack-price">17€</span>
+            </div>
+            <h3 class="pack-name">Vibe — Pack Créateurs TikTok</h3>
+            <p class="pack-desc">Overlays, sous-titres stylisés et covers de vidéos pour TikTok. Design trending pour maximiser ton engagement et ta visibilité.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              20 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Cover 1080×1920</span>
+              <span class="format-chip">🎬 Overlay</span>
+              <span class="format-chip">💬 Sous-titres</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">CapCut</span>
+              <span class="pack-tag">Overlay</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 17€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 5 ──────── -->
+        <div class="pack-card" data-platform="linkedin">
+          <div class="pack-preview">
+            <div class="pack-preview-bg linkedin">
+              <div class="preview-mockup">
+                <div class="mockup-post wide"><div class="mockup-inner"><span class="mockup-icon">💼</span></div></div>
+                <div class="mockup-post sm"><div class="mockup-inner"><span class="mockup-icon">📊</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge popular">Populaire</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">LinkedIn</span>
+              <span class="pack-price">29€</span>
+            </div>
+            <h3 class="pack-name">Authority — Pack Personal Branding</h3>
+            <p class="pack-desc">Valorisez votre expertise sur LinkedIn. Infographies, citations, stats et bannières de profil pour renforcer votre image professionnelle.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              35 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1200×627</span>
+              <span class="format-chip">Bannière 1584×396</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">PowerPoint</span>
+              <span class="pack-tag">Infographie</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 29€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 6 ──────── -->
+        <div class="pack-card" data-platform="instagram">
+          <div class="pack-preview">
+            <div class="pack-preview-bg insta">
+              <div class="preview-mockup">
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">👟</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🛍️</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">💸</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge bundle">Bundle</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Instagram</span>
+              <span class="pack-price">34€</span>
+            </div>
+            <h3 class="pack-name">Drop — Pack E-commerce Mode</h3>
+            <p class="pack-desc">Parfait pour boutiques en ligne mode et accessoires. Fiches produits, flash sales, nouvelles collections et stories swipe-up.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              50 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1080×1080</span>
+              <span class="format-chip">Story 1080×1920</span>
+              <span class="format-chip">🎠 Carrousel</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Photoshop</span>
+              <span class="pack-tag">E-commerce</span>
+              <span class="pack-tag">Promo</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 34€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 7 ──────── -->
+        <div class="pack-card" data-platform="multi">
+          <div class="pack-preview">
+            <div class="pack-preview-bg multi">
+              <div class="preview-mockup">
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🌐</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">⚡</span></div></div>
+                <div class="mockup-post wide"><div class="mockup-inner"><span class="mockup-icon">🚀</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge popular">Populaire</div>
+            <div class="platform-logo">✦ Multi</div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Multi-plateforme</span>
+              <span class="pack-price">59€</span>
+            </div>
+            <h3 class="pack-name">Orbit — Pack Agence Complet</h3>
+            <p class="pack-desc">La solution tout-en-un pour agences et marques actives sur tous les réseaux. 6 plateformes, identité visuelle cohérente, 120+ visuels.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              120 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Instagram</span>
+              <span class="format-chip">Facebook</span>
+              <span class="format-chip">LinkedIn</span>
+              <span class="format-chip">+3</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Figma</span>
+              <span class="pack-tag">PSD</span>
+              <span class="pack-tag">Bundle</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 59€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 8 ──────── -->
+        <div class="pack-card" data-platform="pinterest">
+          <div class="pack-preview">
+            <div class="pack-preview-bg pinterest">
+              <div class="preview-mockup">
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">📌</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🌿</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🎨</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge new">Nouveau</div>
+            <div class="platform-logo">
+              <svg width="11" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+              Pinterest
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Pinterest</span>
+              <span class="pack-price">18€</span>
+            </div>
+            <h3 class="pack-name">Épingle — Pack Déco & Lifestyle</h3>
+            <p class="pack-desc">Templates Pinterest verticaux optimisés pour le trafic. Idéal pour blogs déco, cuisine, voyage et DIY. Layouts épurés et impactants.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              24 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Pin 1000×1500</span>
+              <span class="format-chip">Pin long 1000×2100</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Illustrator</span>
+              <span class="pack-tag">SEO-ready</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 18€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 9 ──────── -->
+        <div class="pack-card" data-platform="tiktok">
+          <div class="pack-preview">
+            <div class="pack-preview-bg tiktok">
+              <div class="preview-mockup">
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">📱</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">💡</span></div></div>
+              </div>
+            </div>
+            <div class="platform-logo" style="font-size:.7rem;">
+              <svg width="11" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34l-.01-8.53a8.19 8.19 0 0 0 4.79 1.52V5a4.85 4.85 0 0 1-1.01-.31z"/></svg>
+              TikTok
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">TikTok</span>
+              <span class="pack-price free-tag">Gratuit</span>
+            </div>
+            <h3 class="pack-name">StartUp — Pack TikTok Business</h3>
+            <p class="pack-desc">Pack d'introduction gratuit pour entreprises débutant sur TikTok. Covers, overlays texte et templates d'intro pour une présence pro immédiate.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              10 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Cover 1080×1920</span>
+              <span class="format-chip">🎬 Intro</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Gratuit</span>
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Business</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy" style="background:#22c55e;">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 10 ──────── -->
+        <div class="pack-card" data-platform="linkedin">
+          <div class="pack-preview">
+            <div class="pack-preview-bg linkedin">
+              <div class="preview-mockup">
+                <div class="mockup-post wide"><div class="mockup-inner"><span class="mockup-icon">📈</span></div></div>
+                <div class="mockup-post sm"><div class="mockup-inner"><span class="mockup-icon">🎤</span></div></div>
+              </div>
+            </div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">LinkedIn</span>
+              <span class="pack-price">26€</span>
+            </div>
+            <h3 class="pack-name">Thought Leader — Pack Conférencier</h3>
+            <p class="pack-desc">Mettez en avant vos conférences, webinars et publications. Visuels d'annonce, récaps post-event et citations percutantes.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              28 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1200×627</span>
+              <span class="format-chip">Citation 1:1</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Keynote</span>
+              <span class="pack-tag">Événement</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 26€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 11 ──────── -->
+        <div class="pack-card" data-platform="instagram">
+          <div class="pack-preview">
+            <div class="pack-preview-bg insta">
+              <div class="preview-mockup">
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">💪</span></div></div>
+                <div class="mockup-post st"><div class="mockup-inner"><span class="mockup-icon">🏃</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">🥤</span></div></div>
+              </div>
+            </div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Instagram</span>
+              <span class="pack-price">21€</span>
+            </div>
+            <h3 class="pack-name">Pulse — Pack Sport & Fitness</h3>
+            <p class="pack-desc">Templates énergiques pour coachs sportifs, salles de gym et influenceurs fitness. Programmes, défis et transformations avant/après.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              32 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Post 1080×1080</span>
+              <span class="format-chip">Story 1080×1920</span>
+              <span class="format-chip">🏆 Défi</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Photoshop</span>
+              <span class="pack-tag">Avant/Après</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 21€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ──────── PACK 12 ──────── -->
+        <div class="pack-card" data-platform="facebook">
+          <div class="pack-preview">
+            <div class="pack-preview-bg fb">
+              <div class="preview-mockup">
+                <div class="mockup-post wide"><div class="mockup-inner"><span class="mockup-icon">🎉</span></div></div>
+                <div class="mockup-post sq"><div class="mockup-inner"><span class="mockup-icon">📅</span></div></div>
+              </div>
+            </div>
+            <div class="pack-badge new">Nouveau</div>
+            <div class="platform-logo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </div>
+            <div class="pack-overlay">
+              <a href="#" class="pack-overlay-btn preview">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Aperçu
+              </a>
+              <a href="#" class="pack-overlay-btn buy">Acheter →</a>
+            </div>
+          </div>
+          <div class="pack-body">
+            <div class="pack-meta">
+              <span class="pack-platform">Facebook</span>
+              <span class="pack-price">20€</span>
+            </div>
+            <h3 class="pack-name">Fête — Pack Événement & Promo</h3>
+            <p class="pack-desc">Annoncez vos événements, soldes et promotions avec impact. Covers animées, posts compte à rebours et invitations visuelles.</p>
+            <div class="pack-files">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+              22 fichiers inclus
+            </div>
+            <div class="pack-formats">
+              <span class="format-chip">Event Cover 1920×1005</span>
+              <span class="format-chip">⏳ Countdown</span>
+            </div>
+            <div class="pack-tags">
+              <span class="pack-tag">Canva</span>
+              <span class="pack-tag">Animé</span>
+              <span class="pack-tag">Événement</span>
+            </div>
+            <div class="pack-footer">
+              <a href="#" class="pack-btn-preview">Aperçu</a>
+              <a href="#" class="pack-btn-buy">Acheter — 20€</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- État vide -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">📭</div>
+          <p class="empty-title">Aucun pack dans cette catégorie</p>
+          <p class="empty-desc">De nouveaux packs arrivent bientôt. Revenez nous voir !</p>
+        </div>
+
+      </div><!-- /.packs-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="cta-banner-card">
+      <div class="cta-banner-text">
+        <p class="cta-banner-eyebrow">✦ Pack sur mesure</p>
+        <h2 class="cta-banner-title">Besoin d'une identité<br>visuelle unique ?</h2>
+        <p class="cta-banner-desc">
+          Notre équipe crée des packs social media entièrement personnalisés à votre image de marque, vos couleurs et votre univers.
+        </p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="contact.html" class="cta-banner-btn primary">
+          Demander un devis
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="services.html" class="cta-banner-btn ghost">Voir les services</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer-wrapper" id="contact" role="contentinfo">
+    <div class="footer-card">
+      <div class="footer-grid">
+
+        <!-- Col 1 : Brand -->
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo" aria-label="Accueil MPOUCK">
+            <img src="../images/favicon.png" alt="MPOUCK logo" class="footer-logo-img" width="40" height="40"/>
+            <span class="footer-logo-name">MPOUCK</span>
+          </a>
+          <p class="footer-desc">
+            Depuis 2026, nous transformons les entreprises grâce à des solutions innovantes et accompagnons leur croissance efficace et durable.
+          </p>
+          <div class="footer-socials" role="list">
+            <a href="https://www.facebook.com/share/1GBnmUEDKX/" class="social-link" role="listitem" aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Twitter / X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" role="listitem" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2 : Liens rapides -->
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="/about.html">À propos</a></li>
+            <li><a href="/services.html">Nos Services</a></li>
+            <li><a href="projet.html">Nos projets</a></li>
+            <li><a href="../index.html#testimonials">Témoignages</a></li>
+            <li><a href="about.html">Notre équipe</a></li>
+          <!--   <li><a href="/careers">Careers</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Col 3 : Packs -->
+        <div class="footer-col">
+          <h4>Nos services</h4>
+          <ul>
+            <li><a href="Webtemplates.html"> Website template</a></li>
+            <li><a href="aicours.html">Cours IA</a></li>
+            <li><a href="seoservice.html">SEO et stratégie de contenu</a></li>
+            <li><a href="social-media-packs.html">Packs Réseaux sociaux</a></li>
+            <li><a href="GraphicDesign.html">Design graphique</a></li>
+            <li><a href="businessAutomation.html">Automatisation IA</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 : Contact -->
+        <div class="footer-col footer-contact">
+          <h4>Contactez-nous</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-text">
+                <span>Kintelé, Brazzaville</span>
+                <span>République du Congo</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-text">
+                <a href="contact.html">mpouckaffaires@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-text">
+                <a href="tel:+242068777246">+242 06 865 21 20</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barre inférieure -->
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 MPOUCK. Tous droits réservés.</p>
+        <nav class="footer-legal" aria-label="Liens légaux">
+          <a href="/terms">Conditions d'utilisation</a>
+          <a href="/privacy">Politique de confidentialité</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script>
+    /* ── Thème ── */
+    const html = document.documentElement;
+    const KEY  = 'mpouck-theme';
+
+    function applyTheme(t) {
+      html.setAttribute('data-theme', t);
+      try { localStorage.setItem(KEY, t); } catch(e) {}
+    }
+
+    (function() {
+      let s; try { s = localStorage.getItem(KEY); } catch(e) {}
+      if (s) applyTheme(s);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    })();
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ── Hamburger ── */
+    const hbg = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+
+    hbg.addEventListener('click', () => {
+      const o = mob.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+      mob.setAttribute('aria-hidden', !o);
+    });
+
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+
+    document.addEventListener('click', e => {
+      if (!document.getElementById('mainNav').contains(e.target)) {
+        closeMob(); closeDrop();
+      }
+    });
+
+    function closeMob() {
+      mob.classList.remove('open'); hbg.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+      mob.setAttribute('aria-hidden', 'true');
+    }
+
+    /* ── Dropdown desktop Pages ── */
+    const deskPages = document.getElementById('deskPages');
+    const pagesTrig = document.getElementById('pagesTrigger');
+
+    pagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = deskPages.classList.toggle('open');
+      pagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    function closeDrop() {
+      deskPages.classList.remove('open');
+      pagesTrig.setAttribute('aria-expanded', 'false');
+    }
+
+    document.getElementById('mainNav').addEventListener('click', e => {
+      if (!deskPages.contains(e.target)) closeDrop();
+    });
+    document.getElementById('pagesPanel').querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', closeDrop)
+    );
+
+    /* ── Accordion mobile Pages ── */
+    const mobPagesMenu = document.getElementById('mobPages');
+    const mobPagesTrig = document.getElementById('mobPagesTrigger');
+    mobPagesTrig.addEventListener('click', e => {
+      e.stopPropagation();
+      const o = mobPagesMenu.classList.toggle('open');
+      mobPagesTrig.setAttribute('aria-expanded', o);
+    });
+
+    /* ── Ombre navbar au scroll ── */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+      if (!navbar) return;
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 8px 40px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)'
+        : '';
+    }, { passive: true });
+
+    /* ── FILTER SYSTEM ── */
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const cards       = document.querySelectorAll('.pack-card[data-platform]');
+    const emptyState  = document.getElementById('emptyState');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visible  = 0;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.platform === filter;
+          card.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+        emptyState.classList.toggle('visible', visible === 0);
+      });
+    });
+
+    /* ── SEARCH ── */
+    var searchBtn     = document.getElementById('searchBtn');
+    var searchOverlay = document.getElementById('searchOverlay');
+    var searchModal   = document.getElementById('searchModal');
+    var searchInput   = document.getElementById('searchInput');
+    var searchResults = document.getElementById('searchResults');
+    var focusedIdx    = -1;
+
+    var CONTENT = [
+      { type:'Pack Instagram', icon:'📸', title:'Bloom — Pack Lifestyle',              desc:'Posts carrés, stories et Reels covers Instagram.',           href:'#' },
+      { type:'Pack Instagram', icon:'🍔', title:'Saveur — Pack Food & Resto',          desc:'Posts, stories et carrousels pour restaurants.',             href:'#' },
+      { type:'Pack Facebook',  icon:'📢', title:'Boost — Pack Business FB',            desc:'Bannières, posts promo et publicités Facebook.',             href:'#' },
+      { type:'Pack TikTok',    icon:'🎵', title:'Vibe — Pack Créateurs TikTok',        desc:'Overlays, sous-titres et covers pour TikTok.',               href:'#' },
+      { type:'Pack LinkedIn',  icon:'💼', title:'Authority — Pack Personal Branding',  desc:'Infographies et bannières pour LinkedIn.',                   href:'#' },
+      { type:'Pack Instagram', icon:'👟', title:'Drop — Pack E-commerce Mode',         desc:'Fiches produits, flash sales et stories Instagram.',         href:'#' },
+      { type:'Multi',          icon:'🌐', title:'Orbit — Pack Agence Complet',         desc:'120+ visuels pour 6 plateformes sociales.',                  href:'#' },
+      { type:'Pack Pinterest', icon:'📌', title:'Épingle — Pack Déco & Lifestyle',     desc:'Pins verticaux optimisés pour Pinterest.',                   href:'#' },
+      { type:'Pack TikTok',    icon:'📱', title:'StartUp — Pack TikTok Business',      desc:'Pack gratuit pour démarrer sur TikTok.',                     href:'#' },
+      { type:'Pack LinkedIn',  icon:'📈', title:'Thought Leader — Pack Conférencier',  desc:'Visuels annonces événements et webinars LinkedIn.',          href:'#' },
+      { type:'Pack Instagram', icon:'💪', title:'Pulse — Pack Sport & Fitness',        desc:'Templates fitness et défi pour influenceurs sport.',         href:'#' },
+      { type:'Pack Facebook',  icon:'🎉', title:'Fête — Pack Événement & Promo',       desc:'Covers animées, countdown et invitations Facebook.',         href:'#' },
+    ];
+
+    function openSearch() {
+      searchOverlay.classList.add('open');
+      searchModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      searchBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(function(){ searchInput.focus(); }, 80);
+      renderHints();
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('open');
+      searchModal.classList.remove('open');
+      document.body.style.overflow = '';
+      searchBtn.setAttribute('aria-expanded', 'false');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+      searchResults.classList.remove('visible');
+      focusedIdx = -1;
+    }
+
+    var searchClose = document.getElementById('searchClose');
+    if (searchBtn)     searchBtn.addEventListener('click', openSearch);
+    if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+    if (searchClose)   searchClose.addEventListener('click', closeSearch);
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+      if (e.key === 'Escape' && searchModal.classList.contains('open')) closeSearch();
+    });
+
+    function hl(text, q) {
+      if (!q) return text;
+      var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$1') + ')', 'gi');
+      return text.replace(re, '<mark style="background:rgba(99,102,241,.2);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+    }
+
+    function itemHTML(d, q) {
+      return '<a class="search-item" href="' + d.href + '" role="option">' +
+        '<div class="search-item-icon">' + d.icon + '</div>' +
+        '<div class="search-item-body">' +
+          '<div class="search-item-title">' + hl(d.title, q) + '</div>' +
+          '<div class="search-item-desc">'  + d.desc + '</div>' +
+        '</div>' +
+        '<span class="search-item-badge">' + d.type + '</span>' +
+      '</a>';
+    }
+
+    function footerHTML(n) {
+      return '<div class="search-footer">' +
+        '<span>' + n + ' résultat' + (n > 1 ? 's' : '') + '</span>' +
+        '<span>↑↓ naviguer &nbsp;·&nbsp; ↵ ouvrir &nbsp;·&nbsp; ESC fermer</span>' +
+      '</div>';
+    }
+
+    function bindItems() {
+      document.querySelectorAll('.search-item').forEach(function(el, i) {
+        el.addEventListener('click', closeSearch);
+        el.addEventListener('mouseenter', function() { focusedIdx = i; updateFocus(); });
+      });
+    }
+
+    function updateFocus() {
+      document.querySelectorAll('.search-item').forEach(function(el, i) {
+        el.classList.toggle('focused', i === focusedIdx);
+      });
+    }
+
+    function renderHints() {
+      var html = '';
+      CONTENT.slice(0, 6).forEach(function(d) { html += itemHTML(d, ''); });
+      html += footerHTML(CONTENT.length);
+      searchResults.innerHTML = html;
+      searchResults.classList.add('visible');
+      bindItems();
+    }
+
+    var debounceTimer;
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        var val = searchInput.value;
+        debounceTimer = setTimeout(function() {
+          var q = val.trim().toLowerCase();
+          if (!q) { renderHints(); return; }
+          var hits = CONTENT.filter(function(d) {
+            return d.title.toLowerCase().indexOf(q) >= 0 || d.desc.toLowerCase().indexOf(q) >= 0;
+          });
+          searchResults.classList.add('visible');
+          if (!hits.length) {
+            searchResults.innerHTML = '<div class="search-empty">Aucun résultat pour <strong>"' + val + '"</strong></div>';
+            return;
+          }
+          var html = '';
+          hits.forEach(function(d) { html += itemHTML(d, q); });
+          html += footerHTML(hits.length);
+          searchResults.innerHTML = html;
+          focusedIdx = -1; bindItems();
+        }, 80);
+      });
+
+      searchInput.addEventListener('keydown', function(e) {
+        var items = document.querySelectorAll('.search-item');
+        if (!items.length) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); focusedIdx = Math.min(focusedIdx+1, items.length-1); updateFocus(); }
+        if (e.key === 'ArrowUp')   { e.preventDefault(); focusedIdx = Math.max(focusedIdx-1, 0); updateFocus(); }
+        if (e.key === 'Enter' && focusedIdx >= 0) { items[focusedIdx].click(); }
+      });
+    }
+  </script>
+
+</body>
+</html>
