@@ -561,7 +561,7 @@
           </div>
           <div class="info-content">
             <span class="info-label">E-mail</span>
-            <span class="info-value"><a href="/cdn-cgi/l/email-protection#f99489968c9a92989f9f98908b9c8ab99e94989095d79a9694"><span class="__cf_email__" data-cfemail="690419061c0a02080f0f08001b0c1a290e04080005470a0604">mpouckaffaires@gmail.com</span></a></span>
+            <span class="info-value"><a href="/cdn-cgi/l/email-protection#f99489968c9a92989f9f98908b9c8ab99e94989095d79a9694"><span class="__cf_email__" data-cfemail="690419061c0a02080f0f08001b0c1a290e04080005470a0604"><span class="__cf_email__" data-cfemail="167b667963757d777070777f64736556717b777f7a3875797b">[email&#160;protected]</span></span></a></span>
           </div>
         </div>
 
@@ -797,7 +797,7 @@
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div class="contact-text"><a href="/cdn-cgi/l/email-protection#b7dac7d8c2d4dcd6d1d1d6dec5d2c4f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="c4a9b4abb1a7afa5a2a2a5adb6a1b784a3a9a5ada8eaa7aba9">mpouckaffaires@gmail.com</span></a></div>
+              <div class="contact-text"><a href="/cdn-cgi/l/email-protection#b7dac7d8c2d4dcd6d1d1d6dec5d2c4f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="c4a9b4abb1a7afa5a2a2a5adb6a1b784a3a9a5ada8eaa7aba9"><span class="__cf_email__" data-cfemail="365b465943555d575050575f44534576515b575f5a1855595b">[email&#160;protected]</span></span></a></div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
@@ -818,7 +818,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ── Thème ── */
     var html = document.documentElement;
     var KEY  = 'mpouck-theme';
@@ -846,6 +846,16 @@
     var mobPagesMenu = document.getElementById('mobPages');
     var mobPagesTrig = document.getElementById('mobPagesTrigger');
     mobPagesTrig.addEventListener('click', function(e) { e.stopPropagation(); var o = mobPagesMenu.classList.toggle('open'); mobPagesTrig.setAttribute('aria-expanded', o); });
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
 
     /* ── Ombre navbar au scroll ── */
     var navbar = document.querySelector('.navbar');
@@ -918,12 +928,14 @@
           form.style.display = 'none';
           formInner.querySelector('.form-head').style.display = 'none';
           formSuccess.classList.add('visible');
-        }, function(error) {
+        })
+        .catch(function(err) {
           btn.textContent = 'Envoyer le message';
           btn.disabled = false;
-          alert('Une erreur est survenue. Veuillez réessayer.\n' + JSON.stringify(error));
+          console.error('EmailJS error:', err);
+          alert('Une erreur est survenue. Veuillez réessayer.');
         });
     });
-
-    /* ── FAQ accordion ── */
-    document.querySelect
+  </script>
+</body>
+</html>
