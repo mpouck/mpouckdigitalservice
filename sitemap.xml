@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ═══════════════════════════════════
+       PAGES PRINCIPALES
+  ═══════════════════════════════════ -->
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/blog.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/services.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/about.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/projet.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/contact.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════
+       PAGES SERVICES
+  ═══════════════════════════════════ -->
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/Webtemplates.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/aicours.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/seoservice.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/social-media-packs.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════
+       PAGES LÉGALES
+  ═══════════════════════════════════ -->
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/mentions-legales.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/politique-confidentialite.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════
+       ARTICLES DE BLOG
+  ═══════════════════════════════════ -->
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/ui-ux-2025</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/ia-contenu-2025</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/template-vs-scratch</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/seo-2025</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/make-zapier-n8n</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/branding-budget</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/prompts-chatgpt</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/chatgpt-midjourney-claude-2026</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/tendances-design-interfaces-2026</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/erreurs-ux-corriger-ia</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/ia-remplacer-ux-designer-2026</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/workflow-contenu-ia-10-minutes</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/micro-interactions-dark-mode-vocal</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/site-vieillot-moderniser-2026</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/ux-writing-voix-humaine-ia</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/design-ui-kpis-conversion</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mpouck.github.io/mpouckdigitalservice/30-articles-mois-ia-methode</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+set>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>
+lset>

@@ -1,0 +1,33 @@
+# robots.txt — MPOUCK
+# https://mpouck.github.io/mpouckdigitalservice/robots.txt
+
+User-agent: *
+Allow: /mpouckdigitalservice/
+
+# Bloquer les répertoires sensibles
+Disallow: /mpouckdigitalservice/admin/
+Disallow: /mpouckdigitalservice/private/
+Disallow: /mpouckdigitalservice/tmp/
+Disallow: /mpouckdigitalservice/cgi-bin/
+
+# Bloquer les paramètres d'URL inutiles pour le SEO
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?session=*
+
+# Autoriser les crawlers de réseaux sociaux
+User-agent: facebookexternalhit
+Allow: /mpouckdigitalservice/
+
+User-agent: Twitterbot
+Allow: /mpouckdigitalservice/
+
+User-agent: LinkedInBot
+Allow: /mpouckdigitalservice/
+
+# Autoriser Google Image Bot
+User-agent: Googlebot-Image
+Allow: /mpouckdigitalservice/images/
+
+# Sitemap
+Sitemap: https://mpouck.github.io/mpouckdigitalservice/sitemap.xml
