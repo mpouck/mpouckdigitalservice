@@ -1,0 +1,66 @@
+# robots.txt — MPOUCK
+# https://mpouck.github.io/mpouckdigitalservice/robots.txt
+
+User-agent: *
+Allow: /mpouckdigitalservice/
+
+# Bloquer les répertoires sensibles
+Disallow: /mpouckdigitalservice/admin/
+Disallow: /mpouckdigitalservice/private/
+Disallow: /mpouckdigitalservice/tmp/
+Disallow: /mpouckdigitalservice/cgi-bin/
+
+# Bloquer les paramètres d'URL inutiles pour le SEO
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?session=*
+
+# ═══════════════════════════════════
+# BOTS RÉSEAUX SOCIAUX
+# ═══════════════════════════════════
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /mpouckdigitalservice/
+
+# Twitter / X
+User-agent: Twitterbot
+Allow: /mpouckdigitalservice/
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /mpouckdigitalservice/
+
+# Instagram
+User-agent: Instagrambot
+Allow: /mpouckdigitalservice/
+
+# TikTok
+User-agent: TikTokBot
+Allow: /mpouckdigitalservice/
+
+# Pinterest
+User-agent: Pinterestbot
+Allow: /mpouckdigitalservice/
+
+# YouTube
+User-agent: Googlebot-Video
+Allow: /mpouckdigitalservice/
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /mpouckdigitalservice/
+
+# Snapchat
+User-agent: Snapchat
+Allow: /mpouckdigitalservice/
+
+# ═══════════════════════════════════
+# GOOGLE IMAGES
+# ═══════════════════════════════════
+
+User-agent: Googlebot-Image
+Allow: /mpouckdigitalservice/images/
+
+# Sitemap
+Sitemap: https://mpouck.github.io/mpouckdigitalservice/sitemap.xml
