@@ -266,6 +266,17 @@
       margin: 36px auto 0;
       padding: 0 32px;
     }
+    .pub-banner-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid var(--border-nav);
+      background: var(--social-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; color: var(--text-sub);
+    }
+    /* placeholder si pas d'image */
     .pub-banner-placeholder {
       width: 100%; aspect-ratio: 16/7;
       border-radius: 20px; border: 2px dashed var(--border-nav);
@@ -274,41 +285,6 @@
       gap: 10px; color: var(--text-sub); font-size: .85rem;
     }
     .pub-banner-placeholder svg { opacity: .4; }
-    /* Bannière IA stylée */
-    .pub-banner-styled {
-      width: 100%; aspect-ratio: 16/7;
-      border-radius: 20px; border: 1px solid var(--border-nav);
-      background: linear-gradient(135deg, #0d1b2a 0%, #1a2a40 50%, #0d1b2a 100%);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; position: relative;
-    }
-    .pub-banner-styled::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 50%, rgba(201,167,108,.15) 0%, transparent 60%),
-                  radial-gradient(circle at 70% 50%, rgba(201,167,108,.08) 0%, transparent 55%);
-    }
-    .pub-banner-inner {
-      position: relative; z-index: 1;
-      display: flex; align-items: center; gap: 28px;
-      padding: 0 40px; width: 100%;
-    }
-    .pub-banner-logos { display: flex; gap: 16px; }
-    .pub-banner-logo-chip {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px;
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13);
-      font-size: .82rem; font-weight: 700; color: rgba(255,255,255,.85);
-      letter-spacing: .01em;
-    }
-    .pub-banner-logo-chip span { font-size: 1rem; }
-    .pub-banner-divider { width: 1px; height: 40px; background: rgba(255,255,255,.12); }
-    .pub-banner-headline {
-      font-size: clamp(.9rem, 1.6vw, 1.15rem);
-      font-weight: 700; color: rgba(255,255,255,.9);
-      line-height: 1.4; flex: 1;
-    }
-    .pub-banner-headline em { color: var(--accent); font-style: normal; }
 
     /* ══ LAYOUT ARTICLE ══ */
     .pub-layout {
@@ -518,8 +494,6 @@
       .pub-layout { grid-template-columns: 1fr; }
       .pub-sidebar { position: static; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .pub-banner-logos { flex-wrap: wrap; }
-      .pub-banner-headline { display: none; }
     }
     @media (max-width: 580px) {
       .pub-hero, .pub-banner, .pub-layout, .pub-nav { padding-left: 20px; padding-right: 20px; }
@@ -667,17 +641,7 @@
 
   <!-- ══ BANNIÈRE ══ -->
   <div class="pub-banner">
-    <div class="pub-banner-styled">
-      <div class="pub-banner-inner">
-        <div class="pub-banner-logos">
-          <div class="pub-banner-logo-chip"><span>🤖</span> ChatGPT</div>
-          <div class="pub-banner-logo-chip"><span>🎨</span> Midjourney</div>
-          <div class="pub-banner-logo-chip"><span>✦</span> Claude</div>
-        </div>
-        <div class="pub-banner-divider"></div>
-        <p class="pub-banner-headline">Lequel choisir pour votre<br><em>stratégie de contenu 2026 ?</em></p>
-      </div>
-    </div>
+    <img src="favicon.png" alt="ChatGPT, Midjourney, Claude : quel outil IA choisir pour votre stratégie de contenu en 2026 ?" class="pub-banner-img" />
   </div>
 
   <!-- ══ LAYOUT ══ -->
@@ -915,7 +879,7 @@
               <p class="related-date">15 fév. 2026</p>
             </div>
           </a>
-          <a href="article1__1_.html" class="related-item">
+          <a href="article1.html" class="related-item">
             <div class="related-thumb">⚡</div>
             <div class="related-info">
               <p class="related-cat">Productivité</p>
@@ -1023,7 +987,7 @@
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div class="contact-text"><a href="contact.html">contact@mpouck.com</a></div>
+              <div class="contact-text"><a href="contact.html"><span class="__cf_email__" data-cfemail="086b67667c696b7c486578677d6b63266b6765">mpouckaffaires@gmail.com</span></a></div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
@@ -1044,7 +1008,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ── Thème ── */
     var html = document.documentElement;
     var KEY = 'mpouck-theme';
